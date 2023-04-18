@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="559789ee-1deb-4a2d-8f8f-577e954627d9" name="Changes" comment="ny repository">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Admin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/ConnectionManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Customers.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Products.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Transaction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-    </list>
-    <list id="9df91ea8-6da5-4a36-b981-b4dbf1235a50" name="Changes by marct" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/loginpage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/hello-view.fxml" beforeDir="false" />
-    </list>
+    <list default="true" id="559789ee-1deb-4a2d-8f8f-577e954627d9" name="Changes" comment="indhold nu" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -117,7 +102,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1681807147498</updated>
-      <workItem from="1681807148736" duration="6258000" />
+      <workItem from="1681807148736" duration="6563000" />
     </task>
     <task id="LOCAL-00001" summary="ny repository">
       <created>1681807249738</created>
@@ -133,7 +118,21 @@
       <option name="project" value="LOCAL" />
       <updated>1681807260634</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="indhold nu">
+      <created>1681813705029</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1681813705029</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Changes by marct">
+      <created>1681813719840</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681813719840</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,6 +140,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ny repository" />
-    <option name="LAST_COMMIT_MESSAGE" value="ny repository" />
+    <MESSAGE value="indhold nu" />
+    <MESSAGE value="Changes by marct" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes by marct" />
   </component>
 </project>
