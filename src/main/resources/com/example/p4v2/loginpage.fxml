@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="861.0" prefWidth="1413.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.p4v2.HelloController">
+<center>
+    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+        <children>
+            <Label text="AMPED SELFSERVICE">
+                <VBox.margin>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                </VBox.margin>
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+                <font>
+                    <Font size="96.0" />
+                </font>
+            </Label>
+            <Label fx:id="PrintName" alignment="CENTER" prefHeight="69.0" prefWidth="532.0" textAlignment="CENTER" textFill="#00ff1e">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <TextField fx:id="username" alignment="CENTER" promptText="Student mail">
+                <VBox.margin>
+                    <Insets bottom="20.0" left="150.0" right="150.0" top="20.0" />
+                </VBox.margin>
+                <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                </padding>
+                <font>
+                    <Font size="48.0" />
+                </font>
+            </TextField>
+            <TextField fx:id="password" alignment="CENTER" layoutX="160.0" layoutY="281.0">
+                <font>
+                    <Font size="48.0" />
+                </font>
+                <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                </padding>
+                <VBox.margin>
+                    <Insets bottom="20.0" left="150.0" right="150.0" top="20.0" />
+                </VBox.margin>
+            </TextField>
+            <Button mnemonicParsing="false" onAction="#loginButtonClick" text="  Log in  ">
+                <VBox.margin>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                </VBox.margin>
+                <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                </padding>
+            </Button>
+            <Button layoutX="639.0" layoutY="398.0" mnemonicParsing="false" text=" Sign up ">
+                <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                </padding>
+            </Button>
+        </children>
+    </VBox>
+</center>
+</BorderPane>
