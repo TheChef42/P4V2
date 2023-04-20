@@ -3,6 +3,8 @@ package com.example.p4v2;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -11,6 +13,7 @@ import java.io.IOException;
 public class Main extends Application {
     private static Stage primaryStage;
     private static BorderPane mainLayout;
+    private static TableView table = new TableView<Products>();
 
     public static void main(String[] args) {
         launch();
@@ -43,10 +46,17 @@ public class Main extends Application {
         loader.setLocation(Main.class.getResource("startUserPage.fxml"));
         mainLayout = loader.load();
 
+        table.setEditable(true);
+        TableColumn product = new TableColumn<>("Product");
+        TableColumn price = new TableColumn<>("Price");
+        TableColumn amount = new TableColumn<>("Amount");
+        TableColumn sum = new TableColumn<>("Sum");
+
+        table.getColumns().addAll(product,price,amount,sum);
+
         StartUserPageController supc = loader.getController();
         supc.setUser(user);
         supc.setPrintName(user);
-
         Scene scene = new Scene(mainLayout, 1400, 900);
         primaryStage.setScene(scene);
         primaryStage.setResizable(true);

@@ -14,10 +14,8 @@ public class LoginPageController {
     public Label PrintName;
     @FXML
     private TextField username;
-
     @FXML
     private TextField password;
-
     @FXML
     protected void loginButtonClick(ActionEvent event) throws IOException {
         String str_username = username.getText();
@@ -27,8 +25,7 @@ public class LoginPageController {
         if (currentUser != null) {
             PrintName.setText(currentUser.getName());
             System.out.println(currentUser.getName());
-
-            //Change stage to the user start page
+            //Change scene to the user start page
             Main.showShoppingPage(currentUser); // Passing the client-object to showClientView method
 
         } else {

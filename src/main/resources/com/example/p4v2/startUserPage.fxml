@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="901.0" prefWidth="1221.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.p4v2.StartUserPageController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="901.0" prefWidth="1221.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.p4v2.StartUserPageController">
    <center>
       <GridPane alignment="CENTER" gridLinesVisible="true" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -131,11 +128,12 @@
                   <Font name="System Bold" size="36.0" />
                </font>
             </Label>
-            <TableView prefHeight="482.0" prefWidth="419.0">
+            <TableView fx:id="basket" prefHeight="482.0" prefWidth="419.0">
               <columns>
-                <TableColumn prefWidth="135.0" text="product" />
-                <TableColumn prefWidth="130.0" text="Price" />
-                  <TableColumn prefWidth="153.0" text="Amount" />
+                <TableColumn fx:id="colProduct" prefWidth="100.0" text="Product" />
+                <TableColumn fx:id="colPrice" prefWidth="100.0" text="Price" />
+                <TableColumn fx:id="colAmount" prefWidth="100.0" text="Amount" />
+                <TableColumn fx:id="colSum" prefWidth="100.0" text="Sum" />
               </columns>
             </TableView>
             <Label text="Total amount: 0 dkk">
