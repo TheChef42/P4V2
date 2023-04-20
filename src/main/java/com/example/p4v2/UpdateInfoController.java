@@ -1,14 +1,9 @@
-import javafx.fxml.FXML;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+package com.example.p4v2;
 
-import java.io.IOException;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 
 public class UpdateInfoController {
-    public Label PrintName;
     @FXML
     private TextField firstname;
 
