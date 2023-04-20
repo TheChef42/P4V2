@@ -14,7 +14,8 @@ public class Products {
     public float price;
     private int stock;
     public static String[] products;
-    public int selectAmount;
+    public int selectAmount = 1;
+    public float sum;
 
     public Products() {
     }
@@ -129,5 +130,10 @@ public class Products {
     }
     public void setSelectAmount(int selectAmount) {
         this.selectAmount = selectAmount;
+    }
+
+    public float getSum() {
+        sum = this.price*this.selectAmount;
+        return sum;
     }
 }

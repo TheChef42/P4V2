@@ -28,7 +28,7 @@
                         <Font size="48.0" />
                      </font>
                   </Label>
-                  <Button fx:id="Item0Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Add to basket">
+                  <Button fx:id="Item0Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#AddButton0Click" text="Add to basket">
                      <VBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </VBox.margin>
@@ -42,7 +42,7 @@
                         <Font size="48.0" />
                      </font>
                   </Label>
-                  <Button fx:id="Item1Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Add to basket">
+                  <Button fx:id="Item1Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#AddButton1Click" text="Add to basket">
                      <VBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </VBox.margin>
@@ -59,7 +59,7 @@
                         <Font size="48.0" />
                      </font>
                   </Label>
-                  <Button fx:id="Item2Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Add to basket">
+                  <Button fx:id="Item2Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#AddButton2Click" text="Add to basket">
                      <VBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </VBox.margin>

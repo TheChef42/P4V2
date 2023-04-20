@@ -9,7 +9,7 @@ public class Transaction {
     //private Time date;
     private ArrayList<Products> products = new ArrayList<Products>();
     private int userId;
-    private final ArrayList<Products> basket = new ArrayList<Products>();
+    public final ArrayList<Products> basket = new ArrayList<Products>();
     public Transaction() {
         products = this.setProducts();
     }

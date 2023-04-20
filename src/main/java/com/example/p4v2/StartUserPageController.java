@@ -105,11 +105,44 @@ public class StartUserPageController implements Initializable {
         colProduct.setCellValueFactory(new PropertyValueFactory<Products, String>("Name"));
         colPrice.setCellValueFactory(new PropertyValueFactory<Products, Double>("Price"));
         colAmount.setCellValueFactory(new PropertyValueFactory<Products, Integer>("SelectAmount"));
-
+        colSum.setCellValueFactory(new PropertyValueFactory<Products,Double>("Sum"));
         basket.setItems(observableList);
     }
 
     ObservableList<Products> observableList = FXCollections.observableArrayList(
-            currentTransaction.getProducts()
+            currentTransaction.getBasket()
     );
+
+    public void AddButton0Click(ActionEvent actionEvent) {
+        Products products = currentTransaction.getProducts().get(0);
+        this.addProductToTransaction(products);
+        basket.refresh();
+    }public void AddButton1Click(ActionEvent actionEvent) {
+        Products products = currentTransaction.getProducts().get(1);
+        this.addProductToTransaction(products);
+        basket.refresh();
+    }public void AddButton2Click(ActionEvent actionEvent) {
+        Products products = currentTransaction.getProducts().get(2);
+        this.addProductToTransaction(products);
+        basket.refresh();
+    }
+
+    private void addProductToTransaction(Products product){
+        //TODO: implement to add product to transaction
+        if(searchBasketID(product.getProductID()) != null){
+            product.selectAmount++;
+        } else {
+            observableList.add(product);
+        }
+    }
+    private Products searchBasketID (int parameterValue){
+        Products product = null;
+        for (Products products1: observableList) {
+            if (products1.getProductID() == parameterValue)
+                product = products1;
+        }
+        return product;
+    }
+
+
 }
