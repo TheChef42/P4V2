@@ -43,7 +43,7 @@
          </font>
       </Button>
       <Box drawMode="LINE" height="60.0" layoutX="700.0" layoutY="151.0" width="350.0" />
-      <Label id="CurrentBalence" alignment="CENTER" contentDisplay="CENTER" layoutX="637.0" layoutY="138.0" text="Current Balence">
+      <Label id="currentBalence" alignment="CENTER" contentDisplay="CENTER" layoutX="637.0" layoutY="138.0" text="Current Balence">
          <font>
             <Font size="18.0" />
          </font>

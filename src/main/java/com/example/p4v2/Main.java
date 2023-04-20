@@ -62,4 +62,17 @@ public class Main extends Application {
         primaryStage.setResizable(true);
         primaryStage.show();
     }
+    public static void shoeFillBalence(Users user) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("fillBalence.fxml"));
+        mainLayout = loader.load();
+
+        fillBalenceController fbc = loader.getController();
+        fbc.setUser(user);
+
+        Scene scene = new Scene(mainLayout, 1400, 900);
+        primaryStage.setScene(scene);
+        primaryStage.setResizable(true);
+        primaryStage.show();
+    }
 }
