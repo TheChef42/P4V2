@@ -10,10 +10,10 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("loginpage.fxml"));
-        Scene loginpage = new Scene(fxmlLoader.load(), 1400, 900);
+        FXMLLoader root = new FXMLLoader(HelloApplication.class.getResource("loginpage.fxml"));
+        Scene login_page = new Scene(root.load(), 1400, 900);
         stage.setTitle("Selfservice 3000!");
-        stage.setScene(loginpage);
+        stage.setScene(login_page);
         stage.show();
     }
 
