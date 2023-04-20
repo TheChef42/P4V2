@@ -1,5 +1,7 @@
 package com.example.p4v2;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,6 +24,7 @@ public class StartUserPageController implements Initializable {
     public TableColumn<Products,Double> colPrice;
     public TableColumn<Products, Integer> colAmount;
     public TableColumn<Products,Double> colSum;
+
     private Parent root;
     Users currentUser;
     public Label PrintName;
@@ -57,6 +60,10 @@ public class StartUserPageController implements Initializable {
         colPrice.setCellValueFactory(new PropertyValueFactory<Products, Double>("ProductPrice"));
         colAmount.setCellValueFactory(new PropertyValueFactory<Products, Integer>("ProductAmount"));
         colSum.setCellValueFactory(new PropertyValueFactory<Products, Double>("ProductSum"));
-
+        basket.setItems(observableList);
     }
+
+    ObservableList<Products> observableList = FXCollections.observableArrayList(
+            new Products(2,1)
+    );
 }
