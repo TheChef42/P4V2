@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.p4v2.fillBalenceController">
+   <children>
+      <Box drawMode="LINE" height="350.0" layoutX="700.0" layoutY="380.0" width="700.0" />
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="856.0" layoutY="281.0" mnemonicParsing="false" text="100">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="489.0" layoutY="281.0" mnemonicParsing="false" text="50">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="645.0" layoutY="480.0" mnemonicParsing="false" text="custom">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="482.0" layoutY="404.0" mnemonicParsing="false" text="150">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="856.0" layoutY="404.0" mnemonicParsing="false" text="200">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="1305.0" layoutY="14.0" mnemonicParsing="false" text="Back">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Box drawMode="LINE" height="60.0" layoutX="700.0" layoutY="151.0" width="350.0" />
+      <Label id="CurrentBalence" alignment="CENTER" contentDisplay="CENTER" layoutX="637.0" layoutY="138.0" text="Current Balence">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Hyperlink layoutX="958.0" layoutY="557.0" text="Mobilepay" />
+      <ScrollPane layoutX="350.0" layoutY="580.0" prefHeight="200.0" prefWidth="700.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <TreeTableView prefHeight="200.0" prefWidth="700.0">
+                    <columns>
+                      <TreeTableColumn prefWidth="700.0" text="History" />
+                    </columns>
+                  </TreeTableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
