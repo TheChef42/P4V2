@@ -8,8 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="901.0" prefWidth="1221.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.p4v2.startUserPageController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="901.0" prefWidth="1221.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.p4v2.StartUserPageController">
    <center>
       <GridPane alignment="CENTER" gridLinesVisible="true" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -171,8 +170,8 @@
                <graphic>
                   <MenuButton mnemonicParsing="false" text="Menu">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="User Profile" />
-                      <MenuItem mnemonicParsing="false" text="Fill up" />
+                        <MenuItem mnemonicParsing="false" text="User Profile" />
+                        <MenuItem mnemonicParsing="false" text="Fill up" />
                     </items>
                   </MenuButton>
                </graphic>
@@ -181,6 +180,13 @@
             <items>
               <MenuItem mnemonicParsing="false" text="Delete" />
             </items>
+               <graphic>
+                  <Label fx:id="PrintName" onMouseClicked="#screenClick" textFill="RED">
+                     <font>
+                        <Font size="48.0" />
+                     </font>
+                  </Label>
+               </graphic>
           </Menu>
           <Menu mnemonicParsing="false">
             <items>

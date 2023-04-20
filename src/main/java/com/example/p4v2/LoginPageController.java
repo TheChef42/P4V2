@@ -2,22 +2,15 @@ package com.example.p4v2;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.controlsfx.control.action.Action;
 
 import java.io.IOException;
 
-public class HelloController {
-
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+public class LoginPageController {
     public Label PrintName;
     @FXML
     private TextField username;
@@ -36,11 +29,8 @@ public class HelloController {
             System.out.println(currentUser.getName());
 
             //Change stage to the user start page
-            Parent root = FXMLLoader.load(getClass().getResource("startUserPage.fxml"));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+            Main.showShoppingPage(currentUser); // Passing the client-object to showClientView method
+
         } else {
             PrintName.setText("Denied, bitch!");
         }
