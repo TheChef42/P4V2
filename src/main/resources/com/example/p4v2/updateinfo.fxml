@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="1339.0" mnemonicParsing="false" text="Back">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="612.0" layoutY="578.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="177.0" text="Update">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <TextField alignment="CENTER" layoutX="534.0" layoutY="189.0" prefHeight="66.0" prefWidth="333.0" promptText="Fornavn">
+         <font>
+            <Font size="24.0" />
+         </font></TextField>
+      <Text layoutX="420.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update Information" wrappingWidth="560.0">
+         <font>
+            <Font size="64.0" />
+         </font>
+      </Text>
+      <TextField alignment="CENTER" layoutX="534.0" layoutY="275.0" prefHeight="66.0" prefWidth="333.0" promptText="Efternavn">
+         <font>
+            <Font size="24.0" />
+         </font></TextField>
+      <TextField alignment="CENTER" layoutX="534.0" layoutY="358.0" prefHeight="66.0" prefWidth="333.0" promptText="Email">
+         <font>
+            <Font size="24.0" />
+         </font></TextField>
+      <TextField alignment="CENTER" layoutX="534.0" layoutY="442.0" prefHeight="66.0" prefWidth="333.0" promptText="Kodeord">
+         <font>
+            <Font size="24.0" />
+         </font></TextField>
+   </children>
+</AnchorPane>
