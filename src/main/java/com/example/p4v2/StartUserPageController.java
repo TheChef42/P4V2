@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -24,10 +25,25 @@ public class StartUserPageController implements Initializable {
     public TableColumn<Products,Double> colPrice;
     public TableColumn<Products, Integer> colAmount;
     public TableColumn<Products,Double> colSum;
+    public Label Item0Label;
+    public Button Item0Button;
+    public Label Item1Label;
+    public Button Item1Button;
+    public Label Item2Label;
+    public Button Item2Button;
+    public Label Item3Label;
+    public Button Item3Button;
+    public Label Item4Label;
+    public Button Item4Button;
+    public Label Item5Label;
+    public Button Item5Button;
+    public Label productWarning;
 
     private Parent root;
     Users currentUser;
     public Label PrintName;
+    Transaction currentTransaction = new Transaction();
+
 
 
     public void setPrintName(Users currentUser){
@@ -51,19 +67,49 @@ public class StartUserPageController implements Initializable {
 
     public void screenClick(javafx.scene.input.MouseEvent mouseEvent) {
         PrintName.setText(this.currentUser.getName());
-
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        colProduct.setCellValueFactory(new PropertyValueFactory<Products, String>("ProductName"));
-        colPrice.setCellValueFactory(new PropertyValueFactory<Products, Double>("ProductPrice"));
-        colAmount.setCellValueFactory(new PropertyValueFactory<Products, Integer>("ProductAmount"));
-        colSum.setCellValueFactory(new PropertyValueFactory<Products, Double>("ProductSum"));
+        int i = -1;
+        for (Products products1: currentTransaction.getProducts()) {
+            i++;
+            switch(i){
+                case 0:
+                    Item0Label.setText(products1.name);
+                    continue;
+                case 1:
+                    Item1Label.setText(products1.name);
+                    continue;
+                case 2:
+                    Item2Label.setText(products1.name);
+                    continue;
+                case 3:
+                    Item3Label.setText(products1.name);
+                    continue;
+                case 4:
+                    Item4Label.setText(products1.name);
+                    continue;
+                case 5:
+                    Item5Label.setText(products1.name);
+                    continue;
+                default:
+                    productWarning.setText("Warning more than 6 products");
+            }
+
+            Item0Label.setText(products1.name);
+
+
+            i++;
+        }
+        colProduct.setCellValueFactory(new PropertyValueFactory<Products, String>("Name"));
+        colPrice.setCellValueFactory(new PropertyValueFactory<Products, Double>("Price"));
+        colAmount.setCellValueFactory(new PropertyValueFactory<Products, Integer>("SelectAmount"));
+
         basket.setItems(observableList);
     }
 
     ObservableList<Products> observableList = FXCollections.observableArrayList(
-            new Products(2,1)
+            currentTransaction.getProducts()
     );
 }

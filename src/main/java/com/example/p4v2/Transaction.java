@@ -8,14 +8,17 @@ public class Transaction {
     private int id;
     //private Time date;
     private ArrayList<Products> products = new ArrayList<Products>();
-    private String user;
+    private int userId;
     private final ArrayList<Products> basket = new ArrayList<Products>();
-
     public Transaction() {
-        products = this.getProducts();
+        products = this.setProducts();
     }
     public ArrayList<Products> getProducts() {
-        //TODO: implement how to return the products
+        return products;
+    }
+
+    public ArrayList<Products> setProducts() {
+        //TODO: implement how to set the products
         try {
             Connection con = ConnectionManager.getConnection();
             String qry = "SELECT id FROM products";
@@ -125,6 +128,27 @@ public class Transaction {
         //TODO: implement the checkout
     }
 
-    public void setUser(Users user) {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setProducts(ArrayList<Products> products) {
+        this.products = products;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public ArrayList<Products> getBasket() {
+        return basket;
     }
 }

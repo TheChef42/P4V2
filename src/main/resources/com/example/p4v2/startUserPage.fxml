@@ -23,12 +23,12 @@
          <children>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label text="Coca Cola">
+                  <Label fx:id="Item0Label" text="Not in use">
                      <font>
                         <Font size="48.0" />
                      </font>
                   </Label>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Add item">
+                  <Button fx:id="Item0Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Add to basket">
                      <VBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </VBox.margin>
@@ -37,12 +37,12 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                <children>
-                  <Label text="Squash">
+                  <Label fx:id="Item1Label" text="Not in use">
                      <font>
                         <Font size="48.0" />
                      </font>
                   </Label>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Add item">
+                  <Button fx:id="Item1Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Add to basket">
                      <VBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </VBox.margin>
@@ -54,12 +54,12 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
                <children>
-                  <Label text="Sprite">
+                  <Label fx:id="Item2Label" text="Not in use">
                      <font>
                         <Font size="48.0" />
                      </font>
                   </Label>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Add item">
+                  <Button fx:id="Item2Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Add to basket">
                      <VBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </VBox.margin>
@@ -68,12 +68,12 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Label text="Fanta">
+                  <Label fx:id="Item3Label" text="Not in use">
                      <font>
                         <Font size="48.0" />
                      </font>
                   </Label>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Add item">
+                  <Button fx:id="Item3Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Add to basket">
                      <VBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </VBox.margin>
@@ -82,12 +82,12 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
                <children>
-                  <Label text="Miranda">
+                  <Label fx:id="Item4Label" text="Not in use">
                      <font>
                         <Font size="48.0" />
                      </font>
                   </Label>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Add item">
+                  <Button fx:id="Item4Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Add to basket">
                      <VBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </VBox.margin>
@@ -96,12 +96,12 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Label text="Pepsi Max">
+                  <Label fx:id="Item5Label" text="Not in use">
                      <font>
                         <Font size="48.0" />
                      </font>
                   </Label>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Add item">
+                  <Button fx:id="Item5Button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Add to basket">
                      <VBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </VBox.margin>
@@ -194,4 +194,11 @@
         </menus>
       </MenuBar>
    </top>
+   <bottom>
+      <Label fx:id="productWarning" prefHeight="34.0" prefWidth="302.0" textFill="#ed1515" BorderPane.alignment="TOP_LEFT">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+   </bottom>
 </BorderPane>

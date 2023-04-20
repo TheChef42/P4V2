@@ -1,9 +1,12 @@
 package com.example.p4v2;
 
+
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 
 public class Products {
     private int productID;
@@ -119,5 +122,12 @@ public class Products {
 
     public void setStock(int newStock) {
         this.stock = newStock;
+    }
+
+    public int getSelectAmount() {
+        return selectAmount;
+    }
+    public void setSelectAmount(int selectAmount) {
+        this.selectAmount = selectAmount;
     }
 }
