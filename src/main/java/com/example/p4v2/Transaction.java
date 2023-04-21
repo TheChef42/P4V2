@@ -1,5 +1,7 @@
 package com.example.p4v2;
 
+import javafx.collections.ObservableList;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -57,7 +59,7 @@ public class Transaction {
             System.out.print("\n Add product to basket (select id): ");
             choice = scan.nextInt();
             if (choice == -1){
-                currentTransaction.storeTransaction(1);
+                //currentTransaction.storeTransaction(1);
                 break;
             }
             currentTransaction.addProductToTransaction(choice);
@@ -84,7 +86,7 @@ public class Transaction {
     public void getTransactionsList(){
         //TODO: implement how to return the transactions
     }
-    public void storeTransaction(int userId){
+    public void storeTransaction(int userId, ObservableList<Products> basket){
         //TODO: implement to store the transaction in the database
         try{
             Connection con = ConnectionManager.getConnection();
@@ -111,6 +113,7 @@ public class Transaction {
                 st1.addBatch();
             }
             st1.executeBatch();
+
         }catch(SQLException e){
             e.printStackTrace();
         }

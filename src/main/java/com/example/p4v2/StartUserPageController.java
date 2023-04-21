@@ -1,5 +1,10 @@
 package com.example.p4v2;
 
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,7 +22,10 @@ import org.w3c.dom.events.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import static java.lang.String.valueOf;
 
 public class StartUserPageController implements Initializable {
     public TableView<Products> basket;
@@ -38,6 +46,9 @@ public class StartUserPageController implements Initializable {
     public Label Item5Label;
     public Button Item5Button;
     public Label productWarning;
+    public Label basketSum;
+    final StringProperty sumValue = new SimpleStringProperty("0.0");
+    public Label userBalance;
 
     private Parent root;
     Users currentUser;
@@ -48,6 +59,7 @@ public class StartUserPageController implements Initializable {
 
     public void setPrintName(Users currentUser){
         PrintName.setText(currentUser.getName());
+        userBalance.setText(valueOf(currentUser.getBalance()));
     }
 
     public void setUser(Users currentUser) {
@@ -71,6 +83,7 @@ public class StartUserPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        basketSum.textProperty().bind(sumValue);
         int i = -1;
         for (Products products1: currentTransaction.getProducts()) {
             i++;
@@ -116,14 +129,17 @@ public class StartUserPageController implements Initializable {
     public void AddButton0Click(ActionEvent actionEvent) {
         Products products = currentTransaction.getProducts().get(0);
         this.addProductToTransaction(products);
+        setSumValue();
         basket.refresh();
     }public void AddButton1Click(ActionEvent actionEvent) {
         Products products = currentTransaction.getProducts().get(1);
         this.addProductToTransaction(products);
+        setSumValue();
         basket.refresh();
     }public void AddButton2Click(ActionEvent actionEvent) {
         Products products = currentTransaction.getProducts().get(2);
         this.addProductToTransaction(products);
+        setSumValue();
         basket.refresh();
     }
 
@@ -144,5 +160,29 @@ public class StartUserPageController implements Initializable {
         return product;
     }
 
+    public String getSumValue() {
+        return sumValue.get();
+    }
 
+    public StringProperty sumValueProperty() {
+        return sumValue;
+    }
+
+    public void setSumValue() {
+        float sum = 0;
+        for (Products product: observableList) {
+            sum += product.getSum();
+        }
+        String sumString = valueOf(sum);
+        this.sumValue.set(sumString);
+    }
+
+    public void CheckOutClick(ActionEvent actionEvent) {
+        currentTransaction.storeTransaction(currentUser.getId(), observableList);
+        currentTransaction.basket.clear();
+        observableList.clear();
+        basket.refresh();
+        setSumValue();
+        productWarning.setText("Check out complete");
+    }
 }

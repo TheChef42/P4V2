@@ -136,7 +136,7 @@
                 <TableColumn fx:id="colSum" prefWidth="100.0" text="Sum" />
               </columns>
             </TableView>
-            <Label text="Total amount: 0 dkk">
+            <Label text="Total amount: ">
                <font>
                   <Font size="36.0" />
                </font>
@@ -144,9 +144,14 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
             </Label>
+            <Label fx:id="basketSum" alignment="CENTER" contentDisplay="CENTER" layoutX="104.0" layoutY="566.0" prefHeight="58.0" prefWidth="92.0" text="0" textAlignment="CENTER">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" text="Check out">
+                  <Button fx:id="checkOut" mnemonicParsing="false" onAction="#CheckOutClick" text="Check out">
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
                      </HBox.margin>
@@ -179,7 +184,7 @@
               <MenuItem mnemonicParsing="false" text="Delete" />
             </items>
                <graphic>
-                  <Label fx:id="PrintName" onMouseClicked="#screenClick" textFill="RED">
+                  <Label fx:id="PrintName" onMouseClicked="#screenClick" prefHeight="70.0" prefWidth="400.0">
                      <font>
                         <Font size="48.0" />
                      </font>
@@ -190,7 +195,26 @@
             <items>
               <MenuItem mnemonicParsing="false" text="About" />
             </items>
+               <graphic>
+                  <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" prefHeight="36.0" prefWidth="313.0" text="Current balance:" textAlignment="RIGHT">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+               </graphic>
           </Menu>
+            <Menu mnemonicParsing="false">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+               <graphic>
+                  <Label fx:id="userBalance" alignment="TOP_RIGHT" text="NaN">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+               </graphic>
+            </Menu>
         </menus>
       </MenuBar>
    </top>

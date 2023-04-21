@@ -179,6 +179,10 @@ public class Users {
         return this.firstName + " " + this.lastName;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public void setEmail(String newEmail) {
         this.email = newEmail;
         Connection con = ConnectionManager.getConnection();
