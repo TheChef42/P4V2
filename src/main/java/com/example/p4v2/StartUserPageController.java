@@ -185,4 +185,17 @@ public class StartUserPageController implements Initializable {
         setSumValue();
         productWarning.setText("Check out complete");
     }
+
+    @FXML
+    protected void gotoUserPageButtonClick(ActionEvent event) throws IOException {
+        //Change stage to user profile when the scene has been made
+        Main.showUserPage(currentUser);
+    }
+
+    @FXML
+    protected void logoutButtonClick(ActionEvent event) throws IOException {
+        //Change stage to user profile when the scene has been made
+        Main.showLoginView();
+    }
+
 }
