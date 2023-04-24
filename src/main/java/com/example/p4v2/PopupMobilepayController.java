@@ -26,17 +26,21 @@ public class PopupMobilepayController {
         this.stage = stage;
     }
 
+    public void setUser(Users user) {
+        this.currentUser = user;
+    }
+
     @FXML
     private void handleConfirmButton(ActionEvent actionEvent) throws IOException {
         setAnswer(true);
         fillBalenceController.fillBalence();
-        Main.showFillBalence(fillBalenceController.getCurrentUser());
+        Main.showFillBalence(currentUser);
     }
 
     @FXML
     private void handleCancelButton() throws IOException {
         setAnswer(false);
-        Main.showFillBalence(fillBalenceController.getCurrentUser());
+        Main.showFillBalence(currentUser);
     }
 }
 

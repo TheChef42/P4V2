@@ -26,17 +26,23 @@ public class fillBalenceController {
 
     @FXML
     private TextField customAmount;
+    public static void setUser(Users currentUser) {
+        fillBalenceController.currentUser = currentUser;
+        //currentBalance.setText(" ");
+    }
+
+
 
     public static float getAmount() {
         return amount;
     }
 
     public void setAmount(float amount) {
-        this.amount = amount;
+        fillBalenceController.amount = amount;
     }
 
-    public static Users getCurrentUser() {
-        return currentUser;
+    public Users getCurrentUser() {
+        return fillBalenceController.currentUser;
     }
 
     public Label getCurrentBalance() {
@@ -44,16 +50,9 @@ public class fillBalenceController {
     }
 
 
-    public static void setCurrentUser(Users currentUser) {
+    /*public static void setCurrentUser(Users currentUser) {
         fillBalenceController.currentUser = currentUser;
-    }
-
-
-    public void setUser(Users currentUser) {
-        setCurrentUser(currentUser);
-    }
-
-
+    }*/
 
 
     @FXML
@@ -63,25 +62,25 @@ public class fillBalenceController {
     }
 
     public static void fillBalence(){
-        getCurrentUser().deposit(getAmount());
+        fillBalenceController.currentUser.deposit(getAmount());
     }
 
     public void addCurrency50(ActionEvent actionEvent) throws IOException {
         setAmount(50);
-        Main.showPopupMobilpay();
+        Main.showPopupMobilpay(currentUser);
     }
 
     public void addCurrency100(ActionEvent actionEvent) throws IOException {
         setAmount(100);
-        Main.showPopupMobilpay();
+        Main.showPopupMobilpay(currentUser);
     }
     public void addCurrency150(ActionEvent actionEvent) throws IOException {
         setAmount(150);
-        Main.showPopupMobilpay();
+        Main.showPopupMobilpay(currentUser);
     }
     public void addCurrency200 (ActionEvent actionEvent) throws IOException {
         setAmount(200);
-        Main.showPopupMobilpay();
+        Main.showPopupMobilpay(currentUser);
     }
 
 
@@ -89,6 +88,6 @@ public class fillBalenceController {
     public void addCurrencyCustom (ActionEvent actionEvent) throws IOException {
         Float inputAmount = Float.parseFloat(customAmount.getText());
         setAmount(inputAmount);
-        Main.showPopupMobilpay();
+        Main.showPopupMobilpay(currentUser);
     }
 }

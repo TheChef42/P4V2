@@ -1,13 +1,18 @@
 package com.example.p4v2;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class Admin {
 
+    private int id;
+    private String email;
+    protected String password;
+    public String firstName;
+    public String lastName;
+    public Timestamp created_at;
+
     //public Admin(){}
+
     public void editUser(){
         //TODO: how to edit admin
     }
