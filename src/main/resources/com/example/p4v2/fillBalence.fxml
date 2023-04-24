@@ -63,7 +63,7 @@
                <children>
                   <VBox alignment="CENTER">
                      <children>
-                        <Button mnemonicParsing="false" text=" 50 ">
+                        <Button id="id50button" fx:id="id50button" mnemonicParsing="false" onAction="#addCurrency50" text=" 50 ">
                            <VBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
@@ -71,7 +71,7 @@
                               <Font size="36.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" text="150">
+                        <Button id="id150button" fx:id="id150button" mnemonicParsing="false" onAction="#addCurrency150" text="150">
                            <VBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
@@ -86,7 +86,7 @@
                   </VBox>
                   <VBox alignment="CENTER">
                      <children>
-                        <Button mnemonicParsing="false" text="100">
+                        <Button id="id100button" fx:id="id100button" mnemonicParsing="false" onAction="#addCurrency100" text="100">
                            <VBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
@@ -94,7 +94,7 @@
                               <Font size="36.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" text="200">
+                        <Button id="id200button" fx:id="id200button" mnemonicParsing="false" onAction="#addCurrency200" text="200">
                            <VBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
