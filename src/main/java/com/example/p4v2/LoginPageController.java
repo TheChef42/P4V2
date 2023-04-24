@@ -32,4 +32,8 @@ public class LoginPageController {
             PrintName.setText("Denied, bitch!");
         }
     }
+
+    public void signUpClick(ActionEvent actionEvent) {
+
+    }
 }
