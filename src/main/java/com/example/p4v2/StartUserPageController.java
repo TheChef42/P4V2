@@ -160,6 +160,9 @@ public class StartUserPageController implements Initializable {
 
     public void CheckOutClick(ActionEvent actionEvent) {
         currentTransaction.storeTransaction(currentUser.getId(), observableList);
+        for (Products product: observableList) {
+            product.setSelectAmount(1);
+        }
         currentTransaction.basket.clear();
         observableList.clear();
         basket.refresh();
