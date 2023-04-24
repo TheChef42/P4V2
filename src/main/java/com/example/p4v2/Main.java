@@ -22,13 +22,6 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws IOException {
         this.primaryStage = primaryStage;
         showLoginView();
-
-        // Old start page
-        /*FXMLLoader root = new FXMLLoader(HelloApplication.class.getResource("loginpage.fxml"));
-        Scene login_page = new Scene(root.load(), 1400, 900);
-        stage.setTitle("Selfservice 3000!");
-        stage.setScene(login_page);
-        stage.show();*/
     }
 
     public static void showLoginView() throws IOException {
@@ -69,6 +62,20 @@ public class Main extends Application {
 
         fillBalenceController fbc = loader.getController();
         fbc.setUser(user);
+
+        Scene scene = new Scene(mainLayout, 1400, 900);
+        primaryStage.setScene(scene);
+        primaryStage.setResizable(true);
+        primaryStage.show();
+    }
+
+    public static void showUserPage(Users user) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("User.fxml"));
+        mainLayout = loader.load();
+
+        UserPageController upc = loader.getController();
+        upc.setUser(user);
 
         Scene scene = new Scene(mainLayout, 1400, 900);
         primaryStage.setScene(scene);

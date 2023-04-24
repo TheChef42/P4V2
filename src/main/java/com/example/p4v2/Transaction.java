@@ -1,5 +1,7 @@
 package com.example.p4v2;
 
+import javafx.collections.ObservableList;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -8,14 +10,17 @@ public class Transaction {
     private int id;
     //private Time date;
     private ArrayList<Products> products = new ArrayList<Products>();
-    private String user;
-    private final ArrayList<Products> basket = new ArrayList<Products>();
-
+    private int userId;
+    public final ArrayList<Products> basket = new ArrayList<Products>();
     public Transaction() {
-        products = this.getProducts();
+        products = this.setProducts();
     }
     public ArrayList<Products> getProducts() {
-        //TODO: implement how to return the products
+        return products;
+    }
+
+    public ArrayList<Products> setProducts() {
+        //TODO: implement how to set the products
         try {
             Connection con = ConnectionManager.getConnection();
             String qry = "SELECT id FROM products";
@@ -54,7 +59,7 @@ public class Transaction {
             System.out.print("\n Add product to basket (select id): ");
             choice = scan.nextInt();
             if (choice == -1){
-                currentTransaction.storeTransaction(1);
+                //currentTransaction.storeTransaction(1);
                 break;
             }
             currentTransaction.addProductToTransaction(choice);
@@ -81,7 +86,7 @@ public class Transaction {
     public void getTransactionsList(){
         //TODO: implement how to return the transactions
     }
-    public void storeTransaction(int userId){
+    public void storeTransaction(int userId, ObservableList<Products> basket){
         //TODO: implement to store the transaction in the database
         try{
             Connection con = ConnectionManager.getConnection();
@@ -108,6 +113,7 @@ public class Transaction {
                 st1.addBatch();
             }
             st1.executeBatch();
+
         }catch(SQLException e){
             e.printStackTrace();
         }
@@ -125,6 +131,27 @@ public class Transaction {
         //TODO: implement the checkout
     }
 
-    public void setUser(Users user) {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setProducts(ArrayList<Products> products) {
+        this.products = products;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public ArrayList<Products> getBasket() {
+        return basket;
     }
 }

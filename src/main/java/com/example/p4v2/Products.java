@@ -1,9 +1,12 @@
 package com.example.p4v2;
 
+
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 
 public class Products {
     private int productID;
@@ -11,7 +14,8 @@ public class Products {
     public float price;
     private int stock;
     public static String[] products;
-    public int selectAmount;
+    public int selectAmount = 1;
+    public float sum;
 
     public Products() {
     }
@@ -119,5 +123,17 @@ public class Products {
 
     public void setStock(int newStock) {
         this.stock = newStock;
+    }
+
+    public int getSelectAmount() {
+        return selectAmount;
+    }
+    public void setSelectAmount(int selectAmount) {
+        this.selectAmount = selectAmount;
+    }
+
+    public float getSum() {
+        sum = this.price*this.selectAmount;
+        return sum;
     }
 }
