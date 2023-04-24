@@ -25,7 +25,7 @@ public class UserPageController {
     @FXML
     protected void fillBalencePageButtonClick(ActionEvent event) throws IOException {
         //Change stage to user profile when the scene has been made
-        Main.shoeFillBalence(currentUser);
+        Main.showFillBalence(currentUser);
     }
 
     @FXML

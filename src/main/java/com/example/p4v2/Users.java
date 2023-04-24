@@ -17,21 +17,42 @@ public class Users {
     public Users(){
     }
 
-    protected static void createUser(String email, String password, String firstName, String lastName) {
+    protected static boolean createUser(String email, String password, String firstName, String lastName) {
+        boolean success = false;
         try {
             Connection con = ConnectionManager.getConnection();
-            String qry = "INSERT INTO customer (EMAIL, PASSWORD, FIRSTNAME, LASTNAME) values(?,?,?,?)";
-            PreparedStatement st = con.prepareStatement(qry);
-            st.setString(1, email);
-            // evt. hashing af passwords her:?????
-            st.setString(2, password);
-            st.setString(3, firstName);
-            st.setString(4, lastName);
-            st.executeUpdate();
-            System.out.println("User created succesfully");
+            String checkQuery = "SELECT * FROM customer WHERE email = ?";
+            PreparedStatement checkStatement = con.prepareStatement(checkQuery);
+            checkStatement.setString(1, email);
+
+            ResultSet result = checkStatement.executeQuery();
+
+            if (result.next()) {
+                
+                success = false;
+                
+            } else if(password.length() < 10) {
+
+                success = false;
+
+            }else{
+                
+                String qry = "INSERT INTO customer (EMAIL, PASSWORD, FIRSTNAME, LASTNAME) values(?,?,?,?)";
+                PreparedStatement st = con.prepareStatement(qry);
+                st.setString(1, email);
+                // evt. hashing af passwords her:?????
+                st.setString(2, password);
+                st.setString(3, firstName);
+                st.setString(4, lastName);
+                st.executeUpdate();
+                success = true;
+
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return success;
     }
     public static Users login(String email, String password) {
         // declaring it out of the if statement to return it at the end
@@ -265,7 +286,7 @@ public class Users {
         String firstName = "Casper";
         String lastName = "Bramm";
 
-        Users.createUser(email, password, firstName, lastName);
+        createUser(email, password, firstName, lastName);
         
         Users myUser = Users.login(email, password);
 

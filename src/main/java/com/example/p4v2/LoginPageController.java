@@ -32,8 +32,9 @@ public class LoginPageController {
             PrintName.setText("Denied, bitch!");
         }
     }
-
-    public void signUpClick(ActionEvent actionEvent) {
-
+    
+    @FXML
+    protected void signUpClick(ActionEvent event) throws IOException {
+        Main.showCreateUser();
     }
 }

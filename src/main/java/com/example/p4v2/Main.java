@@ -34,6 +34,20 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    public static void showCreateUser() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("createUser.fxml"));
+        mainLayout = loader.load();
+
+        //CreateUserController cc = loader.getController();
+        //cc.handleCreateUser();
+
+        Scene scene = new Scene(mainLayout, 1400, 900);
+        primaryStage.setScene(scene);
+        primaryStage.setResizable(true);
+        primaryStage.show();
+    }
+
     public static void showShoppingPage(Users user) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("startUserPage.fxml"));
@@ -56,7 +70,7 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    public static void shoeFillBalence(Users user) throws IOException {
+    public static void showFillBalence(Users user) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("fillBalence.fxml"));
         mainLayout = loader.load();
