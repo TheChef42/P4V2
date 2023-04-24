@@ -90,7 +90,10 @@
             </HBox>
             <TableView prefHeight="258.0" prefWidth="1068.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="224.0" text="Date" />
+                  <TableColumn prefWidth="309.0" text="Product" />
+                  <TableColumn prefWidth="275.0" text="Price" />
+                  <TableColumn prefWidth="259.0" text="Sum" />
               </columns>
             </TableView>
          </children>
