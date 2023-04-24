@@ -1,30 +1,59 @@
 package com.example.p4v2;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
+import static java.lang.String.valueOf;
+
 public class fillBalenceController {
-    Users currentUser;
+    static Users currentUser;
+    private static float amount;
+
     @FXML
-    Label currentBalance;
+    public Label currentBalance;
     @FXML
     public Button id50button;
     public Button id100button;
     public Button id150button;
     public Button id200button;
+
     @FXML
-    public void setUser(Users currentUser) {
-        this.currentUser = currentUser;
+    private TextField customAmount;
+
+    public static float getAmount() {
+        return amount;
     }
 
-    void theCurrentBalance(Users currentUser){
-        currentBalance.setText("Current balance: " + currentUser.getBalance());
+    public void setAmount(float amount) {
+        this.amount = amount;
     }
+
+    public static Users getCurrentUser() {
+        return currentUser;
+    }
+
+    public Label getCurrentBalance() {
+        return currentBalance;
+    }
+
+
+    public static void setCurrentUser(Users currentUser) {
+        fillBalenceController.currentUser = currentUser;
+    }
+
+
+    public void setUser(Users currentUser) {
+        setCurrentUser(currentUser);
+    }
+
+
 
 
     @FXML
@@ -33,21 +62,33 @@ public class fillBalenceController {
         Main.showUserPage(currentUser);
     }
 
-
-    public void addCurrency50(ActionEvent actionEvent) {
-        currentUser.deposit(50);
+    public static void fillBalence(){
+        getCurrentUser().deposit(getAmount());
     }
 
-    public void addCurrency100(ActionEvent actionEvent) {
-        currentUser.deposit(100);
+    public void addCurrency50(ActionEvent actionEvent) throws IOException {
+        setAmount(50);
+        Main.showPopupMobilpay();
     }
 
-    public void addCurrency150(ActionEvent actionEvent) {
-        currentUser.deposit(150);
+    public void addCurrency100(ActionEvent actionEvent) throws IOException {
+        setAmount(100);
+        Main.showPopupMobilpay();
+    }
+    public void addCurrency150(ActionEvent actionEvent) throws IOException {
+        setAmount(150);
+        Main.showPopupMobilpay();
+    }
+    public void addCurrency200 (ActionEvent actionEvent) throws IOException {
+        setAmount(200);
+        Main.showPopupMobilpay();
     }
 
-    public void addCurrency200(ActionEvent actionEvent) {
-        currentUser.deposit(200);
+
+
+    public void addCurrencyCustom (ActionEvent actionEvent) throws IOException {
+        Float inputAmount = Float.parseFloat(customAmount.getText());
+        setAmount(inputAmount);
+        Main.showPopupMobilpay();
     }
 }
-

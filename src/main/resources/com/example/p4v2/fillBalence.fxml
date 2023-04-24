@@ -54,9 +54,14 @@
    <center>
       <VBox alignment="CENTER" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="currentBalance" text="Current balance: ">
+            <Label fx:id="currentBalancetext" text="Current balance: ">
                <font>
                   <Font size="36.0" />
+               </font>
+            </Label>
+            <Label id="currentBalence" fx:id="currentBalence" text="0">
+               <font>
+                  <Font size="24.0" />
                </font>
             </Label>
             <HBox alignment="CENTER">
@@ -111,14 +116,14 @@
             </HBox>
             <HBox alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" text="Costum">
+                  <Button mnemonicParsing="false" onAction="#addCurrencyCustom" text="Costum">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Button>
                </children>
             </HBox>
-            <TextField alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="300.0" promptText="Input amount">
+            <TextField id="customAmount" fx:id="customAmount" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="300.0" promptText="Input amount">
                <VBox.margin>
                   <Insets bottom="10.0" left="300.0" right="300.0" top="10.0" />
                </VBox.margin>

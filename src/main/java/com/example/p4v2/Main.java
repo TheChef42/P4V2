@@ -34,6 +34,16 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    public static void showPopupMobilpay() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("popupMobilepay.fxml"));
+        mainLayout = loader.load();
+        Scene scene = new Scene(mainLayout, 600, 400);
+        primaryStage.setScene(scene);
+        primaryStage.setResizable(true);
+        primaryStage.show();
+    }
+
     public static void showCreateUser() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("createUser.fxml"));
