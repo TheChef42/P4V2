@@ -94,11 +94,7 @@ public class StartUserPageController implements Initializable {
                 default:
                     productWarning.setText("Warning more than 6 products");
             }
-
             Item0Label.setText(products1.name);
-
-
-            i++;
         }
         colProduct.setCellValueFactory(new PropertyValueFactory<Products, String>("Name"));
         colPrice.setCellValueFactory(new PropertyValueFactory<Products, Double>("Price"));
