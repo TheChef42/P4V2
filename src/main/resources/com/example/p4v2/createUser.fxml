@@ -83,7 +83,7 @@
                   <Insets bottom="10.0" left="50.0" right="50.0" top="10.0" />
                </padding>
             </Button>
-            <Label fx:id="PrintName" alignment="CENTER" prefWidth="400.0" textAlignment="CENTER" textFill="RED">
+            <Label fx:id="PrintName" alignment="CENTER" textAlignment="CENTER" textFill="RED">
                <font>
                   <Font size="28.0" />
                </font>
