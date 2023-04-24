@@ -55,6 +55,7 @@ public class Main extends Application {
         primaryStage.setResizable(true);
         primaryStage.show();
     }
+
     public static void shoeFillBalence(Users user) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("fillBalence.fxml"));
@@ -76,6 +77,34 @@ public class Main extends Application {
 
         UserPageController upc = loader.getController();
         upc.setUser(user);
+
+        Scene scene = new Scene(mainLayout, 1400, 900);
+        primaryStage.setScene(scene);
+        primaryStage.setResizable(true);
+        primaryStage.show();
+    }
+
+    public static void showUpdateUserInfoPage(Users user) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("updateinfo.fxml"));
+        mainLayout = loader.load();
+
+        UserUpdatesController uuc = loader.getController();
+        uuc.setUser(user);
+
+        Scene scene = new Scene(mainLayout, 1400, 900);
+        primaryStage.setScene(scene);
+        primaryStage.setResizable(true);
+        primaryStage.show();
+    }
+
+    public static void showStatistcsPage(Users user) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("statestik.fxml"));
+        mainLayout = loader.load();
+
+        StatisticsController sc = loader.getController();
+        sc.setUser(user);
 
         Scene scene = new Scene(mainLayout, 1400, 900);
         primaryStage.setScene(scene);

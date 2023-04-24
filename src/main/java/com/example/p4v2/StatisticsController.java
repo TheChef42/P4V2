@@ -1,13 +1,24 @@
 package com.example.p4v2;
 
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
-import javafx.stage.Stage;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 
-public class Statestik extends Application {
+import java.io.IOException;
+
+public class StatisticsController {
+    Users currentUser;
+    public void setUser(Users currentUser) {
+        this.currentUser = currentUser;
+    }
+
+    @FXML
+    protected void goBackButtonClick(ActionEvent event) throws IOException {
+        //Change stage to user profile when the scene has been made
+        Main.showUserPage(currentUser);
+    }
+}
+
+/*public class Statestik extends Application {
 
     @Override
     public void start(Stage stage) {
@@ -46,5 +57,4 @@ public class Statestik extends Application {
 
     public static void main(String[] args) {
         launch(args);
-    }
-}
+    }*/

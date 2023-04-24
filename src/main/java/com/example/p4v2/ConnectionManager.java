@@ -13,7 +13,7 @@ public class ConnectionManager {
     private static String driverName = "com.mysql.cj.jdbc.Driver";
     private static String username; // = "root";
 
-    private static String password;  //= "";
+    private static String password; // = "";
     private static Connection con;
 
     static {

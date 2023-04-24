@@ -66,21 +66,6 @@ public class StartUserPageController implements Initializable {
         this.currentUser = currentUser;
     }
 
-    @FXML
-    protected void AddButtonClick(ActionEvent event) {
-        //Add the product chosen to the list on the right
-    }
-
-    @FXML
-    protected void logOutButtonClick(ActionEvent event) throws IOException {
-        //Change stage to user profile when the scene has been made
-        Main.showLoginView();
-    }
-
-    public void screenClick(javafx.scene.input.MouseEvent mouseEvent) {
-        PrintName.setText(this.currentUser.getName());
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         basketSum.textProperty().bind(sumValue);

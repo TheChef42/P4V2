@@ -185,7 +185,7 @@
               <MenuItem mnemonicParsing="false" text="Delete" />
             </items>
                <graphic>
-                  <Label fx:id="PrintName" onMouseClicked="#screenClick" prefHeight="70.0" prefWidth="400.0">
+                  <Label fx:id="PrintName" prefHeight="70.0" prefWidth="400.0" textFill="#4a00ff">
                      <font>
                         <Font size="48.0" />
                      </font>

@@ -4,16 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="559789ee-1deb-4a2d-8f8f-577e954627d9" name="Changes" comment="nu med basket der summerer">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/UserPageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/User.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+    <list default="true" id="559789ee-1deb-4a2d-8f8f-577e954627d9" name="Changes" comment="Nu kan man logge ud (dog kun med side skift) og skifte til til user siden siden og gå tilbage til shopping siden">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/ConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/ConnectionManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/StartUserPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/StartUserPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/loginpage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/loginpage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Statestik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/StatisticsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/UserPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/UserPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/UserUpdatesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/UserUpdatesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/fillBalenceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/fillBalenceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/User.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/User.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/UserUpdates.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/fillBalence.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/fillBalence.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/startUserPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/startUserPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/statestik.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/statestik.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/updateinfo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/updateinfo.fxml" afterDir="false" />
     </list>
     <list id="7f9b1ba7-7b51-4d49-bc4b-13dfb9410db6" name="Changes by Vitagliano" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -195,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682021549688</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Nu kan man logge ud (dog kun med side skift) og skifte til til user siden siden og gå tilbage til shopping siden">
+      <created>1682194909040</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1682194909040</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,7 +232,8 @@
     <MESSAGE value="er kommet til at oprette min database med et andet kodeord så nu burde det virke hvis is pull´er" />
     <MESSAGE value="fill balence and private login database" />
     <MESSAGE value="nu med basket der summerer" />
-    <option name="LAST_COMMIT_MESSAGE" value="nu med basket der summerer" />
+    <MESSAGE value="Nu kan man logge ud (dog kun med side skift) og skifte til til user siden siden og gå tilbage til shopping siden" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nu kan man logge ud (dog kun med side skift) og skifte til til user siden siden og gå tilbage til shopping siden" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
