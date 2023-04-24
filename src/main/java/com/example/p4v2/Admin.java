@@ -11,6 +11,7 @@ public class Admin {
     public void editUser(){
         //TODO: how to edit admin
     }
+
     private void viewUsers(){
         try {
             Connection con = ConnectionManager.getConnection();
