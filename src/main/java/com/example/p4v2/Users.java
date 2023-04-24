@@ -35,6 +35,10 @@ public class Users {
 
                 success = false;
 
+            }else if (!email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")){
+
+                success = false;
+
             }else{
                 
                 String qry = "INSERT INTO customer (EMAIL, PASSWORD, FIRSTNAME, LASTNAME) values(?,?,?,?)";
