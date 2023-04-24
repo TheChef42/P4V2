@@ -67,34 +67,23 @@ public class StartUserPageController implements Initializable {
     }
 
     @Override
+
     public void initialize(URL url, ResourceBundle resourceBundle) {
         basketSum.textProperty().bind(sumValue);
         int i = -1;
-        for (Products products1: currentTransaction.getProducts()) {
+        for (Products product: currentTransaction.getProducts()) {
             i++;
-            switch(i){
-                case 0:
-                    Item0Label.setText(products1.name);
-                    continue;
-                case 1:
-                    Item1Label.setText(products1.name);
-                    continue;
-                case 2:
-                    Item2Label.setText(products1.name);
-                    continue;
-                case 3:
-                    Item3Label.setText(products1.name);
-                    continue;
-                case 4:
-                    Item4Label.setText(products1.name);
-                    continue;
-                case 5:
-                    Item5Label.setText(products1.name);
-                    continue;
-                default:
-                    productWarning.setText("Warning more than 6 products");
+            if (i > 5) {
+                productWarning.setText("Warning more than 6 products");
+                break;
             }
-            Item0Label.setText(products1.name);
+            try {
+                Field field = getClass().getDeclaredField("Item" + i + "Label");
+                Label label = (Label) field.get(this);
+                label.setText(product.name);
+            } catch (NoSuchFieldException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
         }
         colProduct.setCellValueFactory(new PropertyValueFactory<Products, String>("Name"));
         colPrice.setCellValueFactory(new PropertyValueFactory<Products, Double>("Price"));
