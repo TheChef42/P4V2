@@ -26,7 +26,7 @@
    <center>
       <HBox alignment="CENTER" BorderPane.alignment="CENTER">
          <children>
-            <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="400.0" text="User overview">
+            <Button fx:id="userOverview" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showUserOverview" prefWidth="400.0" text="User overview">
                <HBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </HBox.margin>
@@ -34,7 +34,7 @@
                   <Font size="36.0" />
                </font>
             </Button>
-            <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="400.0" text="Product overview">
+            <Button fx:id="productOverview" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showProductOverview" prefWidth="400.0" text="Product overview">
                <HBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </HBox.margin>
@@ -48,7 +48,7 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Log out">
+            <Button fx:id="logout" mnemonicParsing="false" onAction="#logoutButtonClick" text="Log out">
                <font>
                   <Font size="24.0" />
                </font>

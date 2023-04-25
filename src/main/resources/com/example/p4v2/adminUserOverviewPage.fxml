@@ -46,7 +46,7 @@
                </HBox.margin>
                <children>
                   <Separator prefWidth="200.0" />
-                  <Button mnemonicParsing="false" text="Go to product overview" />
+                  <Button fx:id="productOverview" mnemonicParsing="false" onAction="#showProductOverview" text="Go to product overview" />
                </children>
             </HBox>
          </children>
@@ -55,7 +55,7 @@
    <bottom>
       <HBox alignment="CENTER" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Log out">
+            <Button fx:id="logout" mnemonicParsing="false" onAction="#logoutButtonClick" text="Log out">
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="100.0" top="10.0" />
                </HBox.margin>
