@@ -3,6 +3,8 @@ package com.example.p4v2;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
@@ -38,5 +40,9 @@ public class UserPageController {
     protected void goBackButtonClick(ActionEvent event) throws IOException {
         //Change stage to user profile when the scene has been made
         Main.showShoppingPage(currentUser);
+    }
+
+    public void DeleteButtonClick(ActionEvent actionEvent) throws IOException {
+        Main.showPopupDelete(currentUser);
     }
 }

@@ -11,7 +11,13 @@
       <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/adminPage.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/adminProductOverviewPage.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/adminUserOverviewPage.fxml" afterDir="false" />
+    <list default="true" id="559789ee-1deb-4a2d-8f8f-577e954627d9" name="Changes" comment="fix switch til load produkter">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/PopupDeleteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/UserPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/UserPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/User.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/User.fxml" afterDir="false" />
     </list>
     <list id="7f9b1ba7-7b51-4d49-bc4b-13dfb9410db6" name="Changes by Vitagliano" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -220,14 +226,7 @@
       <option name="project" value="LOCAL" />
       <updated>1682329839723</updated>
     </task>
-    <task id="LOCAL-00012" summary="Textfields ændret til password fields">
-      <created>1682344699281</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1682344699281</updated>
-    </task>
-    <option name="localTasksCounter" value="13" />
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

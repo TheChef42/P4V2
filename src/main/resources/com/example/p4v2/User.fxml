@@ -59,7 +59,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button layoutX="192.0" layoutY="199.0" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="400.0" text="Delete">
+            <Button layoutX="192.0" layoutY="199.0" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#DeleteButtonClick" prefWidth="400.0" text="Delete">
                <font>
                   <Font size="36.0" />
                </font>
