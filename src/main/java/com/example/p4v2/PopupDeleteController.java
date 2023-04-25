@@ -32,7 +32,8 @@ public class PopupDeleteController {
         this.currentUser = user;
     }
 
-    //private TextField passwordCheck;
+    @FXML
+    private TextField passwordCheck;
 
 
     @FXML
@@ -44,7 +45,7 @@ public class PopupDeleteController {
         if (Users.verifyPassword(currentUser.getEmail(), CheckPassword)) {
         } else {
             PrintName.setText("Password not correct!");
-        } 
+        }
     }
 
     @FXML

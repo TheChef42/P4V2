@@ -24,7 +24,7 @@
                   <Font size="36.0" />
                </font>
             </Text>
-            <PasswordField layoutX="46.0" layoutY="123.0" prefHeight="39.0" prefWidth="222.0" promptText="Confirm password"/>
+            <PasswordField fx:id="passwordCheck" layoutX="46.0" layoutY="123.0" prefHeight="39.0" prefWidth="222.0" promptText="Confirm password"/>
             <Label fx:id="PrintName" alignment="CENTER" textAlignment="CENTER" textFill="RED">
                <font>
                   <Font size="28.0" />
