@@ -52,10 +52,6 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("createUser.fxml"));
         mainLayout = loader.load();
-
-        //CreateUserController cc = loader.getController();
-        //cc.handleCreateUser();
-
         Scene scene = new Scene(mainLayout, 1400, 900);
         primaryStage.setScene(scene);
         primaryStage.setResizable(true);
@@ -145,20 +141,12 @@ public class Main extends Application {
         loader.setLocation(Main.class.getResource("adminPage.fxml"));
         mainLayout = loader.load();
 
-        // table.setEditable(true);
-        // TableColumn product = new TableColumn<>("Product");
-        // TableColumn price = new TableColumn<>("Price");
-        // TableColumn amount = new TableColumn<>("Amount");
-        // TableColumn sum = new TableColumn<>("Sum");
+        AdminPageController upc = loader.getController();
+        upc.setAdmin(user);
 
-        // table.getColumns().addAll(product,price,amount,sum);
-
-        // StartUserPageController supc = loader.getController();
-        // supc.setUser(user);
-        // supc.setPrintName(user);
-        // Scene scene = new Scene(mainLayout, 1400, 900);
-        // primaryStage.setScene(scene);
-        // primaryStage.setResizable(true);
-        // primaryStage.show();
+        Scene scene = new Scene(mainLayout, 1400, 900);
+        primaryStage.setScene(scene);
+        primaryStage.setResizable(true);
+        primaryStage.show();
     }
 }

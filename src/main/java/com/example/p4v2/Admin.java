@@ -19,7 +19,7 @@ public class Admin {
 
     public static Admin login(String username, String password){
         // declaring it out of the if statement to return it at the end
-        Admin currentaAdmin = new Admin();
+        Admin currentAdmin = new Admin();
         if (verifyPasswordAdmin(username, password)) {
             Connection con = ConnectionManager.getConnection();
             PreparedStatement st = null;
@@ -32,13 +32,13 @@ public class Admin {
                 rs = st.executeQuery();
     
                 if (rs.next()) {
-                    currentaAdmin.id = rs.getInt("id");
-                    currentaAdmin.username = username;
-                    currentaAdmin.password = password;
-                    currentaAdmin.firstName = rs.getString("firstname");
-                    currentaAdmin.lastName = rs.getString("lastname");
+                    currentAdmin.id = rs.getInt("id");
+                    currentAdmin.username = username;
+                    currentAdmin.password = password;
+                    currentAdmin.firstName = rs.getString("firstname");
+                    currentAdmin.lastName = rs.getString("lastname");
                     //currentUser.balance = rs.getFloat("balance");
-                    currentaAdmin.created_at = rs.getTimestamp("created_at");
+                    currentAdmin.created_at = rs.getTimestamp("created_at");
                 }
     
             } catch (SQLException ex) {
@@ -61,10 +61,10 @@ public class Admin {
                 }
             }
         } else {
-            currentUser = null;
+            currentAdmin = null;
             System.out.println("Access denied!");
         }
-        return currentUser;
+        return currentAdmin;
     }
 
     public static boolean verifyPasswordAdmin(String username, String password) {
