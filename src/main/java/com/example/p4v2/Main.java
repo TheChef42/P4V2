@@ -177,5 +177,17 @@ public class Main extends Application {
         primaryStage.setResizable(true);
         primaryStage.show();
     }
-    
+    public static void showPopupDelete(Users user) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("popupDelete.fxml"));
+        mainLayout = loader.load();
+
+        PopupDeleteController pdc = loader.getController();
+        pdc.setUser(user);
+
+        Scene scene = new Scene(mainLayout, 600, 400);
+        primaryStage.setScene(scene);
+        primaryStage.setResizable(true);
+        primaryStage.show();
+    }
 }

@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="559789ee-1deb-4a2d-8f8f-577e954627d9" name="Changes" comment="prøv nu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/popupDelete.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/popupDelete.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Main.java" afterDir="false" />
     </list>
     <list id="7f9b1ba7-7b51-4d49-bc4b-13dfb9410db6" name="Changes by Vitagliano" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -138,7 +138,7 @@
       <workItem from="1681807148736" duration="6563000" />
       <workItem from="1682014122649" duration="7426000" />
       <workItem from="1682060651867" duration="3998000" />
-      <workItem from="1682418818834" duration="645000" />
+      <workItem from="1682418818834" duration="758000" />
     </task>
     <task id="LOCAL-00001" summary="ny repository">
       <created>1681807249738</created>
@@ -224,7 +224,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682419365314</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="prøv nu">
+      <created>1682419478871</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1682419478871</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
