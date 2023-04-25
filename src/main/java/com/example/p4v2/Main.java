@@ -139,4 +139,26 @@ public class Main extends Application {
         primaryStage.setResizable(true);
         primaryStage.show();
     }
+
+    public static void showAdminPage(Admin user) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("adminPage.fxml"));
+        mainLayout = loader.load();
+
+        // table.setEditable(true);
+        // TableColumn product = new TableColumn<>("Product");
+        // TableColumn price = new TableColumn<>("Price");
+        // TableColumn amount = new TableColumn<>("Amount");
+        // TableColumn sum = new TableColumn<>("Sum");
+
+        // table.getColumns().addAll(product,price,amount,sum);
+
+        // StartUserPageController supc = loader.getController();
+        // supc.setUser(user);
+        // supc.setPrintName(user);
+        // Scene scene = new Scene(mainLayout, 1400, 900);
+        // primaryStage.setScene(scene);
+        // primaryStage.setResizable(true);
+        // primaryStage.show();
+    }
 }

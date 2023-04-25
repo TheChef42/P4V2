@@ -1,5 +1,5 @@
 package com.example.p4v2;
-
+import java.util.Objects;
 import java.sql.*;
 
 public class Admin {
@@ -15,6 +15,92 @@ public class Admin {
 
     public void editUser(){
         //TODO: how to edit admin
+    }
+
+    public static Admin login(String username, String password){
+        // declaring it out of the if statement to return it at the end
+        Admin currentUser = new Admin();
+        if (verifyPasswordAdmin(username, password)) {
+            Connection con = ConnectionManager.getConnection();
+            PreparedStatement st = null;
+            ResultSet rs = null;
+            String query = "SELECT * FROM customer WHERE EMAIL=?";
+    
+            try {
+                st = con.prepareStatement(query);
+                st.setString(1, username);
+                rs = st.executeQuery();
+    
+                if (rs.next()) {
+                    currentUser.id = rs.getInt("id");
+                    currentUser.email = username;
+                    currentUser.password = password;
+                    currentUser.firstName = rs.getString("firstname");
+                    currentUser.lastName = rs.getString("lastname");
+                    //currentUser.balance = rs.getFloat("balance");
+                    currentUser.created_at = rs.getTimestamp("created_at");
+                }
+    
+            } catch (SQLException ex) {
+                System.out.println("Error: " + ex.getMessage());
+            } finally {
+                try{
+                    // closing input objects
+                if (rs != null){
+                    rs.close();
+                }
+                if (st != null){
+                    st.close();
+                }
+                if (con != null){
+                    con.close();
+                }
+
+                } catch (SQLException ex) {
+                    System.out.println("Error: " + ex.getMessage());
+                }
+            }
+        } else {
+            currentUser = null;
+            System.out.println("Access denied!");
+        }
+        return currentUser;
+    }
+
+    public static boolean verifyPasswordAdmin(String username, String password) {
+        Connection con = ConnectionManager.getConnection();
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        String query = "SELECT PASSWORD FROM admins WHERE username=?";
+        try {
+            st = con.prepareStatement(query);
+            st.setString(1, username);
+            rs = st.executeQuery();
+            if (rs.next() && Objects.equals(rs.getString("PASSWORD"), password)) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+            // closing the connection:
+        } finally {
+            try {
+                // closing input objects
+                if (rs != null){
+                    rs.close();
+                }
+                if (st != null){
+                    st.close();
+                }
+                if (con != null){
+                    con.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void viewUsers(){
@@ -139,5 +225,13 @@ public class Admin {
             admin.viewProducts();
             admin.createProduct("new product", 14.99f, 30);
             admin.viewProducts();
+        }
+
+        public String getName() {
+            return this.firstName + " " + this.lastName;
+        }
+
+        public int getId() {
+            return id;
         }
     }        
