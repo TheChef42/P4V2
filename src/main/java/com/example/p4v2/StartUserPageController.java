@@ -111,6 +111,21 @@ public class StartUserPageController implements Initializable {
         this.addProductToTransaction(products);
         setSumValue();
         basket.refresh();
+    }public void AddButton3Click(ActionEvent actionEvent) {
+        Products products = currentTransaction.getProducts().get(3);
+        this.addProductToTransaction(products);
+        setSumValue();
+        basket.refresh();
+    }public void AddButton4Click(ActionEvent actionEvent) {
+        Products products = currentTransaction.getProducts().get(4);
+        this.addProductToTransaction(products);
+        setSumValue();
+        basket.refresh();
+    }public void AddButton5Click(ActionEvent actionEvent) {
+        Products products = currentTransaction.getProducts().get(5);
+        this.addProductToTransaction(products);
+        setSumValue();
+        basket.refresh();
     }
 
     private void addProductToTransaction(Products product){
