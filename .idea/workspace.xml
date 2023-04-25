@@ -4,6 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="559789ee-1deb-4a2d-8f8f-577e954627d9" name="Changes" comment="Textfields ændret til password fields">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/AdminPageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/AdminProductOverviewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/AdminUserOverviewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/adminPage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/adminProductOverviewPage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/adminUserOverviewPage.fxml" afterDir="false" />
     <list default="true" id="559789ee-1deb-4a2d-8f8f-577e954627d9" name="Changes" comment="fix switch til load produkter">
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/PopupDeleteController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
@@ -246,7 +253,8 @@
     <MESSAGE value="nu med basket der summerer" />
     <MESSAGE value="Nu kan man logge ud (dog kun med side skift) og skifte til til user siden siden og gå tilbage til shopping siden" />
     <MESSAGE value="fix switch til load produkter" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix switch til load produkter" />
+    <MESSAGE value="Textfields ændret til password fields" />
+    <option name="LAST_COMMIT_MESSAGE" value="Textfields ændret til password fields" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

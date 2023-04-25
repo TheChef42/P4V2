@@ -52,10 +52,6 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("createUser.fxml"));
         mainLayout = loader.load();
-
-        //CreateUserController cc = loader.getController();
-        //cc.handleCreateUser();
-
         Scene scene = new Scene(mainLayout, 1400, 900);
         primaryStage.setScene(scene);
         primaryStage.setResizable(true);
@@ -133,6 +129,20 @@ public class Main extends Application {
 
         StatisticsController sc = loader.getController();
         sc.setUser(user);
+
+        Scene scene = new Scene(mainLayout, 1400, 900);
+        primaryStage.setScene(scene);
+        primaryStage.setResizable(true);
+        primaryStage.show();
+    }
+
+    public static void showAdminPage(Admin user) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("adminPage.fxml"));
+        mainLayout = loader.load();
+
+        AdminPageController upc = loader.getController();
+        upc.setAdmin(user);
 
         Scene scene = new Scene(mainLayout, 1400, 900);
         primaryStage.setScene(scene);

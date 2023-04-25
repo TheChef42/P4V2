@@ -21,19 +21,29 @@ public class LoginPageController {
     protected void loginButtonClick(ActionEvent event) throws IOException {
         String str_username = username.getText();
         String str_password = password.getText();
-        Users currentUser = Users.login(str_username,str_password);
-
-        if (currentUser != null) {
-            PrintName.setText(currentUser.getName());
-            System.out.println(currentUser.getName());
+        
+        Admin currentaAdmin = Admin.login(str_username,str_password);
+        if (currentaAdmin != null) {
+            PrintName.setText(currentaAdmin.getName());
+            System.out.println(currentaAdmin.getName());
             //Change scene to the user start page
-            Main.showShoppingPage(currentUser); // Passing the client-object to showClientView method
+            Main.showAdminPage(currentaAdmin); // Passing the client-object to showClientView method
 
-        } else {
-            PrintName.setText("Denied, bitch!");
+        }else{
+
+            Users currentUser = Users.login(str_username,str_password);
+
+            if (currentUser != null) {
+                PrintName.setText(currentUser.getName());
+                System.out.println(currentUser.getName());
+                //Change scene to the user start page
+                Main.showShoppingPage(currentUser); // Passing the client-object to showClientView method
+
+            } else {
+                PrintName.setText("Denied, bitch!");
         }
     }
-    
+}
     @FXML
     protected void signUpClick(ActionEvent event) throws IOException {
         Main.showCreateUser();

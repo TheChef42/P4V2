@@ -26,17 +26,21 @@ public class CreateUserController {
         String userPassword = password.getText();
         String CheckPassword = passwordCheck.getText();
 
-        if (!userPassword.equals(CheckPassword)){
-            PrintName.setText("Passwords do not match!");
-        }
-        else if(userPassword.length() < 10){
-            PrintName.setText("Error: password must be at least 10");
-        }
-        else if(!userEmail.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")){
-            PrintName.setText("Error: email must be a valid email address");
-        }
-        else if (Users.createUser(userEmail, userPassword, firstName, lastName)){
+        if (userPassword.equals(CheckPassword)){
+        
+            if (Users.createUser(userEmail, userPassword, firstName, lastName)){
                 Main.showLoginView();
+
+            }else if(userPassword.length() < 10){
+
+                PrintName.setText("Error: password must be at least 10");
+
+            }else{
+
+                PrintName.setText("Error: email already in use");
+            }
+        }else{
+            PrintName.setText("Passwords do not match!");
         }
     }
 
