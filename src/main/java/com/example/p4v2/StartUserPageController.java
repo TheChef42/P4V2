@@ -161,7 +161,8 @@ public class StartUserPageController implements Initializable {
     }
 
     public void CheckOutClick(ActionEvent actionEvent) {
-        currentTransaction.storeTransaction(currentUser.getId(), observableList);
+        if (currentTransaction.storeTransaction(currentUser, observableList)){
+        
         for (Products product: observableList) {
             product.setSelectAmount(1);
         }
@@ -170,6 +171,9 @@ public class StartUserPageController implements Initializable {
         basket.refresh();
         setSumValue();
         productWarning.setText("Check out complete");
+    }else{
+        productWarning.setText("Insufficient funds");
+    }
     }
 
     @FXML

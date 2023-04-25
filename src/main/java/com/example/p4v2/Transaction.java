@@ -86,17 +86,20 @@ public class Transaction {
     public void getTransactionsList(){
         //TODO: implement how to return the transactions
     }
-    public void storeTransaction(int userId, ObservableList<Products> basket){
+    public boolean storeTransaction(Users currentUser, ObservableList<Products> basket){
         //TODO: implement to store the transaction in the database
+        boolean success = false;
+        float sum = 0;
+            for (Products products1: basket){
+                sum += (products1.price * products1.selectAmount);
+            }
+
+        if (sum <= currentUser.getBalance()){
         try{
             Connection con = ConnectionManager.getConnection();
             String transactions_qry = "INSERT INTO transactions (sum, customer) values(?,?)";
             PreparedStatement st = con.prepareStatement(transactions_qry, Statement.RETURN_GENERATED_KEYS);
-            st.setInt(2, userId);
-            float sum = 0;
-            for (Products products1: basket){
-                sum += (products1.price * products1.selectAmount);
-            }
+            st.setInt(2, currentUser.getId());
             st.setFloat(1,sum);
             st.executeUpdate();
             ResultSet rs = st.getGeneratedKeys();
@@ -113,11 +116,18 @@ public class Transaction {
                 st1.addBatch();
             }
             st1.executeBatch();
+            currentUser.deposit(-sum);
+            success = true;
+            return success;
 
         }catch(SQLException e){
             e.printStackTrace();
+            return success;
         }
+    }else{
+        return success;
     }
+}
     public void deleteProductFromList(Products product){
         //TODO: implement to delete a product from the list
         if (basket.contains(product)) {
