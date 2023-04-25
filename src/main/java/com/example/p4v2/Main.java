@@ -149,17 +149,33 @@ public class Main extends Application {
         primaryStage.setResizable(true);
         primaryStage.show();
     }
-    public static void showPopupDelete(Users user) throws IOException {
+
+    public static void showUserOverview(Admin user) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Main.class.getResource("popupDelete.fxml"));
+        loader.setLocation(Main.class.getResource("adminUserOverviewPage.fxml"));
         mainLayout = loader.load();
 
-        PopupDeleteController pdc = loader.getController();
-        pdc.setUser(user);
+        AdminUserOverviewController upc = loader.getController();
+        upc.setAdmin(user);
 
-        Scene scene = new Scene(mainLayout, 600, 400);
+        Scene scene = new Scene(mainLayout, 1400, 900);
         primaryStage.setScene(scene);
         primaryStage.setResizable(true);
         primaryStage.show();
     }
+
+    public static void showProductOverview(Admin user) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("adminProductOverviewPage.fxml"));
+        mainLayout = loader.load();
+
+        AdminProductOverviewController upc = loader.getController();
+        upc.setAdmin(user);
+
+        Scene scene = new Scene(mainLayout, 1400, 900);
+        primaryStage.setScene(scene);
+        primaryStage.setResizable(true);
+        primaryStage.show();
+    }
+    
 }

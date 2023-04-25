@@ -182,6 +182,9 @@ public class StartUserPageController implements Initializable {
 
     @FXML
     protected void logoutButtonClick(ActionEvent event) throws IOException {
+        // skal fjerne objektet, ellers ligger de stadig i backenden
+        // kan fjernes og muligvis exploides til sikkerheds testing:
+        currentUser = null;
         //Change stage to user profile when the scene has been made
         Main.showLoginView();
     }
