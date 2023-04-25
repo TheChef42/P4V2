@@ -40,9 +40,9 @@ public class PopupDeleteController {
     private void handleConfirmButton(ActionEvent actionEvent) throws IOException {
         setAnswer(true);
         String CheckPassword = passwordCheck.getText();
-        Users.deleteAccount(currentUser);
-        Main.showLoginView();
         if (Users.verifyPassword(currentUser.getEmail(), CheckPassword)) {
+            Users.deleteAccount(currentUser);
+            Main.showLoginView();
         } else {
             PrintName.setText("Password not correct!");
         }
