@@ -38,13 +38,13 @@ public class PopupDeleteController {
     @FXML
     private void handleConfirmButton(ActionEvent actionEvent) throws IOException {
         setAnswer(true);
-        //String CheckPassword = passwordCheck.getText();
+        String CheckPassword = passwordCheck.getText();
         Users.deleteAccount(currentUser);
         Main.showLoginView();
-        /*if (Users.verifyPassword(UserEmail, CheckPassword)) {
+        if (Users.verifyPassword(currentUser.getEmail(), CheckPassword)) {
         } else {
             PrintName.setText("Password not correct!");
-        } */
+        } 
     }
 
     @FXML

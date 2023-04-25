@@ -201,7 +201,11 @@ public class Users {
     }
 
     public int getId() {
-        return id;
+        return this.id;
+    }
+
+    public String getEmail() {
+        return this.email;
     }
 
     public void setEmail(String newEmail) {
