@@ -5,7 +5,7 @@ import java.sql.*;
 public class Admin {
 
     private int id;
-    private String email;
+    private String username;
     protected String password;
     public String firstName;
     public String lastName;
@@ -19,7 +19,7 @@ public class Admin {
 
     public static Admin login(String username, String password){
         // declaring it out of the if statement to return it at the end
-        Admin currentUser = new Admin();
+        Admin currentaAdmin = new Admin();
         if (verifyPasswordAdmin(username, password)) {
             Connection con = ConnectionManager.getConnection();
             PreparedStatement st = null;
@@ -32,13 +32,13 @@ public class Admin {
                 rs = st.executeQuery();
     
                 if (rs.next()) {
-                    currentUser.id = rs.getInt("id");
-                    currentUser.email = username;
-                    currentUser.password = password;
-                    currentUser.firstName = rs.getString("firstname");
-                    currentUser.lastName = rs.getString("lastname");
+                    currentaAdmin.id = rs.getInt("id");
+                    currentaAdmin.username = username;
+                    currentaAdmin.password = password;
+                    currentaAdmin.firstName = rs.getString("firstname");
+                    currentaAdmin.lastName = rs.getString("lastname");
                     //currentUser.balance = rs.getFloat("balance");
-                    currentUser.created_at = rs.getTimestamp("created_at");
+                    currentaAdmin.created_at = rs.getTimestamp("created_at");
                 }
     
             } catch (SQLException ex) {
