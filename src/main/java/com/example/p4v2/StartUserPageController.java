@@ -55,8 +55,6 @@ public class StartUserPageController implements Initializable {
     public Label PrintName;
     Transaction currentTransaction = new Transaction();
 
-
-
     public void setPrintName(Users currentUser){
         PrintName.setText(currentUser.getName());
         userBalance.setText(valueOf(currentUser.getBalance()));

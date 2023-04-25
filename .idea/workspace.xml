@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="559789ee-1deb-4a2d-8f8f-577e954627d9" name="Changes" comment="prøv nu">
+    <list default="true" id="559789ee-1deb-4a2d-8f8f-577e954627d9" name="Changes" comment="fix switch til load produkter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/LoginPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/LoginPageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/PopupMobilepayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/PopupMobilepayController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/fillBalenceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/fillBalenceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/User.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/User.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/loginpage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/loginpage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/updateinfo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/updateinfo.fxml" afterDir="false" />
     </list>
     <list id="7f9b1ba7-7b51-4d49-bc4b-13dfb9410db6" name="Changes by Vitagliano" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,28 +41,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "TODO_SCOPE": "All Places",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/marct/IdeaProjects/P4V2/src/main/resources/com/example/p4v2",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.4816092",
-    "settings.editor.selected.configurable": "preferences.JavaFX",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/marct/IdeaProjects/P4V2/src/main/resources/com/example/p4v2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.4816092&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\marct\IdeaProjects\P4V2\src\main\resources\com\example\p4v2" />
@@ -138,7 +144,6 @@
       <workItem from="1681807148736" duration="6563000" />
       <workItem from="1682014122649" duration="7426000" />
       <workItem from="1682060651867" duration="3998000" />
-      <workItem from="1682418818834" duration="758000" />
     </task>
     <task id="LOCAL-00001" summary="ny repository">
       <created>1681807249738</created>
@@ -217,21 +222,7 @@
       <option name="project" value="LOCAL" />
       <updated>1682329839723</updated>
     </task>
-    <task id="LOCAL-00012" summary="prøv nu">
-      <created>1682419365314</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1682419365314</updated>
-    </task>
-    <task id="LOCAL-00013" summary="prøv nu">
-      <created>1682419478871</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1682419478871</updated>
-    </task>
-    <option name="localTasksCounter" value="14" />
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,9 +249,7 @@
     <MESSAGE value="nu med basket der summerer" />
     <MESSAGE value="Nu kan man logge ud (dog kun med side skift) og skifte til til user siden siden og gå tilbage til shopping siden" />
     <MESSAGE value="fix switch til load produkter" />
-    <MESSAGE value="Textfields ændret til password fields" />
-    <MESSAGE value="prøv nu" />
-    <option name="LAST_COMMIT_MESSAGE" value="prøv nu" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix switch til load produkter" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
