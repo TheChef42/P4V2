@@ -170,6 +170,7 @@ public class StartUserPageController implements Initializable {
         observableList.clear();
         basket.refresh();
         setSumValue();
+        setPrintName(currentUser);
         productWarning.setText("Check out complete");
     }else{
         productWarning.setText("Insufficient funds");
