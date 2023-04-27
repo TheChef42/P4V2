@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="559789ee-1deb-4a2d-8f8f-577e954627d9" name="Changes" comment="prøv nu">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/fillBalenceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/fillBalenceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/fillBalence.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/fillBalence.fxml" afterDir="false" />
     </list>
     <list id="7f9b1ba7-7b51-4d49-bc4b-13dfb9410db6" name="Changes by Vitagliano" comment="" />
     <option name="SHOW_DIALOG" value="false" />

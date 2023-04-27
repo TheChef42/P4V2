@@ -93,6 +93,7 @@ public class Main extends Application {
 
         tableFill.getColumns().addAll(date, amount);
 
+
         fillBalenceController fbc = loader.getController();
         fbc.setUser(user);
         fbc.setPrintName(user);

@@ -60,6 +60,7 @@ public class fillBalenceController implements Initializable {
 
     public void setUser(Users currentUser) {
         this.currentUserId = currentUser.getId();
+        this.currentUser = currentUser;
        //currentBalence.setText(valueOf(currentUser.getBalance()));
         //currentBalance.setText(" ");
         System.out.println(this.currentUser);
