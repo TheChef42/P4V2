@@ -4,14 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="559789ee-1deb-4a2d-8f8f-577e954627d9" name="Changes" comment="fix switch til load produkter">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Payment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="559789ee-1deb-4a2d-8f8f-577e954627d9" name="Changes" comment="prøv nu">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/TransactionDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/PopupMobilepayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/PopupMobilepayController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/StartUserPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/StartUserPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/StatisticsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/StatisticsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/UserUpdatesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/UserUpdatesController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/fillBalenceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/fillBalenceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/fillBalence.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/fillBalence.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/statestik.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/statestik.fxml" afterDir="false" />
     </list>
     <list id="7f9b1ba7-7b51-4d49-bc4b-13dfb9410db6" name="Changes by Vitagliano" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,6 +56,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.4816092&quot;,
@@ -142,6 +146,7 @@
       <workItem from="1681807148736" duration="6563000" />
       <workItem from="1682014122649" duration="7426000" />
       <workItem from="1682060651867" duration="3998000" />
+      <workItem from="1682425506224" duration="176000" />
     </task>
     <task id="LOCAL-00001" summary="ny repository">
       <created>1681807249738</created>
@@ -220,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682329839723</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="prøv nu">
+      <created>1682420338870</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1682420338870</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +259,8 @@
     <MESSAGE value="nu med basket der summerer" />
     <MESSAGE value="Nu kan man logge ud (dog kun med side skift) og skifte til til user siden siden og gå tilbage til shopping siden" />
     <MESSAGE value="fix switch til load produkter" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix switch til load produkter" />
+    <MESSAGE value="prøv nu" />
+    <option name="LAST_COMMIT_MESSAGE" value="prøv nu" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

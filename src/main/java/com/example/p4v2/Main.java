@@ -14,6 +14,7 @@ public class Main extends Application {
     private static Stage primaryStage;
     private static BorderPane mainLayout;
     private static TableView table = new TableView<Products>();
+    private static TableView tableFill = new TableView<Payment>();
 
     public static void main(String[] args) {
         launch();
@@ -86,8 +87,15 @@ public class Main extends Application {
         loader.setLocation(Main.class.getResource("fillBalence.fxml"));
         mainLayout = loader.load();
 
+        tableFill.setEditable(true);
+        TableColumn date = new TableColumn<>("date");
+        TableColumn amount = new TableColumn<>("amount");
+
+        tableFill.getColumns().addAll(date, amount);
+
         fillBalenceController fbc = loader.getController();
-        fbc.setup(user);
+        fbc.setUser(user);
+        fbc.setPrintName(user);
 
         Scene scene = new Scene(mainLayout, 1400, 900);
         primaryStage.setScene(scene);

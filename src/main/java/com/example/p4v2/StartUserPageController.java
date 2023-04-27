@@ -68,6 +68,7 @@ public class StartUserPageController implements Initializable {
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         basketSum.textProperty().bind(sumValue);
+
         int i = -1;
         for (Products product: currentTransaction.getProducts()) {
             i++;
@@ -90,9 +91,7 @@ public class StartUserPageController implements Initializable {
         basket.setItems(observableList);
     }
 
-    ObservableList<Products> observableList = FXCollections.observableArrayList(
-            currentTransaction.getBasket()
-    );
+    ObservableList<Products> observableList = FXCollections.observableArrayList(currentTransaction.getBasket());
 
     public void AddButton0Click(ActionEvent actionEvent) {
         Products products = currentTransaction.getProducts().get(0);

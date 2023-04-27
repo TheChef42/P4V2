@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="857.0" prefWidth="1088.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.p4v2.StatisticsController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="857.0" prefWidth="1088.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.p4v2.StatisticsController">
    <top>
       <HBox alignment="TOP_RIGHT" prefHeight="56.0" prefWidth="666.0" BorderPane.alignment="CENTER">
          <children>
@@ -88,7 +87,7 @@
                   </LineChart>
                </children>
             </HBox>
-            <TableView prefHeight="258.0" prefWidth="1068.0">
+            <TableView fx:id="history" prefHeight="258.0" prefWidth="1068.0">
               <columns>
                 <TableColumn fx:id="colDate" prefWidth="198.0" text="Date" />
                   <TableColumn fx:id="colProduct" prefWidth="224.0" text="Product" />

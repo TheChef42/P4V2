@@ -15,8 +15,32 @@ public class Transaction {
     public Transaction() {
         products = this.setProducts();
     }
+    public Transaction(int transactionId) {
+        setDetails(transactionId);
+    }
     public ArrayList<Products> getProducts() {
         return products;
+    }
+    private ArrayList<TransactionDetails> details = new ArrayList<TransactionDetails>();
+
+    public ArrayList<TransactionDetails> getDetails() {
+        return details;
+    }
+
+    public void setDetails(int transactionId) {
+        try {
+            Connection con = ConnectionManager.getConnection();
+            String qry = "SELECT id FROM transactions_info WHERE transaction_id = ?";
+            PreparedStatement st = con.prepareStatement(qry);
+            st.setInt(1, transactionId);
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){
+                TransactionDetails transactionDetails = new TransactionDetails(rs.getInt("id"));
+                details.add(transactionDetails);
+            }
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
     }
 
     public ArrayList<Products> setProducts() {
@@ -83,9 +107,7 @@ public class Transaction {
         }
         return product;
     }
-    public void getTransactionsList(){
-        //TODO: implement how to return the transactions
-    }
+
     public boolean storeTransaction(Users currentUser, ObservableList<Products> basket){
         //TODO: implement to store the transaction in the database
         boolean success = false;
