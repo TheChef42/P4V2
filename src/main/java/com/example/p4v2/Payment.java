@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Payment {
-    public Timestamp created_at;
-    public float amount;
+    private Timestamp created_at;
+    private float amount;
     public final ArrayList<Payment> payments = new ArrayList<Payment>();
     public Payment(){}
 
@@ -31,5 +31,21 @@ public class Payment {
         }
 
         return this.payments;
+    }
+
+    public Timestamp getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(Timestamp created_at) {
+        this.created_at = created_at;
+    }
+
+    public float getAmount() {
+        return amount;
+    }
+
+    public void setAmount(float amount) {
+        this.amount = amount;
     }
 }
