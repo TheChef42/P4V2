@@ -21,6 +21,11 @@ public class AdminPageController {
     }
 
     @FXML
+    protected void showTheShoppingPage(ActionEvent event) throws IOException {
+        Main.showShoppingPage(Main.getCurrentuser());
+    }
+
+    @FXML
     protected void logoutButtonClick(ActionEvent event) throws IOException {
         // skal fjerne objektet, ellers ligger de stadig i backenden
         // kan fjernes og muligvis exploides til sikkerheds testing:

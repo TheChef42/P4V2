@@ -80,7 +80,7 @@ public class PopupMobilepayController {
         id = fillBalenceController.getConformation_id();
         confirmPayment(id);
         this.currentUser.deposit(fillBalenceController.getAmount());
-        Main.showFillBalence(currentUser);
+        Main.showFillBalence(Main.getCurrentuser());
     }
 
     @FXML

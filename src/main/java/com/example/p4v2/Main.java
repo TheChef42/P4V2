@@ -11,10 +11,19 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Main extends Application {
+    private static Users currentuser;
     private static Stage primaryStage;
     private static BorderPane mainLayout;
     private static TableView table = new TableView<Products>();
     private static TableView tableFill = new TableView<Payment>();
+
+    public static Users getCurrentuser() {
+        return currentuser;
+    }
+
+    public static void setCurrentuser(Users currentuser) {
+        Main.currentuser = currentuser;
+    }
 
     public static void main(String[] args) {
         launch();
