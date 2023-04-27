@@ -162,7 +162,7 @@ public class fillBalenceController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        paymentHistoryTableDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        paymentHistoryTableDate.setCellValueFactory(new PropertyValueFactory<>("created_at"));
         paymentHistoryTableAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
         // get payments for current user and add them to the TableView
         paymentHistoryTable.setItems(payments);
