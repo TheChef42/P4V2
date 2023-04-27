@@ -27,6 +27,7 @@ public class AdminPageController {
         currentAdmin = null;
         Main.showLoginView();
     }
+    
 
     
 }
