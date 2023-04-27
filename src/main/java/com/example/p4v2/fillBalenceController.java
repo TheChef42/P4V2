@@ -28,7 +28,6 @@ import java.util.regex.Pattern;
 import static java.lang.String.valueOf;
 
 public class fillBalenceController implements Initializable {
-    Users currentUser;
     Payment currentPayment = new Payment();
     @FXML
     private TableView<Payment> paymentHistoryTable; //todo this.paymentHistoryTable is null
@@ -38,11 +37,9 @@ public class fillBalenceController implements Initializable {
     @FXML
     private TableColumn<Payment, Double> paymentHistoryTableAmount;
     private static float amount;
-    private Integer id;
     @FXML
     public Label currentBalence;
     private Integer payment_id;
-    private Integer customer_id;
     private String payment_provider = "MobilePay";
     private String status = "started";
     private static Integer conformation_id = 0;
@@ -53,20 +50,13 @@ public class fillBalenceController implements Initializable {
     public Button id100button;
     public Button id150button;
     public Button id200button;
-    int currentUserId;
 
     @FXML
     private TextField customAmount;
 
-    public void setUser(Users currentUser) {
-        this.currentUserId = currentUser.getId();
-        this.currentUser = currentUser;
-       //currentBalence.setText(valueOf(currentUser.getBalance()));
-        //currentBalance.setText(" ");
-    }
 
-    public void setPrintName(Users currentUser){
-        currentBalence.setText(valueOf(currentUser.getBalance()));
+    public void setPrintName(){
+        currentBalence.setText(valueOf(Main.getCurrentuser().getBalance()));
     }
     public static float getAmount() {
         return amount;
@@ -74,10 +64,6 @@ public class fillBalenceController implements Initializable {
 
     public void setAmount(float amount) {
         fillBalenceController.amount = amount;
-    }
-
-    public Users getCurrentUser() {
-        return this.currentUser;
     }
 
     public Label getCurrentBalance() {
@@ -100,49 +86,48 @@ public class fillBalenceController implements Initializable {
     @FXML
     protected void goBackButtonClick(ActionEvent event) throws IOException {
         //Change stage to user profile when the scene has been made
-        Main.showUserPage(currentUser);
+        Main.showUserPage();
     }
 
     public void fillBalence() {
-        this.currentUser.deposit(getAmount());
+        Main.getCurrentuser().deposit(getAmount());
     }
 
     public void addCurrency50(ActionEvent actionEvent) throws IOException, SQLException {
         setAmount(50);
         paymentHistory();
-        Main.showPopupMobilpay(currentUser, this.payment_id, getAmount());
+        Main.showPopupMobilpay(this.payment_id, getAmount());
     }
 
     public void addCurrency100(ActionEvent actionEvent) throws IOException, SQLException {
         setAmount(100);
         paymentHistory();
-        Main.showPopupMobilpay(currentUser, this.payment_id, getAmount());
+        Main.showPopupMobilpay(this.payment_id, getAmount());
     }
 
     public void addCurrency150(ActionEvent actionEvent) throws IOException, SQLException {
         setAmount(150);
         paymentHistory();
-        Main.showPopupMobilpay(currentUser, this.payment_id, getAmount());
+        Main.showPopupMobilpay(this.payment_id, getAmount());
     }
 
     public void addCurrency200(ActionEvent actionEvent) throws IOException, SQLException {
         setAmount(200);
         paymentHistory();
-        Main.showPopupMobilpay(currentUser, this.payment_id, getAmount());
+        Main.showPopupMobilpay(this.payment_id, getAmount());
     }
 
     public void paymentHistory() throws IOException, SQLException {
         Connection con = ConnectionManager.getConnection();
         String checkQuery = "SELECT * FROM customer WHERE email = ?";
         PreparedStatement checkStatement = con.prepareStatement(checkQuery);
-        customer_id = currentUser.getId();
         //ResultSet result = checkStatement.executeQuery();
 
         conformation_id = (int) (new Date().getTime() / 1000);
 
         String qry = "INSERT INTO payment (CUSTOMER_ID, AMOUNT, PAYMENT_PROVIDER, STATUS, CONFIRMATION_ID) values(?,?,?,?,?)";
         PreparedStatement st = con.prepareStatement(qry);
-        st.setInt(1, currentUser.getId());
+        st.setInt(1, Main.getCurrentuser().getId());
         st.setFloat(2, getAmount());
         st.setString(3, payment_provider);
         st.setString(4, status);
@@ -155,7 +140,7 @@ public class fillBalenceController implements Initializable {
         Float inputAmount = Float.parseFloat(customAmount.getText());
         setAmount(inputAmount);
         paymentHistory();
-        Main.showPopupMobilpay(currentUser, this.payment_id, getAmount());
+        Main.showPopupMobilpay(this.payment_id, getAmount());
     }
 
     @Override

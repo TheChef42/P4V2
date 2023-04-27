@@ -26,15 +26,11 @@ public class StatisticsController implements Initializable {
     public TableColumn<Transaction, Integer> colAmount;
     public TableColumn<Transaction, Double> colSum;
     public ArrayList<Transaction> transactionsList;
-    Users currentUser;
-    public void setUser(Users currentUser) {
-        this.currentUser = currentUser;
-    }
 
     @FXML
     protected void goBackButtonClick(ActionEvent event) throws IOException {
         //Change stage to user profile when the scene has been made
-        Main.showUserPage(currentUser);
+        Main.showUserPage();
     }
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -44,7 +40,7 @@ public class StatisticsController implements Initializable {
         String query = "SELECT * FROM transaction WHERE customer =?";
         try {
             st = con.prepareStatement(query);
-            st.setInt(1, currentUser.getId());
+            st.setInt(1, Main.getCurrentuser().getId());
             rs = st.executeQuery();
             while(rs.next()){
                 Transaction transaction = new Transaction(rs.getInt("id"));
@@ -58,7 +54,7 @@ public class StatisticsController implements Initializable {
 
     }
 
-    private void getTransactionDetails(String currentUser) {
+    private void getTransactionDetails() {
 
     }
 

@@ -108,7 +108,7 @@ public class Transaction {
         return product;
     }
 
-    public String storeTransaction(Users currentUser, ObservableList<Products> basket){
+    public String storeTransaction(ObservableList<Products> basket){
         //TODO: implement to store the transaction in the database
         String success = "allGood";
         boolean inStock = true;
@@ -120,13 +120,13 @@ public class Transaction {
             }
         }
 
-        if (sum <= currentUser.getBalance()){
+        if (sum <= Main.getCurrentuser().getBalance()){
             if(inStock){
                 try{
                     Connection con = ConnectionManager.getConnection();
                     String transactions_qry = "INSERT INTO transactions (sum, customer) values(?,?)";
                     PreparedStatement st = con.prepareStatement(transactions_qry, Statement.RETURN_GENERATED_KEYS);
-                    st.setInt(2, currentUser.getId());
+                    st.setInt(2, Main.getCurrentuser().getId());
                     st.setFloat(1,sum);
                     st.executeUpdate();
                     ResultSet rs = st.getGeneratedKeys();
@@ -145,7 +145,7 @@ public class Transaction {
                         products.setStock(newstock);
                     }
                     st1.executeBatch();
-                    currentUser.deposit(-sum);
+                    Main.getCurrentuser().deposit(-sum);
                     return success;
 
                 }catch(SQLException e){

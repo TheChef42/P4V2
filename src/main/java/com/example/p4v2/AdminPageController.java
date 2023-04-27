@@ -22,7 +22,7 @@ public class AdminPageController {
 
     @FXML
     protected void showTheShoppingPage(ActionEvent event) throws IOException {
-        Main.showShoppingPage(Main.getCurrentuser());
+        Main.showShoppingPage();
     }
 
     @FXML

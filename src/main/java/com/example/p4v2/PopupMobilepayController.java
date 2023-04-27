@@ -13,8 +13,6 @@ import java.sql.SQLException;
 public class PopupMobilepayController {
 
     private Stage stage;
-
-    Users currentUser;
     private Integer id;
     private boolean answer;
 
@@ -38,11 +36,8 @@ public class PopupMobilepayController {
         this.stage = stage;
     }
 
-    public void setUser(Users user) {
-        this.currentUser = user;
-    }
 
-    public void confirmPayment(Integer id) {
+    public void confirmPayment() {
         Connection con = ConnectionManager.getConnection();
         PreparedStatement st = null;
         ResultSet rs = null;
@@ -51,7 +46,7 @@ public class PopupMobilepayController {
             st = con.prepareStatement(query);
             st.setString(1, "confirmed");
             st.setInt(2, 69);
-            st.setInt(3, id);
+            st.setInt(3, Main.getCurrentuser().getId());
             int rowsAffected = st.executeUpdate();
             System.out.println(rowsAffected + " row(s) updated.");
             st.close();
@@ -78,15 +73,15 @@ public class PopupMobilepayController {
     @FXML
     private void handleConfirmButton(ActionEvent actionEvent) throws IOException {
         id = fillBalenceController.getConformation_id();
-        confirmPayment(id);
-        this.currentUser.deposit(fillBalenceController.getAmount());
-        Main.showFillBalence(Main.getCurrentuser());
+        confirmPayment();
+        Main.getCurrentuser().deposit(fillBalenceController.getAmount());
+        Main.showFillBalence();
     }
 
     @FXML
     private void handleCancelButton() throws IOException {
         setAnswer(false);
-        Main.showFillBalence(currentUser);
+        Main.showFillBalence();
     }
 }
 

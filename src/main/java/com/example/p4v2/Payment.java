@@ -10,17 +10,7 @@ public class Payment {
     public final ArrayList<Payment> payments = new ArrayList<Payment>();
     public Payment(){}
 
-    public static Integer currentUserId;
-
-    public static Integer getCurrentUserId() {
-        return currentUserId;
-    }
-
-    public static void setCurrentUserId(Integer currentUserId) {
-        Payment.currentUserId = currentUserId;
-    }
-
-    public Payment(Timestamp date, float amount) {
+        public Payment(Timestamp date, float amount) {
         this.created_at = date;
         this.amount = amount;
     }
@@ -30,8 +20,8 @@ public class Payment {
         try (Connection con = ConnectionManager.getConnection()) {
             String qry = "SELECT amount, created_at FROM payment WHERE customer_id = ? AND confirmation_id = 69";
             PreparedStatement st = con.prepareStatement(qry);
-            System.out.println(currentUserId);
-            st.setInt(1, currentUserId);
+            System.out.println(Main.getCurrentuser().getId());
+            st.setInt(1, Main.getCurrentuser().getId());
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 Payment payment = new Payment(rs.getTimestamp("created_at"), rs.getFloat("amount"));

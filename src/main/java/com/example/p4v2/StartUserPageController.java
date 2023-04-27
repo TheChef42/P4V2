@@ -51,18 +51,14 @@ public class StartUserPageController implements Initializable {
     public Label userBalance;
 
     private Parent root;
-    Users currentUser;
     public Label PrintName;
     Transaction currentTransaction = new Transaction();
 
-    public void setPrintName(Users currentUser){
-        PrintName.setText(currentUser.getName());
-        userBalance.setText(valueOf(currentUser.getBalance()));
+    public void setPrintName(){
+        PrintName.setText(Main.getCurrentuser().getName());
+        userBalance.setText(valueOf(Main.getCurrentuser().getBalance()));
     }
 
-    public void setUser(Users currentUser) {
-        this.currentUser = currentUser;
-    }
 
     @Override
 
@@ -160,7 +156,7 @@ public class StartUserPageController implements Initializable {
     }
 
     public void CheckOutClick(ActionEvent actionEvent) {
-        if (currentTransaction.storeTransaction(currentUser, observableList).equals("allGood")){
+        if (currentTransaction.storeTransaction(observableList).equals("allGood")){
         
         for (Products product: observableList) {
             product.setSelectAmount(1);
@@ -169,12 +165,12 @@ public class StartUserPageController implements Initializable {
         observableList.clear();
         basket.refresh();
         setSumValue();
-        setPrintName(currentUser);
+        setPrintName();
 
         productWarning.setText("Check out complete");
-    }else if(currentTransaction.storeTransaction(currentUser, observableList).equals("stockIssue")){
+    }else if(currentTransaction.storeTransaction(observableList).equals("stockIssue")){
         productWarning.setText("Insufficient stock");
-    }else if(currentTransaction.storeTransaction(currentUser, observableList).equals("insufficientFunds")){
+    }else if(currentTransaction.storeTransaction(observableList).equals("insufficientFunds")){
         productWarning.setText("Insufficient funds");
     }else{
         productWarning.setText("Other issue");
@@ -184,14 +180,14 @@ public class StartUserPageController implements Initializable {
     @FXML
     protected void gotoUserPageButtonClick(ActionEvent event) throws IOException {
         //Change stage to user profile when the scene has been made
-        Main.showUserPage(currentUser);
+        Main.showUserPage();
     }
 
     @FXML
     protected void logoutButtonClick(ActionEvent event) throws IOException {
         // skal fjerne objektet, ellers ligger de stadig i backenden
         // kan fjernes og muligvis exploides til sikkerheds testing:
-        currentUser = null;
+        Main.setCurrentuser(null);
         //Change stage to user profile when the scene has been made
         Main.showLoginView();
     }

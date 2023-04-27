@@ -38,7 +38,7 @@ public class LoginPageController {
                 System.out.println(currentUser.getName());
                 Main.setCurrentuser(currentUser);
                 //Change scene to the user start page
-                Main.showShoppingPage(currentUser); // Passing the client-object to showClientView method
+                Main.showShoppingPage(); // Passing the client-object to showClientView method
 
             } else {
                 PrintName.setText("Denied, bitch!");

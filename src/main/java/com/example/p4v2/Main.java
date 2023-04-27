@@ -44,13 +44,12 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    public static void showPopupMobilpay(Users user, Integer id, Float amount) throws IOException {
+    public static void showPopupMobilpay(Integer id, Float amount) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("popupMobilepay.fxml"));
         mainLayout = loader.load();
 
         PopupMobilepayController pmc = loader.getController();
-        pmc.setUser(user);
         pmc.setId(id);
 
         Scene scene = new Scene(mainLayout, 600, 400);
@@ -69,7 +68,7 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    public static void showShoppingPage(Users user) throws IOException {
+    public static void showShoppingPage() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("startUserPage.fxml"));
         mainLayout = loader.load();
@@ -83,15 +82,15 @@ public class Main extends Application {
         table.getColumns().addAll(product,price,amount,sum);
 
         StartUserPageController supc = loader.getController();
-        supc.setUser(user);
-        supc.setPrintName(user);
+        supc.setPrintName();
+
         Scene scene = new Scene(mainLayout, 1400, 900);
         primaryStage.setScene(scene);
         primaryStage.setResizable(true);
         primaryStage.show();
     }
 
-    public static void showFillBalence(Users user) throws IOException {
+    public static void showFillBalence() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("fillBalence.fxml"));
         mainLayout = loader.load();
@@ -104,8 +103,7 @@ public class Main extends Application {
 
 
         fillBalenceController fbc = loader.getController();
-        fbc.setUser(user);
-        fbc.setPrintName(user);
+        fbc.setPrintName();
 
         Scene scene = new Scene(mainLayout, 1400, 900);
         primaryStage.setScene(scene);
@@ -113,13 +111,13 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    public static void showUserPage(Users user) throws IOException {
+    public static void showUserPage() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("User.fxml"));
         mainLayout = loader.load();
 
         UserPageController upc = loader.getController();
-        upc.setUser(user);
+        upc.setUserBalance();
 
         Scene scene = new Scene(mainLayout, 1400, 900);
         primaryStage.setScene(scene);
@@ -127,27 +125,20 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    public static void showUpdateUserInfoPage(Users user) throws IOException {
+    public static void showUpdateUserInfoPage() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("updateinfo.fxml"));
         mainLayout = loader.load();
-
-        UserUpdatesController uuc = loader.getController();
-        uuc.setUser(user);
-
         Scene scene = new Scene(mainLayout, 1400, 900);
         primaryStage.setScene(scene);
         primaryStage.setResizable(true);
         primaryStage.show();
     }
 
-    public static void showStatistcsPage(Users user) throws IOException {
+    public static void showStatistcsPage() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("statestik.fxml"));
         mainLayout = loader.load();
-
-        StatisticsController sc = loader.getController();
-        sc.setUser(user);
 
         Scene scene = new Scene(mainLayout, 1400, 900);
         primaryStage.setScene(scene);
@@ -203,14 +194,10 @@ public class Main extends Application {
         primaryStage.setResizable(true);
         primaryStage.show();
     }
-    public static void showPopupDelete(Users user) throws IOException {
+    public static void showPopupDelete() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("popupDelete.fxml"));
         mainLayout = loader.load();
-
-        PopupDeleteController pdc = loader.getController();
-        pdc.setUser(user);
-
         Scene scene = new Scene(mainLayout, 600, 400);
         primaryStage.setScene(scene);
         primaryStage.setResizable(true);

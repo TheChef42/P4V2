@@ -12,8 +12,6 @@ public class PopupDeleteController {
     public Label PrintName;
     private Stage stage;
 
-    Users currentUser;
-
     private boolean answer;
 
     public boolean isAnswer() {
@@ -28,10 +26,6 @@ public class PopupDeleteController {
         this.stage = stage;
     }
 
-    public void setUser(Users user) {
-        this.currentUser = user;
-    }
-
     @FXML
     private TextField passwordCheck;
 
@@ -40,8 +34,8 @@ public class PopupDeleteController {
     private void handleConfirmButton(ActionEvent actionEvent) throws IOException {
         setAnswer(true);
         String CheckPassword = passwordCheck.getText();
-        if (Users.verifyPassword(currentUser.getEmail(), CheckPassword)) {
-            Users.deleteAccount(currentUser);
+        if (Users.verifyPassword(Main.getCurrentuser().getEmail(), CheckPassword)) {
+            Users.deleteAccount(Main.getCurrentuser());
             Main.showLoginView();
         } else {
             PrintName.setText("Password not correct!");
@@ -51,6 +45,6 @@ public class PopupDeleteController {
     @FXML
     private void handleCancelButton() throws IOException {
         setAnswer(false);
-        Main.showUserPage(currentUser);
+        Main.showUserPage();
     }
 }
