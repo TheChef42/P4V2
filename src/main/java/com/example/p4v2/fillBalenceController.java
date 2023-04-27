@@ -157,6 +157,7 @@ public class fillBalenceController implements Initializable {
         paymentHistory();
         Main.showPopupMobilpay(currentUser, this.payment_id, getAmount());
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         paymentHistoryTableDate.setCellValueFactory(new PropertyValueFactory<>("created_at"));
@@ -164,5 +165,5 @@ public class fillBalenceController implements Initializable {
         // get payments for current user and add them to the TableView
         paymentHistoryTable.setItems(payments);
     }
-    ObservableList<Payment> payments = FXCollections.observableArrayList(currentPayment.getPayments(currentUserId));
+    ObservableList<Payment> payments = FXCollections.observableArrayList(currentPayment.getPayments());
 }
