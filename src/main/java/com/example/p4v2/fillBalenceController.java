@@ -63,7 +63,6 @@ public class fillBalenceController implements Initializable {
         this.currentUser = currentUser;
        //currentBalence.setText(valueOf(currentUser.getBalance()));
         //currentBalance.setText(" ");
-        System.out.println(this.currentUser);
     }
 
     public void setPrintName(Users currentUser){
@@ -150,9 +149,6 @@ public class fillBalenceController implements Initializable {
         st.setInt(5, conformation_id);
         st.executeUpdate();
         //payment id equals to the id of the payment
-
-
-        System.out.println("Payment ID: " + payment_id);
     }
 
     public void addCurrencyCustom(ActionEvent actionEvent) throws IOException, SQLException {

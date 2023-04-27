@@ -46,7 +46,7 @@ public class PopupMobilepayController {
         Connection con = ConnectionManager.getConnection();
         PreparedStatement st = null;
         ResultSet rs = null;
-        String query = "UPDATE payment SET STATUS = ?, CONFIRMATION_ID = ?  WHERE id=?";
+        String query = "UPDATE payment SET STATUS = ?, CONFIRMATION_ID = ?  WHERE CONFIRMATION_ID=?";
         try {
             st = con.prepareStatement(query);
             st.setString(1, "confirmed");
