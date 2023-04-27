@@ -58,6 +58,14 @@
    <bottom>
       <HBox alignment="CENTER" BorderPane.alignment="CENTER">
          <children>
+            <Button fx:id="goBack" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#goBack" text="Go back">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Button>
             <Button fx:id="logout" mnemonicParsing="false" onAction="#logoutButtonClick" text="Log out">
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="100.0" top="10.0" />

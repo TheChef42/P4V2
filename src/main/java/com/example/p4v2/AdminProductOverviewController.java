@@ -19,6 +19,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class AdminProductOverviewController implements Initializable {
 
     Admin currentAdmin;
+    Users currentUser;
     public TableView<Products> products;
     public TableColumn<Products, Integer> colProductID;
     public TableColumn<Products,String> colProduct;
@@ -28,34 +29,6 @@ public class AdminProductOverviewController implements Initializable {
 
     public void setAdmin(Admin currentAdmin) {
         this.currentAdmin = currentAdmin;
-    }
-
-    /*public void setProducts() {
-        String[] products = Products.getProducts();
-        System.out.print(products);
-
-        for (String product : products) {
-            colProductID.setCellValueFactory(new PropertyValueFactory<Products, Integer>("Id" + product));
-            colProduct.setCellValueFactory(new PropertyValueFactory<Products, String>("Name" + product));
-            colPrice.setCellValueFactory(new PropertyValueFactory<Products, Double>("Price" + product));
-            colStock.setCellValueFactory(new PropertyValueFactory<Products, Integer>("Stock" + product));
-        }
-
-
-    }*/
-
-
-    @FXML
-    protected void showUserOverview(ActionEvent event) throws IOException {
-        Main.showUserOverview(currentAdmin);
-    }
-
-    @FXML
-    protected void logoutButtonClick(ActionEvent event) throws IOException {
-        // skal fjerne objektet, ellers ligger de stadig i backenden
-        // kan fjernes og muligvis exploides til sikkerheds testing:
-        currentAdmin = null;
-        Main.showLoginView();
     }
 
     @Override
@@ -68,6 +41,26 @@ public class AdminProductOverviewController implements Initializable {
 
         products.setItems(observableList);
     }
+
+    @FXML
+    protected void showUserOverview(ActionEvent event) throws IOException {
+        Main.showUserOverview(currentAdmin);
+    }
+
+    @FXML
+    protected void goBack(ActionEvent event) throws IOException {
+        Main.showAdminPage(currentAdmin);
+    }
+
+    @FXML
+    protected void logoutButtonClick(ActionEvent event) throws IOException {
+        // skal fjerne objektet, ellers ligger de stadig i backenden
+        // kan fjernes og muligvis exploides til sikkerheds testing:
+        currentAdmin = null;
+        Main.showLoginView();
+    }
+
+
 
 
 }

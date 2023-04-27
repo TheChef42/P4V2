@@ -6,6 +6,8 @@ public class AdminPageController {
 
     Admin currentAdmin;
 
+    Users currentUser;
+
     public void setAdmin(Admin currentAdmin) {
         this.currentAdmin = currentAdmin;
     }
@@ -21,10 +23,9 @@ public class AdminPageController {
     }
 
     @FXML
-    protected void showTheShoppingPage(ActionEvent event) throws IOException {
-        Main.showShoppingPage();
+    protected void backToAdminStartOverview(ActionEvent event) throws IOException {
+        Main.showStartAdminPage(currentAdmin);
     }
-
     @FXML
     protected void logoutButtonClick(ActionEvent event) throws IOException {
         // skal fjerne objektet, ellers ligger de stadig i backenden

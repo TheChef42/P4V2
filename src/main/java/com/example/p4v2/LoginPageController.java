@@ -22,29 +22,25 @@ public class LoginPageController {
         String str_username = username.getText();
         String str_password = password.getText();
         
-        Admin currentaAdmin = Admin.login(str_username,str_password);
-        if (currentaAdmin != null) {
-            PrintName.setText(currentaAdmin.getName());
-            System.out.println(currentaAdmin.getName());
+        Admin currentAdmin = Admin.login(str_username,str_password);
+        Users currentUser = Users.login(str_username,str_password);
+        Main.setCurrentuser(currentUser);
+
+        if (currentAdmin != null) {
+            PrintName.setText(currentAdmin.getName());
+            System.out.println(currentAdmin.getName());
             //Change scene to the user start page
-            Main.showAdminPage(currentaAdmin); // Passing the client-object to showClientView method
-
-        }else{
-
-            Users currentUser = Users.login(str_username,str_password);
-
-            if (currentUser != null) {
-                PrintName.setText(currentUser.getName());
-                System.out.println(currentUser.getName());
-                Main.setCurrentuser(currentUser);
-                //Change scene to the user start page
-                Main.showShoppingPage(); // Passing the client-object to showClientView method
-
-            } else {
+            Main.showStartAdminPage(currentAdmin); // Passing the client-object to showClientView method
+        } else if (currentUser != null) {
+            PrintName.setText(currentUser.getName());
+            System.out.println(currentUser.getName());
+            //Change scene to the user start page
+            Main.showShoppingPage(); // Passing the client-object to showClientView method
+        } else {
                 PrintName.setText("Denied, bitch!");
         }
     }
-}
+
     @FXML
     protected void signUpClick(ActionEvent event) throws IOException {
         Main.showCreateUser();
