@@ -86,48 +86,60 @@ public class Transaction {
     public void getTransactionsList(){
         //TODO: implement how to return the transactions
     }
-    public boolean storeTransaction(Users currentUser, ObservableList<Products> basket){
+    public String storeTransaction(Users currentUser, ObservableList<Products> basket){
         //TODO: implement to store the transaction in the database
-        boolean success = false;
+        String success = "allGood";
+        boolean inStock = true;
         float sum = 0;
             for (Products products1: basket){
                 sum += (products1.price * products1.selectAmount);
+                if(products1.getStock() < products1.selectAmount){
+                    inStock = false;
+                }
             }
 
         if (sum <= currentUser.getBalance()){
-        try{
-            Connection con = ConnectionManager.getConnection();
-            String transactions_qry = "INSERT INTO transactions (sum, customer) values(?,?)";
-            PreparedStatement st = con.prepareStatement(transactions_qry, Statement.RETURN_GENERATED_KEYS);
-            st.setInt(2, currentUser.getId());
-            st.setFloat(1,sum);
-            st.executeUpdate();
-            ResultSet rs = st.getGeneratedKeys();
-            rs.next();
-            int newId = rs.getInt(1);
-            String transactionsInfoQry = "INSERT INTO transactions_info (transaction_id, product, amount, price, sum_price) values(?,?,?,?,?)";
-            PreparedStatement st1 = con.prepareStatement(transactionsInfoQry);
-            for (Products products: basket) {
-                st1.setInt(1, newId);
-                st1.setInt(2, products.getProductID());
-                st1.setInt(3, products.selectAmount);
-                st1.setFloat(4, products.price);
-                st1.setFloat(5, (products.price * products.selectAmount));
-                st1.addBatch();
-            }
-            st1.executeBatch();
-            currentUser.deposit(-sum);
-            success = true;
+            if(inStock){
+                try{
+                    Connection con = ConnectionManager.getConnection();
+                    String transactions_qry = "INSERT INTO transactions (sum, customer) values(?,?)";
+                    PreparedStatement st = con.prepareStatement(transactions_qry, Statement.RETURN_GENERATED_KEYS);
+                    st.setInt(2, currentUser.getId());
+                    st.setFloat(1,sum);
+                    st.executeUpdate();
+                    ResultSet rs = st.getGeneratedKeys();
+                    rs.next();
+                    int newId = rs.getInt(1);
+                    String transactionsInfoQry = "INSERT INTO transactions_info (transaction_id, product, amount, price, sum_price) values(?,?,?,?,?)";
+                    PreparedStatement st1 = con.prepareStatement(transactionsInfoQry);
+                    for (Products products: basket) {
+                        st1.setInt(1, newId);
+                        st1.setInt(2, products.getProductID());
+                        st1.setInt(3, products.selectAmount);
+                        st1.setFloat(4, products.price);
+                        st1.setFloat(5, (products.price * products.selectAmount));
+                        st1.addBatch();
+                        int newstock = products.getStock() - products.selectAmount;
+                        products.setStock(newstock);
+                    }
+                    st1.executeBatch();
+                    currentUser.deposit(-sum);
+                    return success;
+                
+                }catch(SQLException e){
+                    e.printStackTrace();
+                    return success;
+                }
+            }else{
+                success = "stockIssue";
+                return success;
+        }
+        }else{
+            success = "insufficientFunds";
             return success;
 
-        }catch(SQLException e){
-            e.printStackTrace();
-            return success;
         }
-    }else{
-        return success;
     }
-}
     public void deleteProductFromList(Products product){
         //TODO: implement to delete a product from the list
         if (basket.contains(product)) {
