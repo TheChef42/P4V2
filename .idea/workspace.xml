@@ -7,7 +7,12 @@
     <list default="true" id="559789ee-1deb-4a2d-8f8f-577e954627d9" name="Changes" comment="small fix fillBalence">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Payment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/fillBalenceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/fillBalenceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/AdminProductOverviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/AdminProductOverviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Products.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/adminProductOverviewPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/adminProductOverviewPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/adminUserOverviewPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/adminUserOverviewPage.fxml" afterDir="false" />
     </list>
     <list id="7f9b1ba7-7b51-4d49-bc4b-13dfb9410db6" name="Changes by Vitagliano" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -92,6 +97,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Products" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.p4v2.Products" />
+      <module name="P4V2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.p4v2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Transaction" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.p4v2.Transaction" />
       <module name="P4V2" />
@@ -121,9 +139,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Products" />
         <item itemvalue="Application.testing" />
         <item itemvalue="Application.HelloApplication" />
-        <item itemvalue="Application.Transaction" />
         <item itemvalue="Application.Transaction" />
       </list>
     </recent_temporary>

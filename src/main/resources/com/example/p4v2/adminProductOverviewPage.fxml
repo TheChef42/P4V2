@@ -12,13 +12,12 @@
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView>
+            <TableView fx:id="products">
               <columns>
-                <TableColumn prefWidth="44.0" text="ID" />
-                <TableColumn prefWidth="169.0" text="product name" />
-                  <TableColumn prefWidth="164.0" text="Price" />
-                  <TableColumn prefWidth="116.0" text="Stock" />
-                  <TableColumn prefWidth="106.0" text="Last changed" />
+                <TableColumn fx:id="colProductID" prefWidth="82.66666412353516" text="ID" />
+                <TableColumn fx:id="colProduct" prefWidth="303.33333587646484" text="product name" />
+                  <TableColumn fx:id="colPrice" prefWidth="192.66668701171875" text="Price" />
+                  <TableColumn fx:id="colStock" prefWidth="163.6666259765625" text="Stock" />
               </columns>
             </TableView>
             <Label text="Show choosen product here">

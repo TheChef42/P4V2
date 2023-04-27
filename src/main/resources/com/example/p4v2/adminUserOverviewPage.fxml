@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.p4v2.AdminUserOverviewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.p4v2.AdminUserOverviewController">
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -34,7 +34,7 @@
          <children>
             <Label text="User overview">
                <font>
-                  <Font size="18.0" />
+                  <Font size="24.0" />
                </font>
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -46,7 +46,10 @@
                </HBox.margin>
                <children>
                   <Separator prefWidth="200.0" />
-                  <Button fx:id="productOverview" mnemonicParsing="false" onAction="#showProductOverview" text="Go to product overview" />
+                  <Button fx:id="productOverview" mnemonicParsing="false" onAction="#showProductOverview" text="Go to product overview">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Button>
                </children>
             </HBox>
          </children>
@@ -59,16 +62,25 @@
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="100.0" top="10.0" />
                </HBox.margin>
+               <font>
+                  <Font size="24.0" />
+               </font>
             </Button>
             <Button mnemonicParsing="false" text="Make admin">
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="100.0" top="10.0" />
                </HBox.margin>
+               <font>
+                  <Font size="24.0" />
+               </font>
             </Button>
             <Button mnemonicParsing="false" text="Delete user">
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
+               <font>
+                  <Font size="24.0" />
+               </font>
             </Button>
          </children>
       </HBox>
