@@ -1,14 +1,49 @@
 package com.example.p4v2;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import java.io.IOException;
+import java.lang.reflect.Field;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
-public class AdminProductOverviewController {
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+public class AdminProductOverviewController implements Initializable {
 
     Admin currentAdmin;
+    public TableView<Products> products;
+    public TableColumn<Products, Integer> colProductID;
+    public TableColumn<Products,String> colProduct;
+    public TableColumn<Products,Double> colPrice;
+    public TableColumn<Products, Integer> colStock;
+    Transaction currentTransaction = new Transaction();
 
     public void setAdmin(Admin currentAdmin) {
         this.currentAdmin = currentAdmin;
     }
+
+    /*public void setProducts() {
+        String[] products = Products.getProducts();
+        System.out.print(products);
+
+        for (String product : products) {
+            colProductID.setCellValueFactory(new PropertyValueFactory<Products, Integer>("Id" + product));
+            colProduct.setCellValueFactory(new PropertyValueFactory<Products, String>("Name" + product));
+            colPrice.setCellValueFactory(new PropertyValueFactory<Products, Double>("Price" + product));
+            colStock.setCellValueFactory(new PropertyValueFactory<Products, Integer>("Stock" + product));
+        }
+
+
+    }*/
+
 
     @FXML
     protected void showUserOverview(ActionEvent event) throws IOException {
@@ -22,4 +57,17 @@ public class AdminProductOverviewController {
         currentAdmin = null;
         Main.showLoginView();
     }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ObservableList<Products> observableList = FXCollections.observableArrayList(currentTransaction.getProducts());
+        colProductID.setCellValueFactory(new PropertyValueFactory<Products, Integer>("productID"));
+        colProduct.setCellValueFactory(new PropertyValueFactory<Products, String>("Name"));
+        colPrice.setCellValueFactory(new PropertyValueFactory<Products, Double>("Price"));
+        colStock.setCellValueFactory(new PropertyValueFactory<Products, Integer>("Stock"));
+
+        products.setItems(observableList);
+    }
+
+
 }

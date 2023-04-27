@@ -188,6 +188,13 @@ public class Main extends Application {
         loader.setLocation(Main.class.getResource("adminProductOverviewPage.fxml"));
         mainLayout = loader.load();
 
+        table.setEditable(true);
+        TableColumn product = new TableColumn<>("Product");
+        TableColumn price = new TableColumn<>("Price");
+        TableColumn stock = new TableColumn<>("Stock");
+        TableColumn id = new TableColumn<>("Id");
+        table.getColumns().addAll(product,price,stock,id);
+
         AdminProductOverviewController upc = loader.getController();
         upc.setAdmin(user);
 

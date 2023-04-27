@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class Products {
@@ -13,7 +15,6 @@ public class Products {
     public String name;
     public float price;
     private int stock;
-    public static String[] products;
     public int selectAmount = 1;
     public float sum;
 
@@ -31,7 +32,7 @@ public class Products {
             rs.next();
             this.productID = productID;
             this.name = rs.getString("product");
-            this.price = (float) rs.getInt("price");
+            this.price = rs.getFloat("price");
             this.stock = rs.getInt("stock");
         } catch(SQLException e){
             e.printStackTrace();
@@ -54,6 +55,7 @@ public class Products {
         }
     }
 
+
     public Products(String productName, float productPrice, int productStock) {
         this.name = productName;
         this.price = productPrice;
@@ -69,8 +71,12 @@ public class Products {
     public String toString(){
         return this.productID + "\t" + this.name + "\t" + this.price + "\t" + this.stock + "\n";
     }
-    public static String[] getProducts() {
+    public static Products[] getProducts() {
         //TODO: implement how to return the products
+
+        Products[] products = new Products[0];
+        int i = 1;
+
         try {
             Connection con = ConnectionManager.getConnection();
             String qry = "SELECT * FROM products";
@@ -80,16 +86,25 @@ public class Products {
             System.out.print("product" + "\t\t");
             System.out.print("price" + "\t\t");
             System.out.println(("stock") + "\t\t");
+
             while(rs.next()){
-                System.out.print(rs.getInt("id") + "\t\t");
-                System.out.print(rs.getString("product") + "\t\t");
-                System.out.print(rs.getString("price") + "\t\t");
-                System.out.println(rs.getString("stock") + "\t\t");
+                rs.getInt("id");
+                rs.getString("product");
+                rs.getFloat("price");
+                rs.getInt("stock");
+
+
+
+                System.out.print(products[i].productID);
+                System.out.print(products[i].name);
+                System.out.println(products[i].price);
+                System.out.println(products[i].stock);
             }
 
         } catch(SQLException e){
             e.printStackTrace();
         }
+        System.out.print(products[1].productID);
         return products;
     }
 
