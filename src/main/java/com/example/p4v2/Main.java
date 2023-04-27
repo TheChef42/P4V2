@@ -34,7 +34,7 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    public static void showPopupMobilpay(Users user, Integer id) throws IOException {
+    public static void showPopupMobilpay(Users user, Integer id, Float amount) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("popupMobilepay.fxml"));
         mainLayout = loader.load();
@@ -87,7 +87,7 @@ public class Main extends Application {
         mainLayout = loader.load();
 
         fillBalenceController fbc = loader.getController();
-        fbc.setUser(user);
+        fbc.setup(user);
 
         Scene scene = new Scene(mainLayout, 1400, 900);
         primaryStage.setScene(scene);

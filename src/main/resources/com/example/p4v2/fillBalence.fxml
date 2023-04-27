@@ -34,10 +34,10 @@
             <VBox alignment="TOP_CENTER" prefHeight="297.0" prefWidth="248.0">
                <children>
                   <Label text="MobilePay" textFill="#00a4ff" />
-                  <TableView prefHeight="207.0" prefWidth="249.0">
+                  <TableView fx:id="paymentHistoryTable" prefHeight="207.0" prefWidth="249.0">
                     <columns>
-                      <TableColumn maxWidth="99.0" minWidth="-1.0" prefWidth="51.0" text="Date" />
-                      <TableColumn prefWidth="193.0" text="Amount" />
+                      <TableColumn fx:id="paymentHistoryTableDate" maxWidth="99.0" minWidth="-1.0" prefWidth="51.0" text="Date" />
+                      <TableColumn fx:id="paymentHistoryTableAmount" prefWidth="193.0" text="Amount" />
                     </columns>
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

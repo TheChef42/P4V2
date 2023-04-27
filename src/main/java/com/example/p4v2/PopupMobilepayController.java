@@ -79,7 +79,7 @@ public class PopupMobilepayController {
     private void handleConfirmButton(ActionEvent actionEvent) throws IOException {
         id = fillBalenceController.getConformation_id();
         confirmPayment(id);
-        fillBalenceController.fillBalence();
+        this.currentUser.deposit(fillBalenceController.getAmount());
         Main.showFillBalence(currentUser);
     }
 
