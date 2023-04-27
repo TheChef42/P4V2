@@ -160,7 +160,7 @@ public class StartUserPageController implements Initializable {
     }
 
     public void CheckOutClick(ActionEvent actionEvent) {
-        if (currentTransaction.storeTransaction(currentUser, observableList)){
+        if (currentTransaction.storeTransaction(currentUser, observableList).equals("allGood")){
         
         for (Products product: observableList) {
             product.setSelectAmount(1);
@@ -170,9 +170,14 @@ public class StartUserPageController implements Initializable {
         basket.refresh();
         setSumValue();
         setPrintName(currentUser);
+
         productWarning.setText("Check out complete");
-    }else{
+    }else if(currentTransaction.storeTransaction(currentUser, observableList).equals("stockIssue")){
+        productWarning.setText("Insufficient stock");
+    }else if(currentTransaction.storeTransaction(currentUser, observableList).equals("insufficientFunds")){
         productWarning.setText("Insufficient funds");
+    }else{
+        productWarning.setText("Other issue");
     }
     }
 

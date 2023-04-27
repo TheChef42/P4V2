@@ -123,6 +123,35 @@ public class Products {
 
     public void setStock(int newStock) {
         this.stock = newStock;
+        Connection con = ConnectionManager.getConnection();
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        String query = "UPDATE products SET stock=? WHERE id=?";
+        try {
+            st = con.prepareStatement(query);
+            st.setFloat(1, newStock);
+            st.setInt(2, this.productID);
+            int rowsAffected = st.executeUpdate();
+            System.out.println(rowsAffected + " row(s) updated.");
+            st.close();
+        } catch (SQLException ex) {
+            System.out.println("Error: " + ex.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println("Error: " + ex.getMessage());
+            }
+        }
+        
     }
 
     public int getSelectAmount() {
