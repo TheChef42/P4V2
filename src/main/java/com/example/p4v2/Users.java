@@ -1,5 +1,6 @@
 package com.example.p4v2;
 
+
 import javafx.scene.Node;
 
 import java.sql.*;
@@ -7,6 +8,7 @@ import java.util.Objects;
 
 public class Users {
     private int id;
+    public static final int LogRound = 10;
     private String email;
     protected String password;
     public String firstName;
@@ -40,8 +42,8 @@ public class Users {
                 String qry = "INSERT INTO customer (EMAIL, PASSWORD, FIRSTNAME, LASTNAME) values(?,?,?,?)";
                 PreparedStatement st = con.prepareStatement(qry);
                 st.setString(1, email);
-                // evt. hashing af passwords her:?????
-                st.setString(2, password);
+                String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
+                st.setString(2, hashed);
                 st.setString(3, firstName);
                 st.setString(4, lastName);
                 st.executeUpdate();
@@ -57,12 +59,12 @@ public class Users {
     public static Users login(String email, String password) {
         // declaring it out of the if statement to return it at the end
         Users currentUser = new Users();
+
         if (verifyPassword(email, password)) {
             Connection con = ConnectionManager.getConnection();
             PreparedStatement st = null;
             ResultSet rs = null;
             String query = "SELECT * FROM customer WHERE EMAIL=?";
-    
             try {
                 st = con.prepareStatement(query);
                 st.setString(1, email);
@@ -114,7 +116,11 @@ public class Users {
             st = con.prepareStatement(query);
             st.setString(1, email);
             rs = st.executeQuery();
-            if (rs.next() && Objects.equals(rs.getString("PASSWORD"), password)) {
+            rs.next();
+            String tempPass = rs.getString("PASSWORD");
+
+
+            if (BCrypt.checkpw(password, tempPass)) {
                 return true;
             } else {
                 return false;

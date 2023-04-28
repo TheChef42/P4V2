@@ -17,6 +17,7 @@ public class Main extends Application {
     private static TableView table = new TableView<Products>();
     private static TableView tableFill = new TableView<Payment>();
 
+
     public static Users getCurrentuser() {
         return currentuser;
     }
