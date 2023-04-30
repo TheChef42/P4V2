@@ -17,6 +17,33 @@ public class Admin {
         //TODO: how to edit admin
     }
 
+    public static Users[] getUsers() {
+        //TODO: implement how to return the products
+
+        Users[] users = new Users[0];
+
+        try {
+            Connection con = ConnectionManager.getConnection();
+            String qry = "SELECT * FROM customer";
+            PreparedStatement st = con.prepareStatement(qry);
+            ResultSet rs = st.executeQuery();
+
+            while(rs.next()){
+                rs.getInt("id");
+                rs.getString("email");
+                rs.getString("password");
+                rs.getString("firstname");
+                rs.getString("lastname");
+                rs.getFloat("balance");
+                rs.getTimestamp("created_at");
+            }
+
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+        return users;
+    }
+
     public static Admin login(String username, String password){
         // declaring it out of the if statement to return it at the end
         Admin currentAdmin = new Admin();

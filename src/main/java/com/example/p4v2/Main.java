@@ -12,16 +12,23 @@ import java.io.IOException;
 
 public class Main extends Application {
     private static Users currentuser;
+    private static Admin currentAdmin;
     private static Stage primaryStage;
     private static BorderPane mainLayout;
     private static TableView table = new TableView<Products>();
     private static TableView tableFill = new TableView<Payment>();
 
+    public static Admin getCurrentAdmin() {
+        return currentAdmin;
+    }
+    public static void setCurrentAdmin(Admin currentaAdmin) {
+        Main.currentAdmin = currentAdmin;
+    }
 
+    
     public static Users getCurrentuser() {
         return currentuser;
     }
-
     public static void setCurrentuser(Users currentuser) {
         Main.currentuser = currentuser;
     }

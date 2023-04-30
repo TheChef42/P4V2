@@ -28,7 +28,7 @@ public class AdminProductOverviewController implements Initializable {
     Transaction currentTransaction = new Transaction();
 
     public void setAdmin(Admin currentAdmin) {
-        this.currentAdmin = currentAdmin;
+        this.currentAdmin = Main.getCurrentAdmin();
     }
 
     @Override
