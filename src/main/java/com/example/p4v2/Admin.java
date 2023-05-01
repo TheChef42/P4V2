@@ -17,7 +17,7 @@ public class Admin {
         //TODO: how to edit admin
     }
 
-    public static Users[] getUsers() {
+    public Users[] getUsers() {
         //TODO: implement how to return the products
 
         Users[] users = new Users[0];
