@@ -119,7 +119,6 @@ public class Users {
             rs.next();
             String tempPass = rs.getString("PASSWORD");
 
-
             if (BCrypt.checkpw(password, tempPass)) {
                 return true;
             } else {

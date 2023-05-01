@@ -24,8 +24,8 @@ public class AdminUserOverviewController implements Initializable {
     private TableColumn<Users, Double> colBalance;
     private TableColumn<Users, Date> colCreatedAt;
 
-    public void setAdmin(Admin currentAdmin) {
-        this.currentAdmin = Main.getCurrentAdmin();
+    public void setAdmin() {
+        currentAdmin = Main.getCurrentAdmin();
     }
 
     @Override
