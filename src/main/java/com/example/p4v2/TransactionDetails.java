@@ -6,7 +6,7 @@ public class TransactionDetails {
     private int id;
 
     private Timestamp date;
-    private int transactonId;
+    private int transactionId;
     private String productName;
     private int amount;
     private Double price;
@@ -24,6 +24,7 @@ public class TransactionDetails {
             st.setInt(1, id);
             ResultSet rs = st.executeQuery();
             while(rs.next()){
+                transactionId = rs.getInt("transaction_id");
                 productName = rs.getString("product");
                 date = rs.getTimestamp("created_at");
                 amount = rs.getInt("amount");
@@ -40,12 +41,12 @@ public class TransactionDetails {
         System.out.println(trans );
 
     }
-    public int getTransactonId() {
-        return transactonId;
+    public int getTransactionId() {
+        return transactionId;
     }
 
-    public void setTransactonId(int transactonId) {
-        this.transactonId = transactonId;
+    public void setTransactionId(int transactionId) {
+        this.transactionId = transactionId;
     }
 
     public String getProductName() {

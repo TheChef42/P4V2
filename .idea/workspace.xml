@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="559789ee-1deb-4a2d-8f8f-577e954627d9" name="Changes" comment="nu med admin customer kode">
+    <list default="true" id="559789ee-1deb-4a2d-8f8f-577e954627d9" name="Changes" comment="statistics with product names">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Payment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/StatisticsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/StatisticsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/TransactionDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/TransactionDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/statestik.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/statestik.fxml" afterDir="false" />
     </list>
     <list id="7f9b1ba7-7b51-4d49-bc4b-13dfb9410db6" name="Changes by Vitagliano" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -153,6 +152,7 @@
       <workItem from="1681807148736" duration="6563000" />
       <workItem from="1682014122649" duration="7426000" />
       <workItem from="1682060651867" duration="3998000" />
+      <workItem from="1682951932728" duration="313000" />
     </task>
     <task id="LOCAL-00001" summary="ny repository">
       <created>1681807249738</created>
@@ -224,7 +224,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682927995694</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="statistics with product names">
+      <created>1682932422686</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1682932422686</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,7 +262,8 @@
     <MESSAGE value="static user" />
     <MESSAGE value="nu med basket der summerer" />
     <MESSAGE value="nu med admin customer kode" />
-    <option name="LAST_COMMIT_MESSAGE" value="nu med admin customer kode" />
+    <MESSAGE value="statistics with product names" />
+    <option name="LAST_COMMIT_MESSAGE" value="statistics with product names" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

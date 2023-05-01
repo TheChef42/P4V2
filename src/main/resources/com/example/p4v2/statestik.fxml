@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
-<?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -24,76 +23,15 @@
    <center>
       <VBox alignment="CENTER" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Balence overview">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <MenuBar maxWidth="-Infinity" minHeight="-Infinity" prefWidth="1000.0">
-              <menus>
-                <Menu mnemonicParsing="false">
-                     <graphic>
-                        <ToggleButton mnemonicParsing="false" text="year">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </ToggleButton>
-                     </graphic>
-                </Menu>
-                <Menu mnemonicParsing="false">
-                     <graphic>
-                        <ToggleButton mnemonicParsing="false" text="Month">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </ToggleButton>
-                     </graphic>
-                </Menu>
-                <Menu mnemonicParsing="false">
-                     <graphic>
-                        <ToggleButton mnemonicParsing="false" text="Week">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </ToggleButton>
-                     </graphic>
-                </Menu>
-                  <Menu mnemonicParsing="false">
-                     <graphic>
-                        <ToggleButton mnemonicParsing="false" text="Day">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </ToggleButton>
-                     </graphic>
-                  </Menu>
-              </menus>
-               <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </VBox.margin>
-            </MenuBar>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <LineChart maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="290.0" prefWidth="1012.0">
-                    <xAxis>
-                      <CategoryAxis side="BOTTOM" />
-                    </xAxis>
-                    <yAxis>
-                      <NumberAxis side="LEFT" />
-                    </yAxis>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </LineChart>
-               </children>
-            </HBox>
-            <TableView fx:id="history" prefHeight="258.0" prefWidth="1068.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
+            <TableView fx:id="history" prefHeight="790.0" prefWidth="1068.0">
               <columns>
-                <TableColumn fx:id="colDate" prefWidth="198.0" text="Date" />
-                  <TableColumn fx:id="colProduct" prefWidth="224.0" text="Product" />
-                  <TableColumn fx:id="colPrice" prefWidth="212.0" text="Price" />
-                  <TableColumn fx:id="colAmount" prefWidth="239.0" text="Amount" />
-                  <TableColumn fx:id="colSum" prefWidth="193.0" text="Sum" />
+                  <TableColumn fx:id="colTransaction" minWidth="100.0" prefWidth="207.0" text="Transaction" />
+                  <TableColumn fx:id="colDate" prefWidth="198.0" text="Date" />
+                  <TableColumn fx:id="colProduct" prefWidth="176.0" text="Product" />
+                  <TableColumn fx:id="colPrice" prefWidth="113.0" text="Price" />
+                  <TableColumn fx:id="colAmount" prefWidth="231.0" text="Amount" />
+                  <TableColumn fx:id="colSum" prefWidth="142.0" text="Sum" />
               </columns>
             </TableView>
          </children>

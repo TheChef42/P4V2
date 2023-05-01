@@ -23,6 +23,7 @@ public class StatisticsController implements Initializable {
     public TableColumn<TransactionDetails, Double> colPrice;
     public TableColumn<TransactionDetails, Integer> colAmount;
     public TableColumn<TransactionDetails, Double> colSum;
+    public TableColumn<TransactionDetails, Integer> colTransaction;
 
     @FXML
     protected void goBackButtonClick(ActionEvent event) throws IOException {
@@ -53,6 +54,7 @@ public class StatisticsController implements Initializable {
             e.printStackTrace();
             // closing the connection:
         }
+        colTransaction.setCellValueFactory(new PropertyValueFactory<TransactionDetails, Integer>("transactionId"));
         colDate.setCellValueFactory(new PropertyValueFactory<TransactionDetails, Timestamp>("date"));
         colProduct.setCellValueFactory(new PropertyValueFactory<TransactionDetails, String>("productName"));
         colPrice.setCellValueFactory(new PropertyValueFactory<TransactionDetails, Double>("Price"));
