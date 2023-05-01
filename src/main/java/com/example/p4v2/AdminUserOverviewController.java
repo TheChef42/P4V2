@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -97,4 +98,16 @@ public class AdminUserOverviewController implements Initializable {
         currentAdmin = null;
         Main.showLoginView();
     }
+
+    @FXML
+    protected void deleteUserClick(ActionEvent event) throws IOException {
+        Users user = usersTable.getSelectionModel().getSelectedItem();
+        user.deleteAccount(user);
+
+        //Reloads the page:
+        ObservableList<Users> observableList = FXCollections.observableArrayList(Admin.getUsers());
+        usersTable.setItems(observableList);
+
+        }
 }
+

@@ -82,7 +82,7 @@
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" text="Delete user">
+            <Button fx:id="delete" mnemonicParsing="false" onAction="#deleteUserClick" text="Delete user">
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
