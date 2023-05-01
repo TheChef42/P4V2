@@ -18,8 +18,7 @@ public class AdminUserOverviewController implements Initializable {
     private Admin currentAdmin;
     private TableView<Users> usersTable;
     private TableColumn<Users, Integer> colUserID;
-    private TableColumn<Users, String> colFirstName;
-    private TableColumn<Users, String> colLastName;
+    private TableColumn<Users, String> colName;
     private TableColumn<Users, String> colEmail;
     private TableColumn<Users, Double> colBalance;
     private TableColumn<Users, Date> colCreatedAt;
@@ -30,13 +29,9 @@ public class AdminUserOverviewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        if(currentAdmin == null){
-            System.out.println("admin is null");
-        }
         ObservableList<Users> observableList = FXCollections.observableArrayList(Admin.getUsers());
         colUserID.setCellValueFactory(new PropertyValueFactory<>("id"));
-        colFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        colLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("firstName" + "lastName"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         colBalance.setCellValueFactory(new PropertyValueFactory<>("balance"));
         colCreatedAt.setCellValueFactory(new PropertyValueFactory<>("createdAt"));
