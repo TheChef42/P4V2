@@ -33,7 +33,7 @@ public class AdminUserOverviewController implements Initializable {
         if(currentAdmin == null){
             System.out.println("admin is null");
         }
-        ObservableList<Users> observableList = FXCollections.observableArrayList(currentAdmin.getUsers());
+        ObservableList<Users> observableList = FXCollections.observableArrayList(Admin.getUsers());
         colUserID.setCellValueFactory(new PropertyValueFactory<>("id"));
         colFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         colLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));

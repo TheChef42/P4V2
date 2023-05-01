@@ -206,12 +206,35 @@ public class Users {
         return this.firstName + " " + this.lastName;
     }
 
+    public String getFirstName() {
+        return this.firstName;
+    }
+
+    public void setFirstName(String name) {
+        this.firstName = name;
+    }
+
+    public String getLastName() {
+        return this.lastName;
+    }
+    public void setLastName(String name) {
+        this.lastName = name;
+    }
+
     public int getId() {
         return this.id;
     }
 
+    public void setId(int thisid) {
+        this.id = thisid;
+    }
+
     public String getEmail() {
         return this.email;
+    }
+
+    public void setObjectEmail(String mail) {
+        this.email = mail;
     }
 
     public void setEmail(String newEmail) {
@@ -247,8 +270,28 @@ public class Users {
         
     }
 
+    private String getPassword(){
+        return this.password;
+    }
+
+    public void setPassword(String passwordString){
+        this.password = passwordString;
+    }
+
     public float getBalance() {
         return this.balance;
+    }
+
+    public void setBalance(float money) {
+        this.balance = money;
+    }
+
+    public Timestamp getCreatedAt() {
+        return this.created_at;
+    }
+
+    public void setCreatedAt(Timestamp time) {
+        this.created_at = time;
     }
 
     public void deposit(float money) {
