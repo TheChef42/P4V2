@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="559789ee-1deb-4a2d-8f8f-577e954627d9" name="Changes" comment="nu med basket der summerer">
+    <list default="true" id="559789ee-1deb-4a2d-8f8f-577e954627d9" name="Changes" comment="nu med admin customer kode">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/AdminUserOverviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/AdminUserOverviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Users.java" afterDir="false" />
     </list>
     <list id="7f9b1ba7-7b51-4d49-bc4b-13dfb9410db6" name="Changes by Vitagliano" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -218,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682021549688</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="nu med admin customer kode">
+      <created>1682927995694</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1682927995694</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,13 +246,14 @@
     <MESSAGE value="Should be able to change scene when you log in" />
     <MESSAGE value="er kommet til at oprette min database med et andet kodeord så nu burde det virke hvis is pull´er" />
     <MESSAGE value="fill balence and private login database" />
-    <MESSAGE value="nu med basket der summerer" />
     <MESSAGE value="Nu kan man logge ud (dog kun med side skift) og skifte til til user siden siden og gå tilbage til shopping siden" />
     <MESSAGE value="fix switch til load produkter" />
     <MESSAGE value="prøv nu" />
     <MESSAGE value="small fix fillBalence" />
     <MESSAGE value="static user" />
-    <option name="LAST_COMMIT_MESSAGE" value="static user" />
+    <MESSAGE value="nu med basket der summerer" />
+    <MESSAGE value="nu med admin customer kode" />
+    <option name="LAST_COMMIT_MESSAGE" value="nu med admin customer kode" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

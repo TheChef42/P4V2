@@ -36,9 +36,9 @@ public class Admin {
                 user.setLastName(rs.getString("lastname"));
                 user.setBalance(rs.getFloat("balance"));
                 user.setCreatedAt(rs.getTimestamp("created_at"));
-    
                 userList.add(user);
             }
+            System.out.println(userList.get(0).getId());
     
         } catch(SQLException e){
             e.printStackTrace();

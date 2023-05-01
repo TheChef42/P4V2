@@ -13,6 +13,7 @@ public class Users {
     protected String password;
     public String firstName;
     public String lastName;
+    private String name;
     private float balance;
     public Timestamp created_at;
 

@@ -31,7 +31,7 @@ public class AdminUserOverviewController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<Users> observableList = FXCollections.observableArrayList(Admin.getUsers());
         colUserID.setCellValueFactory(new PropertyValueFactory<Users, Integer>("id"));
-        colName.setCellValueFactory(new PropertyValueFactory<Users, String>("firstName" + "lastName"));
+        colName.setCellValueFactory(new PropertyValueFactory<Users, String>("name"));
         colEmail.setCellValueFactory(new PropertyValueFactory<Users, String>("email"));
         colBalance.setCellValueFactory(new PropertyValueFactory<Users, Double>("balance"));
         colCreatedAt.setCellValueFactory(new PropertyValueFactory<Users, Date>("createdAt"));
