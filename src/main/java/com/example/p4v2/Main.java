@@ -109,7 +109,6 @@ public class Main extends Application {
 
         tableFill.getColumns().addAll(date, amount);
 
-
         fillBalenceController fbc = loader.getController();
         fbc.setPrintName();
 

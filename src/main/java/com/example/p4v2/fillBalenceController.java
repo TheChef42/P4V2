@@ -70,7 +70,6 @@ public class fillBalenceController implements Initializable {
         return currentBalence;
     }
 
-
     /*public static void setCurrentUser(Users currentUser) {
         fillBalenceController.currentUser = currentUser;
     }*/

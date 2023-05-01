@@ -7,25 +7,22 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class StatisticsController implements Initializable {
-    public TableView<Transaction> history;
-    public TableColumn<Transaction, String> colDate;
-    public TableColumn<Transaction, String> colProduct;
-    public TableColumn<Transaction, Double> colPrice;
-    public TableColumn<Transaction, Integer> colAmount;
-    public TableColumn<Transaction, Double> colSum;
-    public ArrayList<Transaction> transactionsList;
+    public TableView<TransactionDetails> history;
+    public TableColumn<TransactionDetails, Timestamp> colDate;
+    public TableColumn<TransactionDetails, String> colProduct;
+    public TableColumn<TransactionDetails, Double> colPrice;
+    public TableColumn<TransactionDetails, Integer> colAmount;
+    public TableColumn<TransactionDetails, Double> colSum;
 
     @FXML
     protected void goBackButtonClick(ActionEvent event) throws IOException {
@@ -37,19 +34,23 @@ public class StatisticsController implements Initializable {
         Connection con = ConnectionManager.getConnection();
         ResultSet rs = null;
         PreparedStatement st = null;
-        String query = "SELECT * FROM transaction WHERE customer =?";
+        String query = "SELECT * FROM transactions WHERE customer =?";
         try {
             st = con.prepareStatement(query);
             st.setInt(1, Main.getCurrentuser().getId());
             rs = st.executeQuery();
             while(rs.next()){
-                Transaction transaction = new Transaction(rs.getInt("id"));
-                observableList.add(transaction);
+                observableList.add(new TransactionDetails(rs.getInt("id")));
             }
         } catch (SQLException e) {
             e.printStackTrace();
             // closing the connection:
         }
+        colDate.setCellValueFactory(new PropertyValueFactory<TransactionDetails, Timestamp>("date"));
+        colProduct.setCellValueFactory(new PropertyValueFactory<TransactionDetails, String>("productName"));
+        colPrice.setCellValueFactory(new PropertyValueFactory<TransactionDetails, Double>("Price"));
+        colAmount.setCellValueFactory(new PropertyValueFactory<TransactionDetails, Integer>("amount"));
+        colSum.setCellValueFactory(new PropertyValueFactory<TransactionDetails,Double>("sumPrice"));
         history.setItems(observableList);
 
     }
@@ -59,7 +60,7 @@ public class StatisticsController implements Initializable {
     }
 
 
-    ObservableList<Transaction> observableList = FXCollections.observableArrayList();
+    ObservableList<TransactionDetails> observableList = FXCollections.observableArrayList();
 }
 
 
