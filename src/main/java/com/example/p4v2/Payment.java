@@ -18,7 +18,7 @@ public class Payment {
     public ArrayList<Payment> getPayments() {
 
         try (Connection con = ConnectionManager.getConnection()) {
-            String qry = "SELECT amount, created_at FROM payment WHERE customer_id = ? AND confirmation_id = 69";
+            String qry = "SELECT amount, created_at FROM payment WHERE customer_id = ?";
             PreparedStatement st = con.prepareStatement(qry);
             System.out.println(Main.getCurrentuser().getId());
             st.setInt(1, Main.getCurrentuser().getId());

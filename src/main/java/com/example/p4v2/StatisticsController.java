@@ -33,14 +33,21 @@ public class StatisticsController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Connection con = ConnectionManager.getConnection();
         ResultSet rs = null;
+        ResultSet rs2 = null;
         PreparedStatement st = null;
-        String query = "SELECT * FROM transactions WHERE customer =?";
+        String query = "SELECT id FROM transactions WHERE customer =?";
         try {
             st = con.prepareStatement(query);
             st.setInt(1, Main.getCurrentuser().getId());
             rs = st.executeQuery();
             while(rs.next()){
-                observableList.add(new TransactionDetails(rs.getInt("id")));
+                query = "SELECT id FROM transactions_info WHERE transaction_id =?";
+                st = con.prepareStatement(query);
+                st.setInt(1, rs.getInt("id"));
+                rs2 = st.executeQuery();
+                while (rs2.next()){
+                    observableList.add(new TransactionDetails(rs2.getInt("id")));
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -5,8 +5,6 @@ import java.sql.*;
 public class TransactionDetails {
     private int id;
 
-
-
     private Timestamp date;
     private int transactonId;
     private String productName;
@@ -21,24 +19,20 @@ public class TransactionDetails {
         this.id = id;
         try {
             Connection con = ConnectionManager.getConnection();
-            String qry = "SELECT * FROM transactions_info WHERE id = ?";
+            String qry = "SELECT * FROM transactions_info INNER JOIN products ON transactions_info.productId = products.id WHERE transactions_info.id = ?";
             PreparedStatement st = con.prepareStatement(qry);
             st.setInt(1, id);
             ResultSet rs = st.executeQuery();
             while(rs.next()){
-                productName = String.valueOf(rs.getInt("product"));
+                productName = rs.getString("product");
                 date = rs.getTimestamp("created_at");
                 amount = rs.getInt("amount");
                 price = rs.getDouble("price");
                 sumPrice = rs.getDouble("sum_price");
-
-
             }
-
         } catch(SQLException e){
             e.printStackTrace();
         }
-
     }
 
     public static void main(String[] args) {
