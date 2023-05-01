@@ -15,13 +15,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class AdminUserOverviewController implements Initializable {
 
-    private Admin currentAdmin;
-    private TableView<Users> usersTable;
-    private TableColumn<Users, Integer> colUserID;
-    private TableColumn<Users, String> colName;
-    private TableColumn<Users, String> colEmail;
-    private TableColumn<Users, Double> colBalance;
-    private TableColumn<Users, Date> colCreatedAt;
+    public Admin currentAdmin;
+    public TableView<Users> usersTable;
+    public TableColumn<Users, Integer> colUserID;
+    public TableColumn<Users, String> colName;
+    public TableColumn<Users, String> colEmail;
+    public TableColumn<Users, Double> colBalance;
+    public TableColumn<Users, Date> colCreatedAt;
 
     public void setAdmin() {
         currentAdmin = Main.getCurrentAdmin();
@@ -30,11 +30,11 @@ public class AdminUserOverviewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<Users> observableList = FXCollections.observableArrayList(Admin.getUsers());
-        colUserID.setCellValueFactory(new PropertyValueFactory<>("id"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("firstName" + "lastName"));
-        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-        colBalance.setCellValueFactory(new PropertyValueFactory<>("balance"));
-        colCreatedAt.setCellValueFactory(new PropertyValueFactory<>("createdAt"));
+        colUserID.setCellValueFactory(new PropertyValueFactory<Users, Integer>("id"));
+        colName.setCellValueFactory(new PropertyValueFactory<Users, String>("firstName" + "lastName"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<Users, String>("email"));
+        colBalance.setCellValueFactory(new PropertyValueFactory<Users, Double>("balance"));
+        colCreatedAt.setCellValueFactory(new PropertyValueFactory<Users, Date>("createdAt"));
 
         usersTable.setItems(observableList);
     }

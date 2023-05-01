@@ -12,13 +12,13 @@
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView>
+            <TableView fx:id="usersTable">
               <columns>
                 <TableColumn fx:id="colUserID" prefWidth="44.0" text="ID" />
                 <TableColumn fx:id="colName" prefWidth="169.0" text="Name" />
                   <TableColumn fx:id="colEmail" prefWidth="164.0" text="Email" />
                   <TableColumn fx:id="colBalance" prefWidth="116.0" text="Balance" />
-                  <TableColumn fx:id="colCreatedAt" prefWidth="106.0" text="Created At" />
+                  <TableColumn fx:id="colCreatedAt" prefWidth="197.0" text="Created At" />
               </columns>
             </TableView>
             <Label text="Show choosen user here">
