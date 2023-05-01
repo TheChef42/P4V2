@@ -206,11 +206,63 @@ public class Users {
         return this.firstName + " " + this.lastName;
     }
 
+    //updates new name in database (AdminUserOverview):
+    public void updateName(String newName){
+        String[] split = newName.split("\\s+");
+
+        String newFirstName = "";
+
+        for(int i = 0; i < split.length - 1 ; i++){
+            if(i != 0){
+                newFirstName += " ";
+            }
+            newFirstName += split[i];
+        }
+        String newLastName = split[split.length - 1];
+
+        this.firstName = newFirstName;
+        this.lastName = newLastName;
+        Connection con = ConnectionManager.getConnection();
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        String query = "UPDATE customer SET firstname=?, lastname=? WHERE id=?";
+        try {
+            st = con.prepareStatement(query);
+            st.setString(1, newFirstName);
+            st.setString(2, newLastName);
+            st.setInt(3, this.id);
+            int rowsAffected = st.executeUpdate();
+            System.out.println(rowsAffected + " row(s) updated.");
+            st.close();
+        } catch (SQLException ex) {
+            System.out.println("Error: " + ex.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println("Error: " + ex.getMessage());
+            }
+        }
+
+    }
+
     public String getFirstName() {
         return this.firstName;
     }
 
     public void setFirstName(String name) {
+        this.firstName = name;
+    }
+
+    public void updateFirstName(String name) {
         this.firstName = name;
     }
 
