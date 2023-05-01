@@ -1,6 +1,7 @@
 package com.example.p4v2;
 import java.util.Objects;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class Admin {
 
@@ -17,32 +18,35 @@ public class Admin {
         //TODO: how to edit admin
     }
 
-    public static Users[] getUsers() {
-        //TODO: implement how to return the products
-
-        Users[] users = new Users[0];
-
+    public static ArrayList<Users> getUsers() {
+        ArrayList<Users> userList = new ArrayList<>();
+    
         try {
             Connection con = ConnectionManager.getConnection();
             String qry = "SELECT * FROM customer";
             PreparedStatement st = con.prepareStatement(qry);
             ResultSet rs = st.executeQuery();
-
+    
             while(rs.next()){
-                rs.getInt("id");
-                rs.getString("email");
-                rs.getString("password");
-                rs.getString("firstname");
-                rs.getString("lastname");
-                rs.getFloat("balance");
-                rs.getTimestamp("created_at");
+                Users user = new Users();
+                user.setId(rs.getInt("id"));
+                user.setObjectEmail(rs.getString("email"));
+                user.setPassword(rs.getString("password"));
+                user.setFirstName(rs.getString("firstname"));
+                user.setLastName(rs.getString("lastname"));
+                user.setBalance(rs.getFloat("balance"));
+                user.setCreatedAt(rs.getTimestamp("created_at"));
+    
+                userList.add(user);
             }
-
+    
         } catch(SQLException e){
             e.printStackTrace();
         }
-        return users;
+    
+        return userList;
     }
+    
 
     public static Admin login(String username, String password){
         // declaring it out of the if statement to return it at the end
