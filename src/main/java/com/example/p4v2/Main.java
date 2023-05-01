@@ -188,7 +188,7 @@ public class Main extends Application {
         mainLayout = loader.load();
 
         AdminUserOverviewController upc = loader.getController();
-        upc.setAdmin(admin);
+        upc.setAdmin();
 
         Scene scene = new Scene(mainLayout, 1400, 900);
         primaryStage.setScene(scene);

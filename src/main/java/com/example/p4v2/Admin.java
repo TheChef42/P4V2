@@ -51,12 +51,14 @@ public class Admin {
     public static Admin login(String username, String password){
         // declaring it out of the if statement to return it at the end
         Admin currentAdmin = new Admin();
-        if (verifyPasswordAdmin(username, password)) {
+        if(!verifyAdmin(username)){
+            return null;
+        }
+        if (Users.verifyPassword(username, password)) {
             Connection con = ConnectionManager.getConnection();
             PreparedStatement st = null;
             ResultSet rs = null;
             String query = "SELECT * FROM customer WHERE EMAIL=?";
-    
             try {
                 st = con.prepareStatement(query);
                 st.setString(1, username);
@@ -86,7 +88,6 @@ public class Admin {
                 if (con != null){
                     con.close();
                 }
-
                 } catch (SQLException ex) {
                     System.out.println("Error: " + ex.getMessage());
                 }
@@ -98,16 +99,16 @@ public class Admin {
         return currentAdmin;
     }
 
-    public static boolean verifyPasswordAdmin(String username, String password) {
+    public static boolean verifyAdmin(String username) {
         Connection con = ConnectionManager.getConnection();
         PreparedStatement st = null;
         ResultSet rs = null;
-        String query = "SELECT PASSWORD FROM admins WHERE username=?";
+        String query = "SELECT id FROM admins WHERE username=?";
         try {
             st = con.prepareStatement(query);
             st.setString(1, username);
             rs = st.executeQuery();
-            if (rs.next() && Objects.equals(rs.getString("PASSWORD"), password)) {
+            if (rs.next()) {
                 return true;
             } else {
                 return false;
