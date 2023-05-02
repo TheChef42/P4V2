@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `lastname` varchar(255) DEFAULT NULL,
   `balance` float DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `secret_key` int DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 INSERT INTO customer (email, password, firstname, lastname, balance) VALUES ('boss', '1234', 'Michael', 'Scott', 0);
@@ -59,7 +60,6 @@ CREATE TABLE IF NOT EXISTS `transactions` (
   `quantity` int DEFAULT NULL,
   `amount` float DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `secret_key` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `customer_id` (`customer_id`),
   KEY `product_id` (`product_id`),
