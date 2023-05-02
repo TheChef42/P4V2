@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `secret_key` int DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-INSERT INTO customer (email, password, firstname, lastname, balance) VALUES ('boss', '1234', 'Michael', 'Scott', 0);
+INSERT INTO customer (email, password, firstname, lastname, balance) VALUES ('boss', '$2a$10$3kw5Sh3ZZzTUmGqRvM8G9OB/7apv14wfjBLwuvI5pwBZJ4dxPTqVG', 'Michael', 'Scott', 0);
 
 
 -- Table structure for table `payment`
@@ -79,4 +79,5 @@ CREATE TABLE `transactions_info` (
   KEY `transaction_id` (`transaction_id`),
   KEY `product` (`product`),
   CONSTRAINT `transactions_info_ibfk_1` FOREIGN KEY (`transaction_id`) REFERENCES `transactions` (`id`),
-  CONSTRAINT `transactions_info_ibfk_2` FOREIGN KEY (`product`) REFERENCES `products` (`id`))
+  CONSTRAINT `transactions_info_ibfk_2` FOREIGN KEY (`product`) REFERENCES `products` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
