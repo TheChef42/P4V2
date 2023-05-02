@@ -36,7 +36,7 @@ public class StatisticsController implements Initializable {
         ResultSet rs = null;
         ResultSet rs2 = null;
         PreparedStatement st = null;
-        String query = "SELECT id FROM transactions WHERE customer =?";
+        String query = "SELECT id FROM transactions WHERE customer_id =?";
         try {
             st = con.prepareStatement(query);
             st.setInt(1, Main.getCurrentuser().getId());
@@ -60,6 +60,7 @@ public class StatisticsController implements Initializable {
         colPrice.setCellValueFactory(new PropertyValueFactory<TransactionDetails, Double>("Price"));
         colAmount.setCellValueFactory(new PropertyValueFactory<TransactionDetails, Integer>("amount"));
         colSum.setCellValueFactory(new PropertyValueFactory<TransactionDetails,Double>("sumPrice"));
+        history.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         history.setItems(observableList);
 
     }

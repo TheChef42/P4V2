@@ -85,7 +85,7 @@ public class Transaction {
             if(inStock){
                 try{
                     Connection con = ConnectionManager.getConnection();
-                    String transactions_qry = "INSERT INTO transactions (sum, customer) values(?,?)";
+                    String transactions_qry = "INSERT INTO transactions (sum, customer_id) values(?,?)";
                     PreparedStatement st = con.prepareStatement(transactions_qry, Statement.RETURN_GENERATED_KEYS);
                     st.setInt(2, Main.getCurrentuser().getId());
                     st.setFloat(1,sum);

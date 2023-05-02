@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="559789ee-1deb-4a2d-8f8f-577e954627d9" name="Changes" comment="MFA">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="559789ee-1deb-4a2d-8f8f-577e954627d9" name="Changes" comment="statistics">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/AdminProductOverviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/AdminProductOverviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATABASE SETUP.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DATABASE SETUP.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/StatisticsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/StatisticsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Transaction.java" afterDir="false" />
     </list>
     <list id="7f9b1ba7-7b51-4d49-bc4b-13dfb9410db6" name="Changes by Vitagliano" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -245,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683033814861</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="statistics">
+      <created>1683037104500</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1683037104501</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,7 +286,8 @@
     <MESSAGE value="nu med admin customer kode" />
     <MESSAGE value="statistics with product names" />
     <MESSAGE value="MFA" />
-    <option name="LAST_COMMIT_MESSAGE" value="MFA" />
+    <MESSAGE value="statistics" />
+    <option name="LAST_COMMIT_MESSAGE" value="statistics" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

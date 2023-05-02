@@ -55,29 +55,25 @@ CREATE TABLE IF NOT EXISTS `products` (
 -- Table structure for table `transactions`
 CREATE TABLE IF NOT EXISTS `transactions` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `sum` float DEFAULT NULL,
   `customer_id` int DEFAULT NULL,
-  `product_id` int DEFAULT NULL,
-  `quantity` int DEFAULT NULL,
-  `amount` float DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `customer_id` (`customer_id`),
-  KEY `product_id` (`product_id`),
-  CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`),
-  CONSTRAINT `transactions_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
+  CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `transactions_info` (
   `id` int NOT NULL AUTO_INCREMENT,
   `transaction_id` int DEFAULT NULL,
-  `product` int DEFAULT NULL,
+  `productId` int DEFAULT NULL,
   `amount` int DEFAULT NULL,
   `price` varchar(255) DEFAULT NULL,
   `sum_price` float DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `transaction_id` (`transaction_id`),
-  KEY `product` (`product`),
+  KEY `product` (`productId`),
   CONSTRAINT `transactions_info_ibfk_1` FOREIGN KEY (`transaction_id`) REFERENCES `transactions` (`id`),
-  CONSTRAINT `transactions_info_ibfk_2` FOREIGN KEY (`product`) REFERENCES `products` (`id`)
+  CONSTRAINT `transactions_info_ibfk_2` FOREIGN KEY (`productId`) REFERENCES `products` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
