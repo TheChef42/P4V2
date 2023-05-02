@@ -4,9 +4,6 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 public class AdminPageController {
 
-    Admin currentAdmin = Main.getCurrentAdmin();
-
-
     @FXML
     protected void showUserOverview(ActionEvent event) throws IOException {
         Main.showUserOverview();

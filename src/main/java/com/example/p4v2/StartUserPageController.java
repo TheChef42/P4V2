@@ -226,7 +226,8 @@ public class StartUserPageController implements Initializable {
 
     @FXML
     protected void logoutButtonClick(ActionEvent event) throws IOException {
-        //sætter objecter currentuser til null for at fjerne objectet fra hukommelsen
+        // skal fjerne objektet, ellers ligger de stadig i backenden
+        // kan fjernes og muligvis exploides til sikkerheds testing:
         Main.setCurrentuser(null);
         //Change stage to user profile when the scene has been made
         Main.showLoginView();

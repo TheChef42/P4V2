@@ -12,8 +12,6 @@ public class Admin {
     public String lastName;
     public Timestamp created_at;
 
-    //public Admin(){}
-
     public void editUser(){
         //TODO: how to edit admin
     }
@@ -227,11 +225,11 @@ public class Admin {
             }
         }
 
-        public String getName() {
-            return this.firstName + " " + this.lastName;
-        }
+    public String getName() {
+        return this.firstName + " " + this.lastName;
+    }
 
-        public int getId() {
-            return id;
-        }
-    }        
+    public int getId() {
+        return id;
+    }
+}

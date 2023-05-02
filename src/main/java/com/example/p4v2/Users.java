@@ -1,15 +1,21 @@
 package com.example.p4v2;
 
+
+import javafx.scene.Node;
+
 import javafx.scene.control.Button;
 
 import java.sql.*;
+import java.util.Objects;
 
 public class Users {
     private int id;
+    public static final int LogRound = 10;
     private String email;
     protected String password;
     public String firstName;
     public String lastName;
+    private String name;
     private float balance;
     public Timestamp created_at;
     public Button update;
@@ -54,8 +60,7 @@ public class Users {
         }
         return success;
     }
-
-   public static Users login(String email, String password) {
+    public static Users login(String email, String password) {
         // declaring it out of the if statement to return it at the end
         Users currentUser = new Users();
 
@@ -79,7 +84,7 @@ public class Users {
                     currentUser.created_at = rs.getTimestamp("created_at");
                 }
 
-    
+
             } catch (SQLException ex) {
                 System.out.println("Error: " + ex.getMessage());
             } finally {
@@ -105,6 +110,7 @@ public class Users {
         }
         return currentUser;
     }
+
 
     public static boolean verifyPassword(String email, String password) {
         Connection con = ConnectionManager.getConnection();
@@ -145,6 +151,12 @@ public class Users {
         }
     }
 
+    public static void logout(Users currentUser) {
+        // this method doesn work, and cannot
+        // use this method like this:
+        // currentUser = null;
+        currentUser = null;
+    }
     public void seeUserAccount() {
         System.out.println("Id: " + this.id);
         System.out.println("Email: " +  this.email);
@@ -155,7 +167,6 @@ public class Users {
         System.out.println("Balance:" + this.balance);
         System.out.println("Created at:" + this.created_at);
     }
-
     public static void deleteAccount(Users currentUser) {
         //TODO: Implement how to delete a useraccount
         Connection con = ConnectionManager.getConnection();
@@ -203,6 +214,7 @@ public class Users {
     public String getName() {
         return this.firstName + " " + this.lastName;
     }
+
     //updates new name in database (AdminUserOverview):
     public void updateName(String newName){
         String[] split = newName.split("\\s+");
@@ -256,10 +268,6 @@ public class Users {
     }
 
     public void setFirstName(String name) {
-        this.firstName = name;
-    }
-
-    public void updateFirstName(String name) {
         this.firstName = name;
     }
 

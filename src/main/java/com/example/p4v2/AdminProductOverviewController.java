@@ -18,17 +18,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class AdminProductOverviewController implements Initializable {
 
-    Admin currentAdmin;
     public TableView<Products> products;
     public TableColumn<Products, Integer> colProductID;
     public TableColumn<Products,String> colProduct;
     public TableColumn<Products,Double> colPrice;
     public TableColumn<Products, Integer> colStock;
     Transaction currentTransaction = new Transaction();
-
-    public void setAdmin(Admin currentAdmin) {
-        this.currentAdmin = Main.getCurrentAdmin();
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -60,6 +55,12 @@ public class AdminProductOverviewController implements Initializable {
     }
 
 
+    public void updateButtonClicked(ActionEvent actionEvent) {
+    }
 
+    public void deleteButtonClicked(ActionEvent actionEvent) {
+    }
 
+    public void addButtonClicked(ActionEvent actionEvent) {
+    }
 }
