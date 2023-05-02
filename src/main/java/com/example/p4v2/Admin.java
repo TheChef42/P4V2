@@ -28,6 +28,9 @@ public class Admin {
             ResultSet rs = st.executeQuery();
     
             while(rs.next()){
+                if(rs.getString("email").equals("DELETED")){
+                    continue;
+                }
                 Users user = new Users();
                 user.setId(rs.getInt("id"));
                 user.setObjectEmail(rs.getString("email"));

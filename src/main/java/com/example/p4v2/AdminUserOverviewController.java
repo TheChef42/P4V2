@@ -100,7 +100,7 @@ public class AdminUserOverviewController implements Initializable {
     @FXML
     protected void deleteUserClick(ActionEvent event) throws IOException {
         Users user = usersTable.getSelectionModel().getSelectedItem();
-        user.deleteAccount(user);
+        Users.deleteAccount(user);
 
         //Reloads the page:
         ObservableList<Users> observableList = FXCollections.observableArrayList(Admin.getUsers());
