@@ -66,3 +66,17 @@ CREATE TABLE IF NOT EXISTS `transactions` (
   CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`),
   CONSTRAINT `transactions_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `transactions_info` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `transaction_id` int DEFAULT NULL,
+  `product` int DEFAULT NULL,
+  `amount` int DEFAULT NULL,
+  `price` varchar(255) DEFAULT NULL,
+  `sum_price` float DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `transaction_id` (`transaction_id`),
+  KEY `product` (`product`),
+  CONSTRAINT `transactions_info_ibfk_1` FOREIGN KEY (`transaction_id`) REFERENCES `transactions` (`id`),
+  CONSTRAINT `transactions_info_ibfk_2` FOREIGN KEY (`product`) REFERENCES `products` (`id`))
