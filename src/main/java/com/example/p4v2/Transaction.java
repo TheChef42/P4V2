@@ -47,13 +47,14 @@ public class Transaction {
         //TODO: implement how to set the products
         try {
             Connection con = ConnectionManager.getConnection();
-            String qry = "SELECT id FROM products WHERE NOT -1";
+            String qry = "SELECT id FROM products WHERE NOT stock = -1";
             PreparedStatement st = con.prepareStatement(qry);
             ResultSet rs = st.executeQuery();
             while(rs.next()){
                 Products product = new Products(rs.getInt("id"));
                 products.add(product);
             }
+            System.out.println(products);
 
         } catch(SQLException e){
             e.printStackTrace();
@@ -140,10 +141,6 @@ public class Transaction {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public void setProducts(ArrayList<Products> products) {
-        this.products = products;
     }
 
     public int getUserId() {

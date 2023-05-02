@@ -103,7 +103,6 @@ public class Products {
         }
         
     }
-
     public void setSelectAmount(int selectAmount) {
         this.selectAmount = selectAmount;
     }
@@ -111,5 +110,8 @@ public class Products {
     public float getSum() {
         sum = this.price*this.selectAmount;
         return sum;
+    }
+    public int getSelectAmount() {
+        return selectAmount;
     }
 }
