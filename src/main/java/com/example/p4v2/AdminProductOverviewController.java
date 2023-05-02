@@ -43,19 +43,19 @@ public class AdminProductOverviewController implements Initializable {
 
     @FXML
     protected void showUserOverview(ActionEvent event) throws IOException {
-        Main.showUserOverview(currentAdmin);
+        Main.showUserOverview();
     }
 
     @FXML
     protected void goBack(ActionEvent event) throws IOException {
-        Main.showAdminPage(currentAdmin);
+        Main.showAdminPage();
     }
 
     @FXML
     protected void logoutButtonClick(ActionEvent event) throws IOException {
         // skal fjerne objektet, ellers ligger de stadig i backenden
         // kan fjernes og muligvis exploides til sikkerheds testing:
-        currentAdmin = null;
+        Main.setCurrentAdmin(null);
         Main.showLoginView();
     }
 

@@ -156,13 +156,15 @@ public class Admin {
         return productID;
     }
 
-    public void createProduct(String productName, float productPrice, int productStock){
+    public void createProduct(Products product){
+        int productStock = product.getStock();
+
         try {
             Connection con = ConnectionManager.getConnection();
             String qry = "INSERT INTO products (product, price, stock) VALUES (?,?,?)";
             PreparedStatement st = con.prepareStatement(qry);
-            st.setString(1,productName);
-            st.setFloat(2, productPrice);
+            st.setString(1,product.name);
+            st.setFloat(2, product.price);
             st.setInt(3, productStock);
             st.executeUpdate();
         } catch(SQLException e){

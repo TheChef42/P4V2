@@ -8,12 +8,7 @@ import java.io.IOException;
 
 public class AdminStartController {
 
-    Admin currentAdmin;
-
     Label noUser;
-    public void setAdmin(Admin currentAdmin) {
-        this.currentAdmin = currentAdmin;
-    }
 
     @FXML
     protected void shoppingPageButtonClick(ActionEvent event) throws IOException {
@@ -24,14 +19,14 @@ public class AdminStartController {
 
     @FXML
     protected void adminPageButtonClick(ActionEvent event) throws IOException {
-        Main.showAdminPage(currentAdmin);
+        Main.showAdminPage();
     }
 
     @FXML
     protected void logoutButtonClick(ActionEvent event) throws IOException {
         // skal fjerne objektet, ellers ligger de stadig i backenden
         // kan fjernes og muligvis exploides til sikkerheds testing:
-        currentAdmin = null;
+        Main.setCurrentAdmin(null);
         Main.showLoginView();
     }
 }
