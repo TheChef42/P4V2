@@ -82,10 +82,6 @@ public class AdminProductOverviewController implements Initializable {
     public void updateButtonClicked(ActionEvent event) {
         Products product = products.getSelectionModel().getSelectedItem();
 
-        product.setName(productName.getText());
-        product.setPrice(Float.parseFloat(productPrice.getText()));
-        product.setStock(Integer.parseInt(productStock.getText()));
-
         String name = product.getName();
         float price = product.getPrice();
         int stock = product.getStock();
@@ -98,14 +94,25 @@ public class AdminProductOverviewController implements Initializable {
     }
 
     @FXML
-    public void addButtonClicked(ActionEvent event) {
+    public void addButtonClicked(ActionEvent event) throws IOException {
         Products product = new Products();
 
-        product.setName(productName.getText());
-        product.setPrice(Float.parseFloat(productPrice.getText()));
-        product.setStock(Integer.parseInt(productStock.getText()));
+        String newName = productName.getText();
+        float newPrice = Float.parseFloat(productPrice.getText());
+        int newStock = Integer.parseInt(productStock.getText());
+
+        System.out.print(newName);
+        System.out.println(newPrice);
+        System.out.println(newStock);
+
+        product.setName(newName);
+        product.setPrice(newPrice);
+        product.setStock(newStock);
 
         getCurrentAdmin().createProduct(product);
+
+        // update table
+        products.getItems().add(product);
     }
 
     @FXML
@@ -114,8 +121,7 @@ public class AdminProductOverviewController implements Initializable {
         int remove = -1;
         product.setStock(remove);
 
-        ObservableList<Products> observableList = FXCollections.observableArrayList(currentTransaction.getProducts());
-        products.setItems(observableList);
+        products.getItems().remove(product);
     }
 
     @FXML
