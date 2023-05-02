@@ -135,32 +135,6 @@ public class Admin {
         }
     }
 
-    private void viewUsers(){
-        try {
-            Connection con = ConnectionManager.getConnection();
-            String qry = "SELECT * FROM customer";
-            PreparedStatement st = con.prepareStatement(qry);
-            ResultSet rs = st.executeQuery();
-            System.out.print("id" + "\t\t");
-            System.out.print("email" + "\t\t");
-            System.out.print("password" + "\t\t");
-            System.out.print(("firstname") + "\t\t");
-            System.out.print(("lastname") + "\t\t");
-            System.out.print(("balance") + "\t\t");
-            System.out.println(("created_at"));
-            while(rs.next()){
-                System.out.print(rs.getInt("id") + "\t\t");
-                System.out.print(rs.getString("email") + "\t\t");
-                System.out.print(rs.getString("password") + "\t\t");
-                System.out.print(rs.getString("firstname") + "\t\t");
-                System.out.print(rs.getString("lastname") + "\t\t");
-                System.out.print(rs.getFloat("balance") + "\t\t");
-                System.out.println(rs.getTimestamp("created_at"));
-            }
-        } catch(SQLException e){
-            e.printStackTrace();
-        }
-    }
     private void deleteUser(int id){
         try{
             Connection con = ConnectionManager.getConnection();
@@ -246,17 +220,6 @@ public class Admin {
                     System.out.println("Error closing connection: " + ex.getMessage());
                 }
             }
-        }
-        public static void main(String[] args) {
-            Admin admin = new Admin();
-            admin.viewUsers();
-            admin.removeProduct(2);
-            admin.viewProducts();
-            Products product = new Products("product name", 9.99f, 10);
-            admin.updateProduct(product, "new product name", 19.99f, 20);
-            admin.viewProducts();
-            admin.createProduct("new product", 14.99f, 30);
-            admin.viewProducts();
         }
 
         public String getName() {

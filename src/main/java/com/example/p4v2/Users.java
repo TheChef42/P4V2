@@ -170,11 +170,16 @@ public class Users {
     
         try {
             // Prepare the SQL query to delete the account
-            String sql = "DELETE FROM customer WHERE id = ?";
+            String sql = "UPDATE customer SET email=?, password=?, firstname=?, lastname=?, balance=? WHERE id=?";
             pstmt = con.prepareStatement(sql);
     
             // Set the account id parameter
-            pstmt.setInt(1, currentUser.id);
+            pstmt.setString(1, "DELETED");
+            pstmt.setString(2, null);
+            pstmt.setString(3, null);
+            pstmt.setString(4, null);
+            pstmt.setString(5, null); 
+            pstmt.setInt(6, currentUser.id);
     
             // Execute the query and check the return value
             int rowsAffected = pstmt.executeUpdate();

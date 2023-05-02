@@ -46,7 +46,7 @@ public class PopupMobilepayController {
             st = con.prepareStatement(query);
             st.setString(1, "confirmed");
             st.setInt(2, 69);
-            st.setInt(3, Main.getCurrentuser().getId());
+            st.setInt(3, fillBalenceController.getConformation_id());
             int rowsAffected = st.executeUpdate();
             System.out.println(rowsAffected + " row(s) updated.");
             st.close();
