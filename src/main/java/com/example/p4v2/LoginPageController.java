@@ -28,12 +28,7 @@ public class LoginPageController {
         Main.setCurrentuser(currentUser);
         Main.setCurrentAdmin(currentAdmin);
 
-        if (currentAdmin != null) {
-            PrintName.setText(currentAdmin.getName());
-            System.out.println(currentAdmin.getName());
-            //Change scene to the user start page
-            Main.showStartAdminPage(); // Passing the client-object to showClientView method
-        } else if (currentUser != null) {
+        if (currentUser != null) {
             PrintName.setText(currentUser.getName());
             System.out.println(currentUser.getName());
             //Change scene to the user start page

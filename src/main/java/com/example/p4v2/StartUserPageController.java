@@ -101,7 +101,8 @@ public class StartUserPageController implements Initializable {
                     observableList.remove(product);
                     product.setSelectAmount(1);
                     basket.refresh();
-
+                    setSumValue();
+                    setPrintName();
                 });
 
             }

@@ -21,7 +21,7 @@ public class Main extends Application {
     public static Admin getCurrentAdmin() {
         return currentAdmin;
     }
-    public static void setCurrentAdmin(Admin currentaAdmin) {
+    public static void setCurrentAdmin(Admin currentAdmin) {
         Main.currentAdmin = currentAdmin;
     }
 

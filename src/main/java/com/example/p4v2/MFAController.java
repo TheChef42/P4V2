@@ -31,9 +31,13 @@ public class MFAController {
         setAnswer(true);
         String str_confirmKey = confirmKey.getText();
         if (Users.verifyKey(Main.getCurrentuser().getEmail(), str_confirmKey)) {
+            System.out.println(Main.getCurrentAdmin());
+            if (Main.getCurrentAdmin() != null) {
+                //Change scene to the user start page
+                Main.showStartAdminPage(); // Passing the client-object to showClientView method
+            } else{
             Main.showShoppingPage();
-        } else {
-            PrintName.setText("Key not correct!");
+            }
         }
     }
     @FXML
