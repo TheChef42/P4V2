@@ -59,6 +59,7 @@ CREATE TABLE IF NOT EXISTS `transactions` (
   `quantity` int DEFAULT NULL,
   `amount` float DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `secret_key` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `customer_id` (`customer_id`),
   KEY `product_id` (`product_id`),
