@@ -17,6 +17,7 @@ public class Users {
     public String lastName;
     private String name;
     private float balance;
+    private double key;
     public Timestamp created_at;
     public Button update;
 
@@ -60,11 +61,14 @@ public class Users {
         }
         return success;
     }
-    public static Users login(String email, String password) {
+    public static Users login(String email, String password) throws SQLException {
         // declaring it out of the if statement to return it at the end
         Users currentUser = new Users();
 
+
         if (verifyPassword(email, password)) {
+            SendMail.createKey(email);
+            SendMail.Send(email);
             Connection con = ConnectionManager.getConnection();
             PreparedStatement st = null;
             ResultSet rs = null;
@@ -83,8 +87,7 @@ public class Users {
                     currentUser.balance = rs.getFloat("balance");
                     currentUser.created_at = rs.getTimestamp("created_at");
                 }
-
-
+    
             } catch (SQLException ex) {
                 System.out.println("Error: " + ex.getMessage());
             } finally {
@@ -109,6 +112,41 @@ public class Users {
             System.out.println("Access denied!");
         }
         return currentUser;
+    }
+    public static boolean verifyKey(String email, String verificationCode) {
+        Connection con = ConnectionManager.getConnection();
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        String query = "SELECT SECRET_KEY FROM customer WHERE EMAIL=?";
+        try {
+            st = con.prepareStatement(query);
+            st.setString(1, email);
+            rs = st.executeQuery();
+            if (rs.next() && Objects.equals(rs.getString("SECRET_KEY"), verificationCode)) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+            // closing the connection:
+        } finally {
+            try {
+                // closing input objects
+                if (rs != null){
+                    rs.close();
+                }
+                if (st != null){
+                    st.close();
+                }
+                if (con != null){
+                    con.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 
@@ -182,7 +220,7 @@ public class Users {
             pstmt.setString(2, null);
             pstmt.setString(3, null);
             pstmt.setString(4, null);
-            pstmt.setString(5, null); 
+            pstmt.setString(5, null);
             pstmt.setInt(6, currentUser.id);
     
             // Execute the query and check the return value
@@ -351,6 +389,14 @@ public class Users {
         this.created_at = time;
     }
 
+    public Double getKey() {
+        return this.key;
+    }
+
+    public void setKey(Double key) {
+        this.key = key;
+    }
+
     public void deposit(float money) {
         this.balance += money;
         Connection con = ConnectionManager.getConnection();
@@ -392,4 +438,5 @@ public class Users {
     public Button getUpdate() {
         return update;
     }
+
 }

@@ -221,4 +221,14 @@ public class Main extends Application {
         primaryStage.setResizable(true);
         primaryStage.show();
     }
+
+    public static void showMFA() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("MFA.fxml"));
+        mainLayout = loader.load();
+        Scene scene = new Scene(mainLayout, 1400, 900);
+        primaryStage.setScene(scene);
+        primaryStage.setResizable(true);
+        primaryStage.show();
+    }
 }
