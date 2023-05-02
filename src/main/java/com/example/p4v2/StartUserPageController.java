@@ -8,6 +8,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -17,7 +18,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
+import javafx.util.converter.IntegerStringConverter;
 import org.w3c.dom.events.MouseEvent;
 import java.lang.reflect.Field;
 import java.io.IOException;
@@ -84,7 +87,19 @@ public class StartUserPageController implements Initializable {
         colProduct.setCellValueFactory(new PropertyValueFactory<Products, String>("Name"));
         colPrice.setCellValueFactory(new PropertyValueFactory<Products, Double>("Price"));
         colAmount.setCellValueFactory(new PropertyValueFactory<Products, Integer>("SelectAmount"));
+        colAmount.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        colAmount.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Products, Integer>>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent<Products, Integer> event) {
+                event.getRowValue().setSelectAmount(event.getNewValue());
+
+                basket.refresh();
+                setSumValue();
+                setPrintName();
+            }
+        });
         colSum.setCellValueFactory(new PropertyValueFactory<Products,Double>("Sum"));
+        basket.setEditable(true);
         basket.setItems(observableList);
     }
 
@@ -138,6 +153,7 @@ public class StartUserPageController implements Initializable {
         }
         return product;
     }
+
 
     public String getSumValue() {
         return sumValue.get();

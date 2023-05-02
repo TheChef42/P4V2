@@ -69,9 +69,7 @@ public class AdminUserOverviewController implements Initializable {
 
             @Override
             public void handle(CellEditEvent<Users, Float> event){
-                Users user = event.getRowValue();
-                user.setBalance(event.getNewValue());
-                user.deposit( - user.getBalance() + event.getNewValue());
+                event.getRowValue().deposit( - event.getRowValue().getBalance() + event.getNewValue());
             }
             
         });
