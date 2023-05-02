@@ -2,8 +2,7 @@ CREATE DATABASE IF NOT EXISTS `selfservice` /*!40100 DEFAULT CHARACTER SET utf8m
 USE `selfservice`;
 
 -- Table structure for table `admins`
-DROP TABLE IF EXISTS `admins`;
-CREATE TABLE `admins` (
+CREATE TABLE IF NOT EXISTS `admins` (
   `id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(255) DEFAULT NULL,
   `created_by` int DEFAULT NULL,
@@ -14,8 +13,7 @@ CREATE TABLE `admins` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Table structure for table `customer`
-DROP TABLE IF EXISTS `customer`;
-CREATE TABLE `customer` (
+CREATE TABLE IF NOT EXISTS `customer` (
   `id` int NOT NULL AUTO_INCREMENT,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
@@ -27,8 +25,7 @@ CREATE TABLE `customer` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1001 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Table structure for table `payment`
-DROP TABLE IF EXISTS `payment`;
-CREATE TABLE `payment` (
+CREATE TABLE IF NOT EXISTS `payment` (
   `id` int NOT NULL AUTO_INCREMENT,
   `customer_id` int DEFAULT NULL,
   `amount` float DEFAULT NULL,
@@ -42,8 +39,7 @@ CREATE TABLE `payment` (
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Table structure for table `products`
-DROP TABLE IF EXISTS `products`;
-CREATE TABLE `products` (
+CREATE TABLE IF NOT EXISTS `products` (
   `id` int NOT NULL AUTO_INCREMENT,
   `product` varchar(255) DEFAULT NULL COMMENT 'name of product',
   `price` float DEFAULT NULL,
@@ -52,8 +48,7 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Table structure for table `transactions`
-DROP TABLE IF EXISTS `transactions`;
-CREATE TABLE `transactions` (
+CREATE TABLE IF NOT EXISTS `transactions` (
   `id` int NOT NULL AUTO_INCREMENT,
   `customer_id` int DEFAULT NULL,
   `product_id` int DEFAULT NULL,
