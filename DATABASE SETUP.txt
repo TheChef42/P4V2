@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS `selfstest` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `selfstest`;
+CREATE DATABASE IF NOT EXISTS `selfservice` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `selfservice`;
 
 -- Table structure for table `admins`
 CREATE TABLE IF NOT EXISTS `admins` (
@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `lastname` varchar(255) DEFAULT NULL,
   `balance` float DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `secret_key` int DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 INSERT INTO customer (email, password, firstname, lastname, balance) VALUES ('boss', '1234', 'Michael', 'Scott', 0);
