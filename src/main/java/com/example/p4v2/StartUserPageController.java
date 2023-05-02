@@ -1,9 +1,6 @@
 package com.example.p4v2;
 
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,10 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
@@ -36,6 +30,7 @@ public class StartUserPageController implements Initializable {
     public TableColumn<Products,Double> colPrice;
     public TableColumn<Products, Integer> colAmount;
     public TableColumn<Products,Double> colSum;
+    public TableColumn<Products, Products> colDelete = new TableColumn<>("Delete");
     public Label Item0Label;
     public Button Item0Button;
     public Label Item1Label;
@@ -88,11 +83,39 @@ public class StartUserPageController implements Initializable {
         colPrice.setCellValueFactory(new PropertyValueFactory<Products, Double>("Price"));
         colAmount.setCellValueFactory(new PropertyValueFactory<Products, Integer>("SelectAmount"));
         colAmount.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        colDelete.setCellValueFactory(
+                param -> new ReadOnlyObjectWrapper<>(param.getValue())
+        );
+        colDelete.setCellFactory(param -> new TableCell<Products, Products>(){
+            private final Button deleteButton = new Button("Delete");
+            @Override
+            protected void updateItem(Products product, boolean empty){
+                super.updateItem(product,empty);
+                if(product == null){
+                    setGraphic(null);
+                    return;
+                }
+                setGraphic(deleteButton);
+                deleteButton.setOnAction(event -> {
+                    currentTransaction.basket.remove(product);
+                    observableList.remove(product);
+                    product.setSelectAmount(1);
+                    basket.refresh();
+
+                });
+
+            }
+        });
         colAmount.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Products, Integer>>() {
             @Override
             public void handle(TableColumn.CellEditEvent<Products, Integer> event) {
+                if(event.getNewValue() < 0){
+                    productWarning.setText("Cheater you can not set it to negative!");
+                    basket.refresh();
+                    return;
+                } else if (event.getNewValue() == 0) {
+                }
                 event.getRowValue().setSelectAmount(event.getNewValue());
-
                 basket.refresh();
                 setSumValue();
                 setPrintName();
@@ -100,6 +123,7 @@ public class StartUserPageController implements Initializable {
         });
         colSum.setCellValueFactory(new PropertyValueFactory<Products,Double>("Sum"));
         basket.setEditable(true);
+        basket.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         basket.setItems(observableList);
     }
 
@@ -208,7 +232,7 @@ public class StartUserPageController implements Initializable {
         Main.showLoginView();
     }
     public void CclTransaction(ActionEvent actionEvent) {
-        currentTransaction.basket.clear();
+        //currentTransaction.basket.clear();
         observableList.clear();
         basket.refresh();
         setSumValue();

@@ -1,5 +1,7 @@
 package com.example.p4v2;
 
+import javafx.scene.control.Button;
+
 import java.sql.*;
 
 public class Users {
@@ -10,6 +12,7 @@ public class Users {
     public String lastName;
     private float balance;
     public Timestamp created_at;
+    public Button update;
 
     public Users(){
     }
@@ -75,6 +78,7 @@ public class Users {
                     currentUser.balance = rs.getFloat("balance");
                     currentUser.created_at = rs.getTimestamp("created_at");
                 }
+
     
             } catch (SQLException ex) {
                 System.out.println("Error: " + ex.getMessage());
@@ -377,4 +381,7 @@ public class Users {
         // something something mobilepay and money
     }
 
+    public Button getUpdate() {
+        return update;
+    }
 }

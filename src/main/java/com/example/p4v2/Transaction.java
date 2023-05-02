@@ -5,7 +5,6 @@ import javafx.collections.ObservableList;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 public class Transaction {
     private int id;
     //private Time date;
@@ -22,11 +21,9 @@ public class Transaction {
         return products;
     }
     private ArrayList<TransactionDetails> details = new ArrayList<TransactionDetails>();
-
     public ArrayList<TransactionDetails> getDetails() {
         return details;
     }
-
     public void setDetails(int transactionId) {
         try {
             Connection con = ConnectionManager.getConnection();
@@ -42,7 +39,6 @@ public class Transaction {
             e.printStackTrace();
         }
     }
-
     public ArrayList<Products> setProducts() {
         //TODO: implement how to set the products
         try {
@@ -54,8 +50,6 @@ public class Transaction {
                 Products product = new Products(rs.getInt("id"));
                 products.add(product);
             }
-            System.out.println(products);
-
         } catch(SQLException e){
             e.printStackTrace();
         }
@@ -69,7 +63,6 @@ public class Transaction {
         }
         return product;
     }
-
     public String storeTransaction(ObservableList<Products> basket){
         //TODO: implement to store the transaction in the database
         String success = "allGood";
@@ -134,23 +127,18 @@ public class Transaction {
     public void checkOut(){
         //TODO: implement the checkout
     }
-
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
-
     public int getUserId() {
         return userId;
     }
-
     public void setUserId(int userId) {
         this.userId = userId;
     }
-
     public ArrayList<Products> getBasket() {
         return basket;
     }
