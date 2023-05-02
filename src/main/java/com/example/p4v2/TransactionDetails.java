@@ -14,7 +14,6 @@ public class TransactionDetails {
     public Timestamp getDate() {
         return date;
     }
-
     public TransactionDetails(int id){
         this.id = id;
         try {

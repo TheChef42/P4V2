@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="559789ee-1deb-4a2d-8f8f-577e954627d9" name="Changes" comment="small fix fillBalence">
+    <list default="true" id="559789ee-1deb-4a2d-8f8f-577e954627d9" name="Changes" comment="statistics with product names">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/PopupMobilepayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/PopupMobilepayController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/p4v2/StatisticsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/p4v2/StatisticsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/statestik.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/p4v2/statestik.fxml" afterDir="false" />
     </list>
     <list id="7f9b1ba7-7b51-4d49-bc4b-13dfb9410db6" name="Changes by Vitagliano" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -152,7 +152,7 @@
       <workItem from="1681807148736" duration="6563000" />
       <workItem from="1682014122649" duration="7426000" />
       <workItem from="1682060651867" duration="3998000" />
-      <workItem from="1682425506224" duration="176000" />
+      <workItem from="1682951932728" duration="313000" />
     </task>
     <task id="LOCAL-00001" summary="ny repository">
       <created>1681807249738</created>
@@ -217,49 +217,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682021549688</updated>
     </task>
-    <task id="LOCAL-00010" summary="Nu kan man logge ud (dog kun med side skift) og skifte til til user siden siden og gå tilbage til shopping siden">
-      <created>1682194909040</created>
+    <task id="LOCAL-00010" summary="nu med admin customer kode">
+      <created>1682927995694</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1682194909040</updated>
+      <updated>1682927995694</updated>
     </task>
-    <task id="LOCAL-00011" summary="fix switch til load produkter">
-      <created>1682329839723</created>
+    <task id="LOCAL-00011" summary="statistics with product names">
+      <created>1682932422686</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1682329839723</updated>
+      <updated>1682932422686</updated>
     </task>
-    <task id="LOCAL-00012" summary="prøv nu">
-      <created>1682420338870</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1682420338870</updated>
-    </task>
-    <task id="LOCAL-00013" summary="prøv nu">
-      <created>1682591221193</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1682591221193</updated>
-    </task>
-    <task id="LOCAL-00014" summary="small fix fillBalence">
-      <created>1682592201564</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1682592201564</updated>
-    </task>
-    <task id="LOCAL-00015" summary="small fix fillBalence">
-      <created>1682593181670</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1682593181670</updated>
-    </task>
-    <option name="localTasksCounter" value="16" />
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,13 +255,15 @@
     <MESSAGE value="Should be able to change scene when you log in" />
     <MESSAGE value="er kommet til at oprette min database med et andet kodeord så nu burde det virke hvis is pull´er" />
     <MESSAGE value="fill balence and private login database" />
-    <MESSAGE value="nu med basket der summerer" />
     <MESSAGE value="Nu kan man logge ud (dog kun med side skift) og skifte til til user siden siden og gå tilbage til shopping siden" />
     <MESSAGE value="fix switch til load produkter" />
     <MESSAGE value="prøv nu" />
     <MESSAGE value="small fix fillBalence" />
     <MESSAGE value="static user" />
-    <option name="LAST_COMMIT_MESSAGE" value="static user" />
+    <MESSAGE value="nu med basket der summerer" />
+    <MESSAGE value="nu med admin customer kode" />
+    <MESSAGE value="statistics with product names" />
+    <option name="LAST_COMMIT_MESSAGE" value="statistics with product names" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

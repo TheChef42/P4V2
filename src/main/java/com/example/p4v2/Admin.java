@@ -50,10 +50,10 @@ public class Admin {
 
     public static Admin login(String username, String password){
         // declaring it out of the if statement to return it at the end
-        Admin currentAdmin = new Admin();
         if(!verifyAdmin(username)){
             return null;
         }
+        Admin currentAdmin = new Admin();
         if (Users.verifyPassword(username, password)) {
             Connection con = ConnectionManager.getConnection();
             PreparedStatement st = null;

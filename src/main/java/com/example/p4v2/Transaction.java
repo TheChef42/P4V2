@@ -60,45 +60,6 @@ public class Transaction {
         }
         return products;
     }
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int choice = 0;
-        Transaction currentTransaction = new Transaction();
-        while(true) {
-            System.out.println("Available products: ");
-            //https://www.callicoder.com/java-arraylist/
-            currentTransaction.products.forEach(products -> {
-                System.out.println(products.getProductID() + "\t" + products.name + "\t" + products.price + "\t" + products.getStock());
-            });
-            System.out.println("\n\n");
-            System.out.println("Current basket:");
-            if (currentTransaction.basket.isEmpty())
-                System.out.println("Basket is empty");
-            else {
-                currentTransaction.basket.forEach(products -> {
-                    System.out.println(products.name + "\t" + products.price + "\t" + products.selectAmount + "\t" +(products.price * products.selectAmount));
-                });
-            }
-            System.out.print("\n Add product to basket (select id): ");
-            choice = scan.nextInt();
-            if (choice == -1){
-                //currentTransaction.storeTransaction(1);
-                break;
-            }
-            currentTransaction.addProductToTransaction(choice);
-        }
-    }
-    public void addProductToTransaction(int productID){
-        //TODO: implement to add product to transaction
-        if(searchBasketID(productID) != null){
-            Products product = searchBasketID(productID);
-            product.selectAmount++;
-        } else {
-        Products product = new Products(productID, 1);
-        basket.add(product);
-        }
-    }
     private Products searchBasketID (int parameterValue){
         Products product = null;
         for (Products products1: basket) {
@@ -119,7 +80,6 @@ public class Transaction {
                 inStock = false;
             }
         }
-
         if (sum <= Main.getCurrentuser().getBalance()){
             if(inStock){
                 try{
@@ -132,7 +92,7 @@ public class Transaction {
                     ResultSet rs = st.getGeneratedKeys();
                     rs.next();
                     int newId = rs.getInt(1);
-                    String transactionsInfoQry = "INSERT INTO transactions_info (transaction_id, product, amount, price, sum_price) values(?,?,?,?,?)";
+                    String transactionsInfoQry = "INSERT INTO transactions_info (transaction_id, productId, amount, price, sum_price) values(?,?,?,?,?)";
                     PreparedStatement st1 = con.prepareStatement(transactionsInfoQry);
                     for (Products products: basket) {
                         st1.setInt(1, newId);
@@ -147,7 +107,6 @@ public class Transaction {
                     st1.executeBatch();
                     Main.getCurrentuser().deposit(-sum);
                     return success;
-
                 }catch(SQLException e){
                     e.printStackTrace();
                     return success;
