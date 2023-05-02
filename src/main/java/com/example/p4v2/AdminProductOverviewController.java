@@ -19,7 +19,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class AdminProductOverviewController implements Initializable {
 
     Admin currentAdmin;
-    Users currentUser;
     public TableView<Products> products;
     public TableColumn<Products, Integer> colProductID;
     public TableColumn<Products,String> colProduct;

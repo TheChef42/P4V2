@@ -38,74 +38,9 @@ public class Products {
             e.printStackTrace();
         }
     }
-    public Products(int productID, int selectAmount) {
-        try {
-            Connection con = ConnectionManager.getConnection();
-            String qry = "SELECT * FROM products WHERE id = ?";
-            PreparedStatement st = con.prepareStatement(qry);
-            st.setInt(1, productID);
-            ResultSet rs = st.executeQuery();
-            rs.next();
-            this.productID = productID;
-            this.name = rs.getString("product");
-            this.price = (float) rs.getInt("price");
-            this.selectAmount = selectAmount;
-        } catch(SQLException e){
-            e.printStackTrace();
-        }
-    }
 
-
-    public Products(String productName, float productPrice, int productStock) {
-        this.name = productName;
-        this.price = productPrice;
-        this.stock = productStock;
-    }
-
-    public static void main(String[] args) throws Exception {
-        Products cola = new Products("Cola", 100.0F, 2);
-        System.out.println(cola.name + " " + cola.price + " " + cola.stock);
-        Products fanta = new Products(2);
-        System.out.println(fanta.name + " " + fanta.price + " " + fanta.stock);
-    }
     public String toString(){
         return this.productID + "\t" + this.name + "\t" + this.price + "\t" + this.stock + "\n";
-    }
-    public static Products[] getProducts() {
-        //TODO: implement how to return the products
-
-        Products[] products = new Products[0];
-        int i = 1;
-
-        try {
-            Connection con = ConnectionManager.getConnection();
-            String qry = "SELECT * FROM products";
-            PreparedStatement st = con.prepareStatement(qry);
-            ResultSet rs = st.executeQuery();
-            System.out.print("id" + "\t\t");
-            System.out.print("product" + "\t\t");
-            System.out.print("price" + "\t\t");
-            System.out.println(("stock") + "\t\t");
-
-            while(rs.next()){
-                rs.getInt("id");
-                rs.getString("product");
-                rs.getFloat("price");
-                rs.getInt("stock");
-
-
-
-                System.out.print(products[i].productID);
-                System.out.print(products[i].name);
-                System.out.println(products[i].price);
-                System.out.println(products[i].stock);
-            }
-
-        } catch(SQLException e){
-            e.printStackTrace();
-        }
-        System.out.print(products[1].productID);
-        return products;
     }
 
     public int getProductID() {
@@ -169,9 +104,6 @@ public class Products {
         
     }
 
-    public int getSelectAmount() {
-        return selectAmount;
-    }
     public void setSelectAmount(int selectAmount) {
         this.selectAmount = selectAmount;
     }

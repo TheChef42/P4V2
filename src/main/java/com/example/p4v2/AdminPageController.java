@@ -6,7 +6,6 @@ public class AdminPageController {
 
     Admin currentAdmin;
 
-    Users currentUser;
 
     public void setAdmin(Admin currentAdmin) {
         this.currentAdmin = currentAdmin;

@@ -24,18 +24,9 @@ public class PopupMobilepayController {
         this.id = id;
     }
 
-    public boolean isAnswer() {
-        return answer;
-    }
-
     public void setAnswer(boolean answer) {
         this.answer = answer;
     }
-
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
-
 
     public void confirmPayment() {
         Connection con = ConnectionManager.getConnection();

@@ -10,7 +10,6 @@ import java.io.IOException;
 
 public class PopupDeleteController {
     public Label PrintName;
-    private Stage stage;
 
     private boolean answer;
 
@@ -20,10 +19,6 @@ public class PopupDeleteController {
 
     public void setAnswer(boolean answer) {
         this.answer = answer;
-    }
-
-    public void setStage(Stage stage) {
-        this.stage = stage;
     }
 
     @FXML

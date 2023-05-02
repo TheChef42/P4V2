@@ -1,19 +1,13 @@
 package com.example.p4v2;
 
-
-import javafx.scene.Node;
-
 import java.sql.*;
-import java.util.Objects;
 
 public class Users {
     private int id;
-    public static final int LogRound = 10;
     private String email;
     protected String password;
     public String firstName;
     public String lastName;
-    private String name;
     private float balance;
     public Timestamp created_at;
 
@@ -57,7 +51,8 @@ public class Users {
         }
         return success;
     }
-    public static Users login(String email, String password) {
+
+   public static Users login(String email, String password) {
         // declaring it out of the if statement to return it at the end
         Users currentUser = new Users();
 
@@ -106,7 +101,6 @@ public class Users {
         }
         return currentUser;
     }
-    
 
     public static boolean verifyPassword(String email, String password) {
         Connection con = ConnectionManager.getConnection();
@@ -147,12 +141,6 @@ public class Users {
         }
     }
 
-    public static void logout(Users currentUser) {
-        // this method doesn work, and cannot
-        // use this method like this:
-        // currentUser = null;
-        currentUser = null;
-    }
     public void seeUserAccount() {
         System.out.println("Id: " + this.id);
         System.out.println("Email: " +  this.email);
@@ -163,6 +151,7 @@ public class Users {
         System.out.println("Balance:" + this.balance);
         System.out.println("Created at:" + this.created_at);
     }
+
     public static void deleteAccount(Users currentUser) {
         //TODO: Implement how to delete a useraccount
         Connection con = ConnectionManager.getConnection();
@@ -210,7 +199,6 @@ public class Users {
     public String getName() {
         return this.firstName + " " + this.lastName;
     }
-
     //updates new name in database (AdminUserOverview):
     public void updateName(String newName){
         String[] split = newName.split("\\s+");
@@ -387,35 +375,6 @@ public class Users {
     public void requestPayout() {
         System.out.print("You have requestet to get " + this.balance + " money payed back");
         // something something mobilepay and money
-    }
-
-    // Testing
-    public static void main(String[] args) throws Exception {
-        String email = "casperbramm@hotmail.com";
-        String password = "goodPassword";
-        String firstName = "Casper";
-        String lastName = "Bramm";
-
-        createUser(email, password, firstName, lastName);
-        
-        Users myUser = Users.login(email, password);
-
-        myUser.seeUserAccount();
-
-        myUser.getName();
-
-        String newEmail = "casperbramm@gmail.com";
-
-        myUser.setEmail(newEmail);
-
-        myUser.getBalance();
-
-        myUser.deposit(100);
-
-        myUser.requestPayout();
-
-        // deleteAccount(myUser);
-
     }
 
 }
