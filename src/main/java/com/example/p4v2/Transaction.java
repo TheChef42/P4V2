@@ -47,7 +47,7 @@ public class Transaction {
         //TODO: implement how to set the products
         try {
             Connection con = ConnectionManager.getConnection();
-            String qry = "SELECT id FROM products";
+            String qry = "SELECT id FROM products WHERE NOT -1";
             PreparedStatement st = con.prepareStatement(qry);
             ResultSet rs = st.executeQuery();
             while(rs.next()){

@@ -49,6 +49,7 @@ public class StartUserPageController implements Initializable {
     public Label basketSum;
     final StringProperty sumValue = new SimpleStringProperty("0.0");
     public Label userBalance;
+    public Button cclTransaction;
 
     private Parent root;
     public Label PrintName;
@@ -191,5 +192,11 @@ public class StartUserPageController implements Initializable {
         //Change stage to user profile when the scene has been made
         Main.showLoginView();
     }
-
+    public void CclTransaction(ActionEvent actionEvent) {
+        currentTransaction.basket.clear();
+        observableList.clear();
+        basket.refresh();
+        setSumValue();
+        setPrintName();
+    }
 }
