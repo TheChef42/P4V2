@@ -1,15 +1,25 @@
 package com.example.p4v2;
 
+
+import javafx.scene.Node;
+
+import javafx.scene.control.Button;
+
 import java.sql.*;
+import java.util.Objects;
 
 public class Users {
     private int id;
+    public static final int LogRound = 10;
     private String email;
     protected String password;
     public String firstName;
     public String lastName;
+    private String name;
     private float balance;
+    private double key;
     public Timestamp created_at;
+    public Button update;
 
     public Users(){
     }
@@ -51,12 +61,14 @@ public class Users {
         }
         return success;
     }
-
-   public static Users login(String email, String password) {
+    public static Users login(String email, String password) throws SQLException {
         // declaring it out of the if statement to return it at the end
         Users currentUser = new Users();
 
+
         if (verifyPassword(email, password)) {
+            SendMail.createKey(email);
+            SendMail.Send(email);
             Connection con = ConnectionManager.getConnection();
             PreparedStatement st = null;
             ResultSet rs = null;
@@ -101,6 +113,42 @@ public class Users {
         }
         return currentUser;
     }
+    public static boolean verifyKey(String email, String verificationCode) {
+        Connection con = ConnectionManager.getConnection();
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        String query = "SELECT SECRET_KEY FROM customer WHERE EMAIL=?";
+        try {
+            st = con.prepareStatement(query);
+            st.setString(1, email);
+            rs = st.executeQuery();
+            if (rs.next() && Objects.equals(rs.getString("SECRET_KEY"), verificationCode)) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+            // closing the connection:
+        } finally {
+            try {
+                // closing input objects
+                if (rs != null){
+                    rs.close();
+                }
+                if (st != null){
+                    st.close();
+                }
+                if (con != null){
+                    con.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 
     public static boolean verifyPassword(String email, String password) {
         Connection con = ConnectionManager.getConnection();
@@ -141,6 +189,12 @@ public class Users {
         }
     }
 
+    public static void logout(Users currentUser) {
+        // this method doesn work, and cannot
+        // use this method like this:
+        // currentUser = null;
+        currentUser = null;
+    }
     public void seeUserAccount() {
         System.out.println("Id: " + this.id);
         System.out.println("Email: " +  this.email);
@@ -151,7 +205,6 @@ public class Users {
         System.out.println("Balance:" + this.balance);
         System.out.println("Created at:" + this.created_at);
     }
-
     public static void deleteAccount(Users currentUser) {
         //TODO: Implement how to delete a useraccount
         Connection con = ConnectionManager.getConnection();
@@ -167,7 +220,7 @@ public class Users {
             pstmt.setString(2, null);
             pstmt.setString(3, null);
             pstmt.setString(4, null);
-            pstmt.setString(5, null); 
+            pstmt.setString(5, null);
             pstmt.setInt(6, currentUser.id);
     
             // Execute the query and check the return value
@@ -199,6 +252,7 @@ public class Users {
     public String getName() {
         return this.firstName + " " + this.lastName;
     }
+
     //updates new name in database (AdminUserOverview):
     public void updateName(String newName){
         String[] split = newName.split("\\s+");
@@ -252,10 +306,6 @@ public class Users {
     }
 
     public void setFirstName(String name) {
-        this.firstName = name;
-    }
-
-    public void updateFirstName(String name) {
         this.firstName = name;
     }
 
@@ -339,6 +389,14 @@ public class Users {
         this.created_at = time;
     }
 
+    public Double getKey() {
+        return this.key;
+    }
+
+    public void setKey(Double key) {
+        this.key = key;
+    }
+
     public void deposit(float money) {
         this.balance += money;
         Connection con = ConnectionManager.getConnection();
@@ -375,6 +433,10 @@ public class Users {
     public void requestPayout() {
         System.out.print("You have requestet to get " + this.balance + " money payed back");
         // something something mobilepay and money
+    }
+
+    public Button getUpdate() {
+        return update;
     }
 
 }

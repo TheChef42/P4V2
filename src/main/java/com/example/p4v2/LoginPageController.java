@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class LoginPageController {
     public Label PrintName;
@@ -18,27 +19,29 @@ public class LoginPageController {
     @FXML
     private PasswordField password;
     @FXML
-    protected void loginButtonClick(ActionEvent event) throws IOException {
+    protected void loginButtonClick(ActionEvent event) throws IOException, SQLException {
         String str_username = username.getText();
         String str_password = password.getText();
         
         Admin currentAdmin = Admin.login(str_username,str_password);
         Users currentUser = Users.login(str_username,str_password);
         Main.setCurrentuser(currentUser);
+        Main.setCurrentAdmin(currentAdmin);
 
         if (currentAdmin != null) {
             PrintName.setText(currentAdmin.getName());
             System.out.println(currentAdmin.getName());
             //Change scene to the user start page
-            Main.showStartAdminPage(currentAdmin); // Passing the client-object to showClientView method
+            Main.showStartAdminPage(); // Passing the client-object to showClientView method
         } else if (currentUser != null) {
             PrintName.setText(currentUser.getName());
             System.out.println(currentUser.getName());
             //Change scene to the user start page
-            Main.showShoppingPage(); // Passing the client-object to showClientView method
+            Main.showMFA(); // Passing the client-object to showClientView method
         } else {
                 PrintName.setText("Denied, bitch!");
         }
+
     }
 
     @FXML

@@ -21,7 +21,6 @@ import javafx.util.converter.FloatStringConverter;
 
 public class AdminUserOverviewController implements Initializable {
 
-    public Admin currentAdmin;
     public TableView<Users> usersTable;
     public TableColumn<Users, Integer> colUserID;
     public TableColumn<Users, String> colName;
@@ -29,13 +28,10 @@ public class AdminUserOverviewController implements Initializable {
     public TableColumn<Users, Float> colBalance;
     public TableColumn<Users, Date> colCreatedAt;
 
-    public void setAdmin() {
-        currentAdmin = Main.getCurrentAdmin();
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<Users> observableList = FXCollections.observableArrayList(Admin.getUsers());
+        ObservableList<Users> observableList = FXCollections.observableArrayList(Main.getCurrentAdmin().getUsers());
         colUserID.setCellValueFactory(new PropertyValueFactory<Users, Integer>("id"));
         
         colName.setCellValueFactory(new PropertyValueFactory<Users, String>("name"));
@@ -83,17 +79,17 @@ public class AdminUserOverviewController implements Initializable {
 
     @FXML
     protected void showProductOverview() throws IOException {
-        Main.showProductOverview(currentAdmin);
+        Main.showProductOverview();
     }
 
     @FXML
     protected void goBack() throws IOException {
-        Main.showAdminPage(currentAdmin);
+        Main.showAdminPage();
     }
 
     @FXML
     protected void logoutButtonClick() throws IOException {
-        currentAdmin = null;
+        Main.setCurrentAdmin(null);
         Main.showLoginView();
     }
 
@@ -103,7 +99,7 @@ public class AdminUserOverviewController implements Initializable {
         Users.deleteAccount(user);
 
         //Reloads the page:
-        ObservableList<Users> observableList = FXCollections.observableArrayList(Admin.getUsers());
+        ObservableList<Users> observableList = FXCollections.observableArrayList(Main.getCurrentAdmin().getUsers());
         usersTable.setItems(observableList);
 
         }

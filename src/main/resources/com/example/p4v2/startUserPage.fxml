@@ -130,10 +130,11 @@
             </Label>
             <TableView fx:id="basket" prefHeight="482.0" prefWidth="419.0">
               <columns>
-                <TableColumn fx:id="colProduct" prefWidth="100.0" text="Product" />
-                <TableColumn fx:id="colPrice" prefWidth="100.0" text="Price" />
-                <TableColumn fx:id="colAmount" prefWidth="100.0" text="Amount" />
-                <TableColumn fx:id="colSum" prefWidth="100.0" text="Sum" />
+                <TableColumn fx:id="colProduct" prefWidth="70.0" text="Product" />
+                <TableColumn fx:id="colPrice" prefWidth="70.0" text="Price" />
+                <TableColumn fx:id="colAmount" prefWidth="70.0" text="Amount" />
+                <TableColumn fx:id="colSum" prefWidth="70.0" text="Sum" />
+                  <TableColumn fx:id="colDelete" prefWidth="70.0" text="Delete" />
               </columns>
             </TableView>
             <Label text="Total amount: ">

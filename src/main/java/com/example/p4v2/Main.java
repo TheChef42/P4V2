@@ -153,13 +153,13 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    public static void showStartAdminPage(Admin admin) throws IOException {
+    public static void showStartAdminPage() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("adminStartPage.fxml"));
         mainLayout = loader.load();
 
         AdminStartController asc = loader.getController();
-        asc.setAdmin(admin);
+
 
         Scene scene = new Scene(mainLayout, 1400, 900);
         primaryStage.setScene(scene);
@@ -167,13 +167,12 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    public static void showAdminPage(Admin admin) throws IOException {
+    public static void showAdminPage() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("adminPage.fxml"));
         mainLayout = loader.load();
 
         AdminPageController apc = loader.getController();
-        apc.setAdmin(admin);
 
         Scene scene = new Scene(mainLayout, 1400, 900);
         primaryStage.setScene(scene);
@@ -181,13 +180,12 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    public static void showUserOverview(Admin admin) throws IOException {
+    public static void showUserOverview() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("adminUserOverviewPage.fxml"));
         mainLayout = loader.load();
 
         AdminUserOverviewController upc = loader.getController();
-        upc.setAdmin();
 
         Scene scene = new Scene(mainLayout, 1400, 900);
         primaryStage.setScene(scene);
@@ -195,7 +193,7 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    public static void showProductOverview(Admin admin) throws IOException {
+    public static void showProductOverview() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("adminProductOverviewPage.fxml"));
         mainLayout = loader.load();
@@ -208,7 +206,6 @@ public class Main extends Application {
         table.getColumns().addAll(product,price,stock,id);
 
         AdminProductOverviewController upc = loader.getController();
-        upc.setAdmin(admin);
 
         Scene scene = new Scene(mainLayout, 1400, 900);
         primaryStage.setScene(scene);
@@ -220,6 +217,16 @@ public class Main extends Application {
         loader.setLocation(Main.class.getResource("popupDelete.fxml"));
         mainLayout = loader.load();
         Scene scene = new Scene(mainLayout, 600, 400);
+        primaryStage.setScene(scene);
+        primaryStage.setResizable(true);
+        primaryStage.show();
+    }
+
+    public static void showMFA() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("MFA.fxml"));
+        mainLayout = loader.load();
+        Scene scene = new Scene(mainLayout, 1400, 900);
         primaryStage.setScene(scene);
         primaryStage.setResizable(true);
         primaryStage.show();

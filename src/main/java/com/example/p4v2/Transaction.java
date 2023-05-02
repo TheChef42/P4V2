@@ -54,13 +54,13 @@ public class Transaction {
                 Products product = new Products(rs.getInt("id"));
                 products.add(product);
             }
-            System.out.println(products);
 
         } catch(SQLException e){
             e.printStackTrace();
         }
         return products;
     }
+
     private Products searchBasketID (int parameterValue){
         Products product = null;
         for (Products products1: basket) {
@@ -122,6 +122,7 @@ public class Transaction {
 
         }
     }
+
     public void deleteProductFromList(Products product){
         //TODO: implement to delete a product from the list
         if (basket.contains(product)) {

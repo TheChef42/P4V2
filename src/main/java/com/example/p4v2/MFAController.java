@@ -8,9 +8,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class PopupDeleteController {
+public class MFAController {
+    @FXML
+    private TextField confirmKey;
+
     public Label PrintName;
-    private Stage stage;
 
     private boolean answer;
 
@@ -23,28 +25,20 @@ public class PopupDeleteController {
     }
 
     public void setStage(Stage stage) {
-        this.stage = stage;
     }
-
-    @FXML
-    private TextField passwordCheck;
-
-
     @FXML
     private void handleConfirmButton(ActionEvent actionEvent) throws IOException {
         setAnswer(true);
-        String CheckPassword = passwordCheck.getText();
-        if (Users.verifyPassword(Main.getCurrentuser().getEmail(), CheckPassword)) {
-            Users.deleteAccount(Main.getCurrentuser());
-            Main.showLoginView();
+        String str_confirmKey = confirmKey.getText();
+        if (Users.verifyKey(Main.getCurrentuser().getEmail(), str_confirmKey)) {
+            Main.showShoppingPage();
         } else {
-            PrintName.setText("Password not correct!");
+            PrintName.setText("Key not correct!");
         }
     }
-
     @FXML
     private void handleCancelButton() throws IOException {
         setAnswer(false);
-        Main.showUserPage();
+        Main.showLoginView();
     }
 }
