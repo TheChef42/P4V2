@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 
 public class CreateUserController {
     public Label PrintName;
+    public Label emailWarning;
     @FXML
     private TextField Firstname;
     @FXML
@@ -18,29 +19,36 @@ public class CreateUserController {
     @FXML
     private TextField passwordCheck;
 
+
     @FXML
     public void handleCreateUser(ActionEvent event) throws IOException {
-        String firstName = Firstname.getText();
-        String lastName = Lastname.getText();
-        String userEmail = email.getText();
-        String userPassword = password.getText();
-        String CheckPassword = passwordCheck.getText();
+        //validate the email
+        if (!Users.emailRegex(email.getText())) {
+            emailWarning.setText("Wrong email format! Must be aau email.");
+            emailWarning.setMinHeight(17);
+        } else {
+            String firstName = Firstname.getText();
+            String lastName = Lastname.getText();
+            String userEmail = email.getText();
+            String userPassword = password.getText();
+            String CheckPassword = passwordCheck.getText();
 
-        if (userPassword.equals(CheckPassword)){
-        
-            if (Users.createUser(userEmail, userPassword, firstName, lastName)){
-                Main.showLoginView();
+            if (userPassword.equals(CheckPassword)) {
 
-            }else if(userPassword.length() < 10){
+                if (Users.createUser(userEmail, userPassword, firstName, lastName)) {
+                    Main.showLoginView();
 
-                PrintName.setText("Error: password must be at least 10");
+                } else if (userPassword.length() < 10) {
 
-            }else{
+                    PrintName.setText("Error: password must be at least 10");
 
-                PrintName.setText("Error: email already in use");
+                } else {
+
+                    PrintName.setText("Error: email already in use");
+                }
+            } else {
+                PrintName.setText("Passwords do not match!");
             }
-        }else{
-            PrintName.setText("Passwords do not match!");
         }
     }
 

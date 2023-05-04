@@ -2,6 +2,7 @@ package com.example.p4v2;
 
 
 import javafx.scene.Node;
+import java.util.regex.*;
 
 import javafx.scene.control.Button;
 
@@ -112,6 +113,13 @@ public class Users {
             System.out.println("Access denied!");
         }
         return currentUser;
+    }
+    public static boolean emailRegex(String email){
+        if(email.matches("^[a-zA-Z0-9_]+@[a-zA-Z_]+.aau.dk$")){
+             return true;
+        } else {
+            return false;
+        }
     }
     public static boolean verifyKey(String email, String verificationCode) {
         Connection con = ConnectionManager.getConnection();
