@@ -56,22 +56,19 @@
                   <Font size="18.0" />
                </font>
             </TextField>
-            <TextField fx:id="password" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" promptText="Password">
+            <PasswordField fx:id="password" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" promptText="Password">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
                <font>
                   <Font size="18.0" />
                </font>
-            </TextField>
-            <TextField fx:id="passwordCheck" alignment="CENTER" layoutX="110.0" layoutY="309.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" promptText="Confirm password">
+            </PasswordField>
+            <PasswordField fx:id="passwordCheck" alignment="CENTER" layoutX="20.0" layoutY="368.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" promptText="Confirm password">
                <font>
                   <Font size="18.0" />
                </font>
-               <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </VBox.margin>
-            </TextField>
+            </PasswordField>
             <Button mnemonicParsing="false" onAction="#handleCreateUser" text="Create User">
                <font>
                   <Font size="24.0" />
