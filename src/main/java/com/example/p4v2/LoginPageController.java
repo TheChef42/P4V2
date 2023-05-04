@@ -20,21 +20,25 @@ public class LoginPageController {
     private PasswordField password;
     @FXML
     protected void loginButtonClick(ActionEvent event) throws IOException, SQLException {
-        String str_username = username.getText();
-        String str_password = password.getText();
-        
-        Admin currentAdmin = Admin.login(str_username,str_password);
-        Users currentUser = Users.login(str_username,str_password);
-        Main.setCurrentuser(currentUser);
-        Main.setCurrentAdmin(currentAdmin);
-
-        if (currentUser != null) {
-            PrintName.setText(currentUser.getName());
-            System.out.println(currentUser.getName());
-            //Change scene to the user start page
-            Main.showMFA(); // Passing the client-object to showClientView method
+        if(!Users.emailRegex(username.getText())){
+            PrintName.setText("Wrong Username or password");
         } else {
-                PrintName.setText("Denied, bitch!");
+            String str_username = username.getText();
+            String str_password = password.getText();
+
+            Admin currentAdmin = Admin.login(str_username, str_password);
+            Users currentUser = Users.login(str_username, str_password);
+            Main.setCurrentuser(currentUser);
+            Main.setCurrentAdmin(currentAdmin);
+
+            if (currentUser != null) {
+                PrintName.setText(currentUser.getName());
+                System.out.println(currentUser.getName());
+                //Change scene to the user start page
+                Main.showMFA(); // Passing the client-object to showClientView method
+            } else {
+                PrintName.setText("Wrong Username or password");
+            }
         }
 
     }

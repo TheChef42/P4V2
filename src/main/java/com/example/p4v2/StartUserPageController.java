@@ -58,7 +58,6 @@ public class StartUserPageController implements Initializable {
         userBalance.setText(valueOf(Main.getCurrentuser().getBalance()));
     }
 
-
     @Override
 
     public void initialize(URL url, ResourceBundle resourceBundle) {

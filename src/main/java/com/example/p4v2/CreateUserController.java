@@ -27,6 +27,7 @@ public class CreateUserController {
             emailWarning.setText("Wrong email format! Must be aau email.");
             emailWarning.setMinHeight(17);
         } else {
+            emailWarning.setMinHeight(0);
             String firstName = Firstname.getText();
             String lastName = Lastname.getText();
             String userEmail = email.getText();
@@ -34,16 +35,11 @@ public class CreateUserController {
             String CheckPassword = passwordCheck.getText();
 
             if (userPassword.equals(CheckPassword)) {
-
                 if (Users.createUser(userEmail, userPassword, firstName, lastName)) {
                     Main.showLoginView();
-
                 } else if (userPassword.length() < 10) {
-
                     PrintName.setText("Error: password must be at least 10");
-
                 } else {
-
                     PrintName.setText("Error: email already in use");
                 }
             } else {

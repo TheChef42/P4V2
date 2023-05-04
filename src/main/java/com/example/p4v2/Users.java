@@ -1,6 +1,5 @@
 package com.example.p4v2;
 
-
 import javafx.scene.Node;
 import java.util.regex.*;
 
@@ -8,7 +7,6 @@ import javafx.scene.control.Button;
 
 import java.sql.*;
 import java.util.Objects;
-
 public class Users {
     private int id;
     public static final int LogRound = 10;
@@ -22,8 +20,7 @@ public class Users {
     public Timestamp created_at;
     public Button update;
 
-    public Users(){
-    }
+    public Users(){}
 
     protected static boolean createUser(String email, String password, String firstName, String lastName) {
         boolean success = false;
@@ -195,13 +192,6 @@ public class Users {
                 e.printStackTrace();
             }
         }
-    }
-
-    public static void logout(Users currentUser) {
-        // this method doesn work, and cannot
-        // use this method like this:
-        // currentUser = null;
-        currentUser = null;
     }
     public void seeUserAccount() {
         System.out.println("Id: " + this.id);
@@ -446,5 +436,4 @@ public class Users {
     public Button getUpdate() {
         return update;
     }
-
 }
