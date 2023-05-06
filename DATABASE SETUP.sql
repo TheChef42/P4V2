@@ -11,7 +11,6 @@ CREATE TABLE IF NOT EXISTS `admins` (
   KEY `created_by` (`created_by`),
   CONSTRAINT `admins_ibfk_1` FOREIGN KEY (`created_by`) REFERENCES `admins` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-INSERT INTO admins (id, username, created_by) VALUES (1, 'boss', 1);
 
 
 -- Table structure for table `customer`
@@ -26,7 +25,6 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `secret_key` int DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-INSERT INTO customer (email, password, firstname, lastname, balance) VALUES ('boss', '$2a$10$3kw5Sh3ZZzTUmGqRvM8G9OB/7apv14wfjBLwuvI5pwBZJ4dxPTqVG', 'Michael', 'Scott', 0);
 
 
 -- Table structure for table `payment`

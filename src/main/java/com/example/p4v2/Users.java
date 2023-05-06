@@ -27,10 +27,13 @@ public class Users {
         try {
             Connection con = ConnectionManager.getConnection();
             String checkQuery = "SELECT * FROM customer WHERE email = ?";
+            String checkAdmin = "SELECT * FROM admins";
             PreparedStatement checkStatement = con.prepareStatement(checkQuery);
+            PreparedStatement checkStateAdmin = con.prepareStatement(checkAdmin);
             checkStatement.setString(1, email);
 
             ResultSet result = checkStatement.executeQuery();
+            ResultSet resultAdmin = checkStateAdmin.executeQuery();
 
             if (result.next()) {
                 
@@ -40,19 +43,24 @@ public class Users {
 
                 success = false;
 
-            }else{
-                
-                String qry = "INSERT INTO customer (EMAIL, PASSWORD, FIRSTNAME, LASTNAME) values(?,?,?,?)";
+            } else if (!resultAdmin.next()) {
+                String qry = "INSERT INTO admins (username, created_by) values(?,1)";
                 PreparedStatement st = con.prepareStatement(qry);
                 st.setString(1, email);
-                String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
-                st.setString(2, hashed);
-                st.setString(3, firstName);
-                st.setString(4, lastName);
                 st.executeUpdate();
                 success = true;
-
             }
+            String qry = "INSERT INTO customer (EMAIL, PASSWORD, FIRSTNAME, LASTNAME) values(?,?,?,?)";
+            PreparedStatement st = con.prepareStatement(qry);
+            st.setString(1, email);
+            String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
+            st.setString(2, hashed);
+            st.setString(3, firstName);
+            st.setString(4, lastName);
+            st.executeUpdate();
+            success = true;
+
+
 
         } catch (SQLException e) {
             e.printStackTrace();

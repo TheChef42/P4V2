@@ -113,6 +113,11 @@ public class AdminProductOverviewController implements Initializable {
 
         // update table
         products.getItems().add(product);
+
+        //clear fields
+        productName.setText("");
+        productPrice.setText("");
+        productStock.setText("");
     }
 
     @FXML
