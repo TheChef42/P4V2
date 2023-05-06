@@ -103,5 +103,16 @@ public class AdminUserOverviewController implements Initializable {
         usersTable.setItems(observableList);
 
         }
+
+        @FXML
+    protected void MakeUserAdminClick(ActionEvent event) throws IOException {
+        Users user = usersTable.getSelectionModel().getSelectedItem();
+        Main.getCurrentAdmin().makeAdmin(user);
+
+        //Reloads the page:
+        ObservableList<Users> observableList = FXCollections.observableArrayList(Main.getCurrentAdmin().getUsers());
+        usersTable.setItems(observableList);
+
+        }
 }
 

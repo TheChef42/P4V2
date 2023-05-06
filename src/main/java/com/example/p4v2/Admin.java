@@ -231,4 +231,21 @@ public class Admin {
     public int getId() {
         return id;
     }
+
+    public boolean makeAdmin(Users user) {
+        boolean success = false;
+        try {
+            Connection con = ConnectionManager.getConnection();
+                String qry = "INSERT INTO admins (username, created_by) values(?,?)";
+                PreparedStatement st = con.prepareStatement(qry);
+                st.setString(1, user.getEmail());
+                st.setInt(2, this.getId());
+                st.executeUpdate();
+                success = true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return success;
+    }
 }

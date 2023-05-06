@@ -74,7 +74,7 @@
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" text="Make admin">
+            <Button fx:id="makeAdmin" mnemonicParsing="false" onAction="#MakeUserAdminClick" text="Make admin">
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="100.0" top="10.0" />
                </HBox.margin>
