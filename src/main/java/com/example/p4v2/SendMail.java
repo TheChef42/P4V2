@@ -34,7 +34,6 @@ public class SendMail {
             con = ConnectionManager.getConnection();
             Random random = new Random();
             int secretKey = random.nextInt(9999,1000000);
-            System.out.println(secretKey);
             String query = "UPDATE customer SET secret_key = ? WHERE email = ?";
 
             st = con.prepareStatement(query);
@@ -42,7 +41,6 @@ public class SendMail {
             st.setString(2, email);
 
             st.executeUpdate();
-            System.out.println("u made it this far");
         } finally {
             if (st != null) {
                 st.close();

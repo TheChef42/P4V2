@@ -236,10 +236,11 @@ public class Admin {
         boolean success = false;
         try {
             Connection con = ConnectionManager.getConnection();
-                String qry = "INSERT INTO admins (username, created_by) values(?,?)";
+                String qry = "INSERT INTO admins (id, username, created_by) values(?,?,?)";
                 PreparedStatement st = con.prepareStatement(qry);
-                st.setString(1, user.getEmail());
-                st.setInt(2, this.getId());
+                st.setInt(1, user.getId());
+                st.setString(2, user.getEmail());
+                st.setInt(3, this.getId());
                 st.executeUpdate();
                 success = true;
 

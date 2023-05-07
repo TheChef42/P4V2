@@ -218,7 +218,7 @@ public class Users {
     
         try {
             // Prepare the SQL query to delete the account
-            String sql = "UPDATE customer SET email=?, password=?, firstname=?, lastname=?, balance=? WHERE id=?";
+            String sql = "UPDATE customer SET email=?, password=?, firstname=?, lastname=?, balance=?, secret_key=? WHERE id=?";
             pstmt = con.prepareStatement(sql);
     
             // Set the account id parameter
@@ -227,11 +227,18 @@ public class Users {
             pstmt.setString(3, null);
             pstmt.setString(4, null);
             pstmt.setString(5, null);
-            pstmt.setInt(6, currentUser.id);
+            pstmt.setString(6, null);
+            pstmt.setInt(7, currentUser.id);
     
             // Execute the query and check the return value
             int rowsAffected = pstmt.executeUpdate();
             if (rowsAffected > 0) {
+                String sqlAdmin = "UPDATE admins SET username = 'DELETED' WHERE id = ?";
+
+                PreparedStatement adminQuery = con.prepareStatement(sqlAdmin);
+
+                adminQuery.setInt(1, currentUser.id);
+                rowsAffected = adminQuery.executeUpdate();
                 System.out.println("Account deleted successfully");
                 //end that users session as well
                 currentUser = null;
@@ -249,6 +256,7 @@ public class Users {
                 if (con != null) {
                     con.close();
                 }
+                
             } catch (SQLException e) {
                 e.printStackTrace();
             }
