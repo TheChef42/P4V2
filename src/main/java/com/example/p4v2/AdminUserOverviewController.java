@@ -5,13 +5,14 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
-
+import java.util.Map;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn.CellEditEvent;
@@ -27,11 +28,13 @@ public class AdminUserOverviewController implements Initializable {
     public TableColumn<Users, String> colEmail;
     public TableColumn<Users, Float> colBalance;
     public TableColumn<Users, Date> colCreatedAt;
+    public TableColumn<Users, String> colIsAdmin;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<Users> observableList = FXCollections.observableArrayList(Main.getCurrentAdmin().getUsers());
+
         colUserID.setCellValueFactory(new PropertyValueFactory<Users, Integer>("id"));
         
         colName.setCellValueFactory(new PropertyValueFactory<Users, String>("name"));
@@ -71,6 +74,15 @@ public class AdminUserOverviewController implements Initializable {
         });
 
         colCreatedAt.setCellValueFactory(new PropertyValueFactory<Users, Date>("createdAt"));
+
+        for(Users user :observableList){
+            if(Admin.verifyAdmin(user.getEmail())){
+                user.setIsAdmin("Yes");
+            }else{
+                user.setIsAdmin("No");
+            }
+        }
+        colIsAdmin.setCellValueFactory(new PropertyValueFactory<Users, String>("isAdmin"));
 
         usersTable.setEditable(true);
         usersTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);

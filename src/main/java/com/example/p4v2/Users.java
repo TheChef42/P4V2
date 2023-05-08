@@ -19,6 +19,7 @@ public class Users {
     private double key;
     public Timestamp created_at;
     public Button update;
+    public String isAdmin;
 
     public Users(){}
 
@@ -409,6 +410,14 @@ public class Users {
 
     public void setKey(Double key) {
         this.key = key;
+    }
+
+    public String getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(String isAdmin) {
+        this.isAdmin = isAdmin;
     }
 
     public void deposit(float money) {

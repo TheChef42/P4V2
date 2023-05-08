@@ -16,9 +16,10 @@
               <columns>
                 <TableColumn fx:id="colUserID" prefWidth="44.0" text="ID" />
                 <TableColumn fx:id="colName" prefWidth="169.0" text="Name" />
-                  <TableColumn fx:id="colEmail" prefWidth="164.0" text="Email" />
-                  <TableColumn fx:id="colBalance" prefWidth="116.0" text="Balance" />
-                  <TableColumn fx:id="colCreatedAt" prefWidth="197.0" text="Created At" />
+                  <TableColumn fx:id="colEmail" prefWidth="150.0" text="Email" />
+                  <TableColumn fx:id="colBalance" prefWidth="130.0" text="Balance" />
+                  <TableColumn fx:id="colCreatedAt" prefWidth="165.0" text="Created At" />
+                  <TableColumn fx:id="colIsAdmin" prefWidth="150.0" text="Is Admin" />
               </columns>
             </TableView>
             <Label text="Show choosen user here">
