@@ -33,6 +33,47 @@ public class AdminUserOverviewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        setup();
+    }
+
+    @FXML
+    protected void showProductOverview() throws IOException {
+        Main.showProductOverview();
+    }
+
+    @FXML
+    protected void goBack() throws IOException {
+        Main.showAdminPage();
+    }
+
+    @FXML
+    protected void logoutButtonClick() throws IOException {
+        Main.setCurrentAdmin(null);
+        Main.showLoginView();
+    }
+
+    @FXML
+    protected void deleteUserClick(ActionEvent event) throws IOException {
+        Users user = usersTable.getSelectionModel().getSelectedItem();
+        Users.deleteAccount(user);
+
+        //Reloads the page:
+        setup();
+
+        }
+
+        @FXML
+    protected void MakeUserAdminClick(ActionEvent event) throws IOException {
+        Users user = usersTable.getSelectionModel().getSelectedItem();
+        Main.getCurrentAdmin().makeAdmin(user);
+
+        //Reloads the page:
+        setup();
+
+        }
+
+    public void setup(){
+
         ObservableList<Users> observableList = FXCollections.observableArrayList(Main.getCurrentAdmin().getUsers());
 
         colUserID.setCellValueFactory(new PropertyValueFactory<Users, Integer>("id"));
@@ -89,42 +130,5 @@ public class AdminUserOverviewController implements Initializable {
         usersTable.setItems(observableList);
     }
 
-    @FXML
-    protected void showProductOverview() throws IOException {
-        Main.showProductOverview();
-    }
-
-    @FXML
-    protected void goBack() throws IOException {
-        Main.showAdminPage();
-    }
-
-    @FXML
-    protected void logoutButtonClick() throws IOException {
-        Main.setCurrentAdmin(null);
-        Main.showLoginView();
-    }
-
-    @FXML
-    protected void deleteUserClick(ActionEvent event) throws IOException {
-        Users user = usersTable.getSelectionModel().getSelectedItem();
-        Users.deleteAccount(user);
-
-        //Reloads the page:
-        ObservableList<Users> observableList = FXCollections.observableArrayList(Main.getCurrentAdmin().getUsers());
-        usersTable.setItems(observableList);
-
-        }
-
-        @FXML
-    protected void MakeUserAdminClick(ActionEvent event) throws IOException {
-        Users user = usersTable.getSelectionModel().getSelectedItem();
-        Main.getCurrentAdmin().makeAdmin(user);
-
-        //Reloads the page:
-        ObservableList<Users> observableList = FXCollections.observableArrayList(Main.getCurrentAdmin().getUsers());
-        usersTable.setItems(observableList);
-
-        }
 }
 
