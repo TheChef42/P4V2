@@ -33,7 +33,7 @@ public class SendMail {
         try {
             con = ConnectionManager.getConnection();
             Random random = new Random();
-            int secretKey = random.nextInt(1000000,9999999);
+            int secretKey = random.nextInt(100000,999999);
             String query = "UPDATE customer SET secret_key = ? WHERE email = ?";
 
             st = con.prepareStatement(query);
