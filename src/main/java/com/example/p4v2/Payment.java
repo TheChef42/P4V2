@@ -8,9 +8,10 @@ public class Payment {
     private Timestamp created_at;
     private float amount;
     public final ArrayList<Payment> payments = new ArrayList<Payment>();
+
     public Payment(){}
 
-        public Payment(Timestamp date, float amount) {
+    public Payment(Timestamp date, float amount) {
         this.created_at = date;
         this.amount = amount;
     }
