@@ -12,6 +12,9 @@ public class Transaction {
     private ArrayList<Products> products = new ArrayList<Products>();
     private int userId;
     public final ArrayList<Products> basket = new ArrayList<Products>();
+    private ArrayList<TransactionDetails> details = new ArrayList<TransactionDetails>();
+
+
     public Transaction() {
         products = this.setProducts();
     }
@@ -20,27 +23,6 @@ public class Transaction {
     }
     public ArrayList<Products> getProducts() {
         return products;
-    }
-    private ArrayList<TransactionDetails> details = new ArrayList<TransactionDetails>();
-
-    public ArrayList<TransactionDetails> getDetails() {
-        return details;
-    }
-
-    public void setDetails(int transactionId) {
-        try {
-            Connection con = ConnectionManager.getConnection();
-            String qry = "SELECT id FROM transactions_info WHERE transaction_id = ?";
-            PreparedStatement st = con.prepareStatement(qry);
-            st.setInt(1, transactionId);
-            ResultSet rs = st.executeQuery();
-            while(rs.next()){
-                TransactionDetails transactionDetails = new TransactionDetails(rs.getInt("id"));
-                details.add(transactionDetails);
-            }
-        } catch(SQLException e){
-            e.printStackTrace();
-        }
     }
 
     public ArrayList<Products> setProducts() {
@@ -61,13 +43,24 @@ public class Transaction {
         return products;
     }
 
-    private Products searchBasketID (int parameterValue){
-        Products product = null;
-        for (Products products1: basket) {
-            if (products1.getProductID() == parameterValue)
-                product = products1;
+    public ArrayList<TransactionDetails> getDetails() {
+        return details;
+    }
+
+    public void setDetails(int transactionId) {
+        try {
+            Connection con = ConnectionManager.getConnection();
+            String qry = "SELECT id FROM transactions_info WHERE transaction_id = ?";
+            PreparedStatement st = con.prepareStatement(qry);
+            st.setInt(1, transactionId);
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){
+                TransactionDetails transactionDetails = new TransactionDetails(rs.getInt("id"));
+                details.add(transactionDetails);
+            }
+        } catch(SQLException e){
+            e.printStackTrace();
         }
-        return product;
     }
 
     public String storeTransaction(ObservableList<Products> basket){
@@ -97,7 +90,7 @@ public class Transaction {
                     PreparedStatement st1 = con.prepareStatement(transactionsInfoQry);
                     for (Products products: basket) {
                         st1.setInt(1, newId);
-                        st1.setInt(2, products.getProductID());
+                        st1.setInt(2, products.getid());
                         st1.setInt(3, products.selectAmount);
                         st1.setFloat(4, products.price);
                         st1.setFloat(5, (products.price * products.selectAmount));
@@ -131,9 +124,6 @@ public class Transaction {
         } else {
             System.out.println("Product '" + product + "' not found in basket.");
         }
-    }
-    public void checkOut(){
-        //TODO: implement the checkout
     }
 
     public int getId() {

@@ -11,6 +11,8 @@ public class Admin {
     public String lastName;
     public Timestamp created_at;
 
+    public Admin(){}
+
     public void editUser(){
         //TODO: how to edit admin
     }
@@ -135,24 +137,6 @@ public class Admin {
         }
     }
 
-    private void deleteUser(int id){
-        try{
-            Connection con = ConnectionManager.getConnection();
-            String qry = "DELETE FROM customer WHERE id = ?";
-            PreparedStatement st = con.prepareStatement(qry);
-            st.setInt(1,id);
-            st.executeUpdate();
-    } catch (SQLException e){
-            e.printStackTrace();
-        }
-    }
-
-    public int viewProducts(){
-        //TODO: implement how to view and select a product
-        int productID = 0;
-        return productID;
-    }
-
     public void createProduct(Products product){
         int productStock = product.getStock();
 
@@ -178,12 +162,12 @@ public class Admin {
                 st.setString(1, newName);
                 st.setFloat(2, newPrice);
                 st.setInt(3, newStock);
-                st.setInt(4, product.getProductID());
+                st.setInt(4, product.getid());
                 int numRowsAffected = st.executeUpdate();
                 if (numRowsAffected == 0) {
-                    System.out.println("Product with ID " + product.getProductID() + " does not exist.");
+                    System.out.println("Product with ID " + product.getid() + " does not exist.");
                 } else {
-                    System.out.println("Product with ID " + product.getProductID() + " updated successfully.");
+                    System.out.println("Product with ID " + product.getid() + " updated successfully.");
                     // Update the object's attributes if the database update was successful
                     product.setName(newName);
                     product.setPrice(newPrice);

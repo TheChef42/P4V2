@@ -163,7 +163,7 @@ public class StartUserPageController implements Initializable {
 
     private void addProductToTransaction(Products product){
         //TODO: implement to add product to transaction
-        if(searchBasketID(product.getProductID()) != null){
+        if(searchBasketID(product.getid()) != null){
             product.selectAmount++;
         } else {
             observableList.add(product);
@@ -172,7 +172,7 @@ public class StartUserPageController implements Initializable {
     private Products searchBasketID (int parameterValue){
         Products product = null;
         for (Products products1: observableList) {
-            if (products1.getProductID() == parameterValue)
+            if (products1.getid() == parameterValue)
                 product = products1;
         }
         return product;

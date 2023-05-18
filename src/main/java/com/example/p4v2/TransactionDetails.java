@@ -4,16 +4,13 @@ import java.sql.*;
 
 public class TransactionDetails {
     private int id;
-
     private Timestamp date;
     private int transactionId;
     private String productName;
     private int amount;
     private Double price;
     private Double sumPrice;
-    public Timestamp getDate() {
-        return date;
-    }
+
     public TransactionDetails(int id){
         this.id = id;
         try {
@@ -35,11 +32,6 @@ public class TransactionDetails {
         }
     }
 
-    public static void main(String[] args) {
-        TransactionDetails trans = new TransactionDetails(3);
-        System.out.println(trans );
-
-    }
     public int getTransactionId() {
         return transactionId;
     }
@@ -78,5 +70,9 @@ public class TransactionDetails {
 
     public void setSumPrice(Double sumPrice) {
         this.sumPrice = sumPrice;
+    }
+
+    public Timestamp getDate() {
+        return date;
     }
 }

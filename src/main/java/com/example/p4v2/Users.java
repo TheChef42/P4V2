@@ -14,11 +14,9 @@ public class Users {
     protected String password;
     public String firstName;
     public String lastName;
-    private String name;
     private float balance;
     private double key;
     public Timestamp created_at;
-    public Button update;
     public String isAdmin;
 
     public Users(){}
@@ -201,16 +199,6 @@ public class Users {
                 e.printStackTrace();
             }
         }
-    }
-    public void seeUserAccount() {
-        System.out.println("Id: " + this.id);
-        System.out.println("Email: " +  this.email);
-        // may have to be protected somehow:
-        System.out.println("Password" + this.password);
-        System.out.println("First Name:" + this.firstName);
-        System.out.println("Last Name: " + this.lastName);
-        System.out.println("Balance:" + this.balance);
-        System.out.println("Created at:" + this.created_at);
     }
     public static void deleteAccount(Users currentUser) {
         //TODO: Implement how to delete a useraccount
@@ -456,9 +444,5 @@ public class Users {
     public void requestPayout() {
         System.out.print("You have requestet to get " + this.balance + " money payed back");
         // something something mobilepay and money
-    }
-
-    public Button getUpdate() {
-        return update;
     }
 }
