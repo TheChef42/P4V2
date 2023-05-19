@@ -38,7 +38,7 @@ public class Users {
                 
                 success = false;
                 
-            } else if(password.length() < 10) {
+            } else if(password.length() < 10 && password.length() > 65) {
 
                 success = false;
 
