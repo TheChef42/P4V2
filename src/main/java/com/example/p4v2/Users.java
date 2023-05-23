@@ -35,31 +35,24 @@ public class Users {
             ResultSet resultAdmin = checkStateAdmin.executeQuery();
 
             if (result.next()) {
-                
                 success = false;
-                
-            } else if(password.length() < 10 && password.length() > 65) {
-
-                success = false;
-
             } else if (!resultAdmin.next()) {
                 String qry = "INSERT INTO admins (username, created_by) values(?,1)";
                 PreparedStatement st = con.prepareStatement(qry);
                 st.setString(1, email);
                 st.executeUpdate();
                 success = true;
+            } else {
+                String qry = "INSERT INTO customer (EMAIL, PASSWORD, FIRSTNAME, LASTNAME) values(?,?,?,?)";
+                PreparedStatement st = con.prepareStatement(qry);
+                st.setString(1, email);
+                String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
+                st.setString(2, hashed);
+                st.setString(3, firstName);
+                st.setString(4, lastName);
+                st.executeUpdate();
+                success = true;
             }
-            String qry = "INSERT INTO customer (EMAIL, PASSWORD, FIRSTNAME, LASTNAME) values(?,?,?,?)";
-            PreparedStatement st = con.prepareStatement(qry);
-            st.setString(1, email);
-            String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
-            st.setString(2, hashed);
-            st.setString(3, firstName);
-            st.setString(4, lastName);
-            st.executeUpdate();
-            success = true;
-
-
 
         } catch (SQLException e) {
             e.printStackTrace();
