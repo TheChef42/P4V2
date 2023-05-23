@@ -41,6 +41,15 @@ public class Users {
                 PreparedStatement st = con.prepareStatement(qry);
                 st.setString(1, email);
                 st.executeUpdate();
+
+                String qry1 = "INSERT INTO customer (EMAIL, PASSWORD, FIRSTNAME, LASTNAME) values(?,?,?,?)";
+                PreparedStatement st1 = con.prepareStatement(qry1);
+                st1.setString(1, email);
+                String hashed = BCrypt.hashpw(password, BCrypt.gensalt());
+                st1.setString(2, hashed);
+                st1.setString(3, firstName);
+                st1.setString(4, lastName);
+                st1.executeUpdate();
                 success = true;
             } else {
                 String qry = "INSERT INTO customer (EMAIL, PASSWORD, FIRSTNAME, LASTNAME) values(?,?,?,?)";
