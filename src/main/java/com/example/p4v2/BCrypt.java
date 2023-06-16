@@ -507,7 +507,7 @@ public class BCrypt {
 		lr[off] = r ^ P[BLOWFISH_NUM_ROUNDS + 1];
 		lr[off + 1] = l;
 	}
-
+	
 	/**
 	 * Cycically extract a word of key material
 	 * @param data	the string to extract the data from

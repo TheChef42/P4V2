@@ -14,6 +14,8 @@ public class MFAController {
 
     public Label PrintName;
 
+    int count = 0;
+
     private boolean answer;
 
     public boolean isAnswer() {
@@ -28,19 +30,29 @@ public class MFAController {
     }
     @FXML
     private void handleConfirmButton(ActionEvent actionEvent) throws IOException {
-        setAnswer(true);
-        String str_confirmKey = confirmKey.getText();
-        if (Users.verifyKey(Main.getCurrentuser().getEmail(), str_confirmKey)) {
-            System.out.println(Main.getCurrentAdmin());
-            if (Main.getCurrentAdmin() != null) {
-                //Change scene to the user start page
-                Main.showStartAdminPage(); // Passing the client-object to showClientView method
-            } else{
-            Main.showShoppingPage();
+        count += 1;
+        //System.out.println(count);
+
+        if (count != 3) {
+            setAnswer(true);
+            String str_confirmKey = confirmKey.getText();
+            if (Users.verifyKey(Main.getCurrentuser().getEmail(), str_confirmKey)) {
+                System.out.println(Main.getCurrentAdmin());
+                if (Main.getCurrentAdmin() != null) {
+                    //Change scene to the user start page
+                    Main.showStartAdminPage(); // Passing the client-object to showClientView method
+                } else{
+                    Main.showShoppingPage();
+                }
+            }else{
+                PrintName.setText("Incorrect key");
             }
-        }else{
-            PrintName.setText("Incorrect key");
+        } else {
+            Main.setCurrentuser(null);
+            Main.setCurrentAdmin(null);
+            Main.showLoginView();
         }
+
     }
     @FXML
     private void handleCancelButton() throws IOException {

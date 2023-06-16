@@ -40,7 +40,6 @@ public class LoginPageController {
                 PrintName.setText("Wrong Username or password");
             }
         }
-
     }
 
     @FXML

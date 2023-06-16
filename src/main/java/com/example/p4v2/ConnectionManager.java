@@ -11,9 +11,9 @@ import java.sql.SQLException;
 public class ConnectionManager {
     private static String url = "jdbc:mysql://localhost:3306/selfservice?characterEncoding=utf8";
     private static String driverName = "com.mysql.cj.jdbc.Driver";
-    private static String username; // = "root";
+    private static String username;
 
-    private static String password; // = "";
+    private static String password;
     private static Connection con;
 
     static {
@@ -43,3 +43,5 @@ public class ConnectionManager {
         return con;
     }
 }
+
+//Driver
