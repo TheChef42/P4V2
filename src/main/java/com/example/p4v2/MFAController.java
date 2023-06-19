@@ -25,9 +25,7 @@ public class MFAController {
     public void setAnswer(boolean answer) {
         this.answer = answer;
     }
-
-    public void setStage(Stage stage) {
-    }
+    public void setStage(Stage stage) {}
     @FXML
     private void handleConfirmButton(ActionEvent actionEvent) throws IOException {
         count += 1;

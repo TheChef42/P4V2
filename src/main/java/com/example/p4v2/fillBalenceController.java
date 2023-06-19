@@ -137,6 +137,9 @@ public class fillBalenceController implements Initializable {
 
     public void addCurrencyCustom(ActionEvent actionEvent) throws IOException, SQLException {
         Float inputAmount = Float.parseFloat(customAmount.getText());
+        if (inputAmount <= 0) {
+            return;
+        }
         setAmount(inputAmount);
         paymentHistory();
         Main.showPopupMobilpay(this.payment_id, getAmount());
