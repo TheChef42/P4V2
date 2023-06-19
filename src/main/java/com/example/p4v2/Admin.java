@@ -137,6 +137,24 @@ public class Admin {
         }
     }
 
+    private void deleteUser(int id){
+        try{
+            Connection con = ConnectionManager.getConnection();
+            String qry = "DELETE FROM customer WHERE id = ?";
+            PreparedStatement st = con.prepareStatement(qry);
+            st.setInt(1,id);
+            st.executeUpdate();
+    } catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public int viewProducts(){
+        //TODO: implement how to view and select a product
+        int productID = 0;
+        return productID;
+    }
+
     public void createProduct(Products product){
         int productStock = product.getStock();
 

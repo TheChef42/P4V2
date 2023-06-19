@@ -163,7 +163,6 @@ public class Users {
         }
     }
 
-
     public static boolean verifyPassword(String email, String password) {
         Connection con = ConnectionManager.getConnection();
         PreparedStatement st = null;

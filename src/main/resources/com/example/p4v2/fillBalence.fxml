@@ -116,7 +116,7 @@
             </HBox>
             <HBox alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" onAction="#addCurrencyCustom" text="Costum">
+                  <Button mnemonicParsing="false" onAction="#addCurrencyCustom" text="Custom">
                      <font>
                         <Font size="24.0" />
                      </font>
